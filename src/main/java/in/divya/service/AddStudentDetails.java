@@ -22,58 +22,59 @@ public class AddStudentDetails {
 
 	static {
 	StudentDetails student1 = new StudentDetails();
-	student1.studentName="K.DIVYA";
-	student1.fatherName="R.KUMAR";
-	student1.motherName="K.RAJESWARI";
-	student1.studentEmailId="divya@gmail.com";
-	student1.studentPassword="Divya@76";
-	student1.studentRollNumber="AA22BB1111";
-	student1.gender="FEMALE";
-	student1.studentAddress="ANNA NAGAR";
-	student1.studentCity="CHENNAI";
-	student1.occupation="MASON";
-	student1.studentBloodGroup="A-";
-	student1.studentStandard="IX";
-	student1.parentMobileNumber=9080605049l;
-	student1.dateOfBirth=LocalDate.of(2000, 06, 07);
-	student1.dateOfJoining=LocalDate.of(2005, 06, 05);
-	studentDetailsMap.put(student1.studentRollNumber, student1);
+	student1.setStudentName("K.DIVYA");
+	student1.setFatherName("R.KUMAR");
+	student1.setMotherName("K.RAJESWARI");
+	student1.setStudentEmailId("divya@gmail.com");;
+	student1.setStudentPassword("Divya@76");;
+	student1.setStudentRollNumber("AA22BB1111");;
+	student1.setGender("FEMALE");;
+	student1.setStudentAddress("ANNA NAGAR");;
+	student1.setStudentCity("CHENNAI");;
+	student1.setOccupation("MASON");;
+	student1.setStudentBloodGroup("A-");
+	student1.setStudentStandard("IX");
+	student1.setParentMobileNumber(Long.parseLong("8979697865"));
+	student1.setDateOfBirth(LocalDate.of(2000, 06, 07));
+	student1.setDateOfJoining(LocalDate.of(2005, 06, 05));      
+	studentDetailsMap.put(student1.getStudentRollNumber(), student1);
 	
 	StudentDetails student2 = new StudentDetails();
-	student2.studentName="K.KAVI";
-	student2.fatherName="K.KUMAR";
-	student2.motherName="K.ESWARI";
-	student2.studentEmailId="kavi@gmail.com";
-	student2.studentPassword="Kavi@68";
-	student2.studentRollNumber="BB33CC2222";
-	student2.gender="MALE";
-	student2.studentAddress="VVV NAGAR";
-	student2.studentCity="SIVAKASI";
-	student2.occupation="BUSINESS";
-	student2.studentBloodGroup="A+";
-	student2.studentStandard="X";
-	student2.parentMobileNumber=8080605049l;
-	student2.dateOfBirth=LocalDate.of(2000, 02, 13);
-	student2.dateOfJoining=LocalDate.of(2006, 07, 03);
-	studentDetailsMap.put(student2.studentRollNumber, student2);
+	student2.setStudentName("K.KAVI");
+	student2.setFatherName("R.KUMAR");
+	student2.setMotherName("K.ESWARI");
+	student2.setStudentEmailId("kavi@gmail.com");;
+	student2.setStudentPassword("Kavi@76");;
+	student2.setStudentRollNumber("BB33CC2222");;
+	student2.setGender("MALE");;
+	student2.setStudentAddress("VVV NAGAR");;
+	student2.setStudentCity("MADURAI");;
+	student2.setOccupation("BUSINESS");;
+	student2.setStudentBloodGroup("A+");
+	student2.setStudentStandard("X");
+	student2.setParentMobileNumber(Long.parseLong("8976765890"));
+	student2.setDateOfBirth(LocalDate.of(2000, 06, 13));
+	student2.setDateOfJoining(LocalDate.of(2006, 06, 05));      
+	studentDetailsMap.put(student2.getStudentRollNumber(), student2);
 
 	StudentDetails student3 = new StudentDetails();
-	student3.studentName="S.RAJESWARI";
-	student3.fatherName="S.SUBRAMANI";
-	student3.motherName="S.PANDIMEENA";
-	student3.studentEmailId="raji@gmail.com";
-	student3.studentPassword="raji@65";
-	student3.studentRollNumber="DD55EE4444";
-	student3.gender="FEMALE";
-	student3.studentAddress="RAM NAGAR";
-	student3.studentCity="MADURAI";
-	student3.occupation="PROFESSOR";
-	student3.studentBloodGroup="B+";
-	student3.studentStandard="XI";
-	student3.parentMobileNumber=9080765049l;
-	student3.dateOfBirth=LocalDate.of(1999, 06, 07);
-	student3.dateOfJoining=LocalDate.of(2004, 07, 01);
-	studentDetailsMap.put(student3.studentRollNumber, student3);
+	student3.setStudentName("S.RAJESWARI");
+	student3.setFatherName("S.SUBRAMANI");
+	student3.setMotherName("S.PANDIMEENA");
+	student3.setStudentEmailId("raji@gmail.com");
+	student3.setStudentPassword("Raji@65");
+	student3.setStudentRollNumber("DD55EE4444");
+	student3.setGender("FEMALE");
+	student3.setStudentAddress("T NAGAR");
+	student3.setStudentCity("CHENNAI");
+	student3.setOccupation("PROFEESOR");
+	student3.setStudentBloodGroup("B+");
+	student3.setStudentStandard("XI");
+	student3.setParentMobileNumber(Long.parseLong("9080765049"));
+	student3.setDateOfBirth(LocalDate.of(2000, 06, 06));
+	student3.setDateOfJoining(LocalDate.of(2003, 06, 05));      
+	studentDetailsMap.put(student3.getStudentRollNumber(), student3);
+
 			
 	}
 	
@@ -85,30 +86,27 @@ public class AddStudentDetails {
 	public static boolean addStudent(StudentDetails student) 
 	{	
 		boolean isAddedStudent = false;
-		boolean isValidName=RegistrationValidation.isNameValidation(student.studentName);
-		boolean isValidFatherName=RegistrationValidation.isNameValidation(student.fatherName);
-		boolean isValidMotherName=RegistrationValidation.isNameValidation(student.motherName);
-		boolean isValidEmailId=RegistrationValidation.isValidEmailId(student.studentEmailId);
-		boolean isValidPassword=RegistrationValidation.isValidPasswordFormat(student.studentPassword);
-		boolean isValidRollNumber=RegistrationValidation.isValidRollNumberFormat(student.studentRollNumber);
-		boolean isValidGender=RegistrationValidation.isNameValidation(student.gender);
-		boolean isValidAddress=RegistrationValidation.isNameValidation(student.studentAddress);
-		boolean isValidCity=RegistrationValidation.isNameValidation(student.studentCity);
-		boolean isValidOccupation=RegistrationValidation.isNameValidation(student.occupation);
-		boolean isValidBloodGroup=RegistrationValidation.bloodGroupValidation(student.studentBloodGroup);
-		boolean isValidStudentStandard=RegistrationValidation.standardValidation(student.studentStandard);
-		boolean isValidMobileNumber=RegistrationValidation.mobileNumberValidation(student.parentMobileNumber);
-		boolean isValidDob=RegistrationValidation.isValidDate(student.dateOfBirth);
-		boolean isValidJoiningDate=RegistrationValidation.isValidDate(student.dateOfJoining);
+		boolean isValidName=RegistrationValidation.isNameValidation(student.getStudentName());
+		boolean isValidFatherName=RegistrationValidation.isNameValidation(student.getFatherName());
+		boolean isValidMotherName=RegistrationValidation.isNameValidation(student.getMotherName());
+		boolean isValidEmailId=RegistrationValidation.isValidEmailId(student.getStudentEmailId());
+		boolean isValidPassword=RegistrationValidation.isValidPasswordFormat(student.getStudentPassword());
+		boolean isValidRollNumber=RegistrationValidation.isValidRollNumberFormat(student.getStudentRollNumber());
+		boolean isValidGender=RegistrationValidation.isNameValidation(student.getGender());
+		boolean isValidAddress=RegistrationValidation.isNameValidation(student.getStudentAddress());
+		boolean isValidCity=RegistrationValidation.isNameValidation(student.getStudentCity());
+		boolean isValidOccupation=RegistrationValidation.isNameValidation(student.getOccupation());
+		boolean isValidBloodGroup=RegistrationValidation.bloodGroupValidation(student.getStudentBloodGroup());
+		boolean isValidStudentStandard=RegistrationValidation.standardValidation(student.getStudentStandard());
+		boolean isValidMobileNumber=RegistrationValidation.mobileNumberValidation(student.getParentMobileNumber());
+		boolean isValidDob=RegistrationValidation.isValidDate(student.getDateOfBirth());
+		boolean isValidJoiningDate=RegistrationValidation.isValidDate(student.getDateOfJoining());
 		
 		
 		if(isValidName && isValidFatherName && isValidMotherName && isValidEmailId && isValidPassword && isValidRollNumber && isValidGender && isValidAddress && isValidCity && isValidOccupation && isValidBloodGroup && isValidStudentStandard && isValidMobileNumber&& isValidDob && isValidJoiningDate) 
-
-		
 		{
-				studentDetailsMap.put(student.studentRollNumber,student);
+				studentDetailsMap.put(student.getStudentRollNumber(),student);
 				isAddedStudent = true;
-				//System.out.println(StudentDetails.toString);
 		}
 		return isAddedStudent;
 	}

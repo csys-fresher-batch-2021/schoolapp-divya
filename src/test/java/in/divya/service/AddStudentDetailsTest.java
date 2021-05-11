@@ -20,21 +20,21 @@ public class AddStudentDetailsTest
 	public void studentInputDetails() 
 	{
 		StudentDetails student1 = new StudentDetails();
-		student1.studentName="K.DIVYA";
-		student1.fatherName="R.KUMAR";
-		student1.motherName="K.RAJESWARI";
-		student1.studentEmailId="divya@gmail.com";
-		student1.studentPassword="Divya@76";
-		student1.studentRollNumber="AA22BB1111";
-		student1.gender="FEMALE";
-		student1.studentAddress="ANNA NAGAR";
-		student1.studentCity="CHENNAI";
-		student1.occupation="MASON";
-		student1.studentBloodGroup="A-";
-		student1.studentStandard="IX";
-		student1.parentMobileNumber=9080605049l;
-		student1.dateOfBirth=LocalDate.of(2000, 06, 07);
-		student1.dateOfJoining=LocalDate.of(2005, 06, 05);
+		student1.setStudentName("K.DIVYA");
+		student1.setFatherName("R.KUMAR");
+		student1.setMotherName("K.RAJESWARI");
+		student1.setStudentEmailId("divya@gmail.com");;
+		student1.setStudentPassword("Divya@76");;
+		student1.setStudentRollNumber("AA22BB1111");;
+		student1.setGender("FEMALE");;
+		student1.setStudentAddress("ANNA NAGAR");;
+		student1.setStudentCity("CHENNAI");;
+		student1.setOccupation("MASON");;
+		student1.setStudentBloodGroup("A-");
+		student1.setStudentStandard("IX");
+		student1.setParentMobileNumber(Long.parseLong("8979697865"));
+		student1.setDateOfBirth(LocalDate.of(2000, 06, 07));
+		student1.setDateOfJoining(LocalDate.of(2005, 06, 05));    
 		boolean isAddedStudent1 = AddStudentDetails.addStudent(student1);
 		assertTrue(isAddedStudent1);
 	
@@ -47,21 +47,21 @@ public class AddStudentDetailsTest
 	public void studentInputDetails2() 
 	{
 		StudentDetails student2 = new StudentDetails();
-		student2.studentName="K.KAVI";
-		student2.fatherName="K.KUMAR";
-		student2.motherName="K.ESWARI";
-		student2.studentEmailId="kavi@gmail.com";
-		student2.studentPassword="Kavibh@76";
-		student2.studentRollNumber="BB33CC2222";
-		student2.gender="MALE";
-		student2.studentAddress="VVV NAGAR";
-		student2.studentCity="SIVAKASI";
-		student2.occupation="BUSINESS";
-		student2.studentBloodGroup="A+";
-		student2.studentStandard="X";
-		student2.parentMobileNumber=8080605049l;
-		student2.dateOfBirth=LocalDate.of(2000, 02, 13);
-		student2.dateOfJoining=LocalDate.of(2006, 07, 10);
+		student2.setStudentName("K.KAVI");
+		student2.setFatherName("R.KUMAR");
+		student2.setMotherName("K.ESWARI");
+		student2.setStudentEmailId("kavi@gmail.com");
+		student2.setStudentPassword("Brathi@70");
+		student2.setStudentRollNumber("BB33CC2222");
+		student2.setGender("MALE");
+		student2.setStudentAddress("VVV NAGAR");
+		student2.setStudentCity("MADURAI");
+		student2.setOccupation("BUSINESS");
+		student2.setStudentBloodGroup("A+");
+		student2.setStudentStandard("X");
+		student2.setParentMobileNumber(Long.parseLong("8976765890"));
+		student2.setDateOfBirth(LocalDate.of(2000, 06, 13));
+		student2.setDateOfJoining(LocalDate.of(2006, 06, 05));      
 		boolean isAddedStudent2= AddStudentDetails.addStudent(student2);
 		assertTrue(isAddedStudent2);
 		
@@ -74,21 +74,21 @@ public class AddStudentDetailsTest
 	public void studentInputDetails3() 
 	{
 		StudentDetails student3 = new StudentDetails();
-		student3.studentName="";
-		student3.fatherName="";
-		student3.motherName="";
-		student3.studentEmailId="ghiju@gmail.company";
-		student3.studentPassword="@76";
-		student3.studentRollNumber="BBBBBBBB";
-		student3.gender="";
-		student3.studentAddress="";
-		student3.studentCity="";
-		student3.occupation="";
-		student3.studentBloodGroup="+B";
-		student3.studentStandard="9";
-		student3.parentMobileNumber=808049l;
-		student3.dateOfBirth=LocalDate.of(2023, 02, 13);
-		student3.dateOfJoining=LocalDate.of(2022, 07, 10);
+		student3.setStudentName("");
+		student3.setFatherName("S.SUBRAMANI");
+		student3.setMotherName("S.PANDIMEENA");
+		student3.setStudentEmailId("raji@gmail.com");
+		student3.setStudentPassword("Raji@65");
+		student3.setStudentRollNumber("DD55@");
+		student3.setGender("");
+		student3.setStudentAddress("T NAGAR");
+		student3.setStudentCity("CHENNAI");
+		student3.setOccupation("PROFEESOR");
+		student3.setStudentBloodGroup("B+");
+		student3.setStudentStandard("XIXXXXXXX");
+		student3.setParentMobileNumber(Long.parseLong("9080765049"));
+		student3.setDateOfBirth(LocalDate.of(2000, 06, 06));
+		student3.setDateOfJoining(LocalDate.of(2003, 06, 05));   
 		boolean isAddedStudent3= AddStudentDetails.addStudent(student3);
 		assertFalse(isAddedStudent3);
 		
