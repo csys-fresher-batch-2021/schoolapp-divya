@@ -5,7 +5,7 @@ package in.divya.service;
 import java.time.LocalDate;
 import java.util.HashMap;
 
-import in.divya.Validator.RegistrationValidation;
+import in.divya.validator.RegistrationValidation;
 import in.divya.model.StudentDetails;
 /**
  * 
@@ -27,7 +27,7 @@ public class AddStudentDetails {
 	student1.motherName="K.RAJESWARI";
 	student1.studentEmailId="divya@gmail.com";
 	student1.studentPassword="Divya@76";
-	student1.studentRollNo="AA22BB1111";
+	student1.studentRollNumber="AA22BB1111";
 	student1.gender="FEMALE";
 	student1.studentAddress="ANNA NAGAR";
 	student1.studentCity="CHENNAI";
@@ -37,7 +37,7 @@ public class AddStudentDetails {
 	student1.parentMobileNumber=9080605049l;
 	student1.dateOfBirth=LocalDate.of(2000, 06, 07);
 	student1.dateOfJoining=LocalDate.of(2005, 06, 05);
-	studentDetailsMap.put(student1.studentRollNo, student1);
+	studentDetailsMap.put(student1.studentRollNumber, student1);
 	
 	StudentDetails student2 = new StudentDetails();
 	student2.studentName="K.KAVI";
@@ -45,7 +45,7 @@ public class AddStudentDetails {
 	student2.motherName="K.ESWARI";
 	student2.studentEmailId="kavi@gmail.com";
 	student2.studentPassword="Kavi@68";
-	student2.studentRollNo="BB33CC2222";
+	student2.studentRollNumber="BB33CC2222";
 	student2.gender="MALE";
 	student2.studentAddress="VVV NAGAR";
 	student2.studentCity="SIVAKASI";
@@ -55,7 +55,7 @@ public class AddStudentDetails {
 	student2.parentMobileNumber=8080605049l;
 	student2.dateOfBirth=LocalDate.of(2000, 02, 13);
 	student2.dateOfJoining=LocalDate.of(2006, 07, 03);
-	studentDetailsMap.put(student2.studentRollNo, student2);
+	studentDetailsMap.put(student2.studentRollNumber, student2);
 
 	StudentDetails student3 = new StudentDetails();
 	student3.studentName="S.RAJESWARI";
@@ -63,7 +63,7 @@ public class AddStudentDetails {
 	student3.motherName="S.PANDIMEENA";
 	student3.studentEmailId="raji@gmail.com";
 	student3.studentPassword="raji@65";
-	student3.studentRollNo="DD55EE4444";
+	student3.studentRollNumber="DD55EE4444";
 	student3.gender="FEMALE";
 	student3.studentAddress="RAM NAGAR";
 	student3.studentCity="MADURAI";
@@ -73,7 +73,7 @@ public class AddStudentDetails {
 	student3.parentMobileNumber=9080765049l;
 	student3.dateOfBirth=LocalDate.of(1999, 06, 07);
 	student3.dateOfJoining=LocalDate.of(2004, 07, 01);
-	studentDetailsMap.put(student3.studentRollNo, student3);
+	studentDetailsMap.put(student3.studentRollNumber, student3);
 			
 	}
 	
@@ -90,7 +90,7 @@ public class AddStudentDetails {
 		boolean isValidMotherName=RegistrationValidation.isNameValidation(student.motherName);
 		boolean isValidEmailId=RegistrationValidation.isValidEmailId(student.studentEmailId);
 		boolean isValidPassword=RegistrationValidation.isValidPasswordFormat(student.studentPassword);
-		boolean isValidRollNumber=RegistrationValidation.isValidRollNumberFormat(student.studentRollNo);
+		boolean isValidRollNumber=RegistrationValidation.isValidRollNumberFormat(student.studentRollNumber);
 		boolean isValidGender=RegistrationValidation.isNameValidation(student.gender);
 		boolean isValidAddress=RegistrationValidation.isNameValidation(student.studentAddress);
 		boolean isValidCity=RegistrationValidation.isNameValidation(student.studentCity);
@@ -106,7 +106,7 @@ public class AddStudentDetails {
 
 		
 		{
-				studentDetailsMap.put(student.studentRollNo,student);
+				studentDetailsMap.put(student.studentRollNumber,student);
 				isAddedStudent = true;
 				//System.out.println(StudentDetails.toString);
 		}

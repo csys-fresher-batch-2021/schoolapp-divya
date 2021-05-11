@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.divya.Validator;
+package in.divya.validator;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
@@ -94,6 +94,7 @@ public class RegistrationValidation {
 		 	}
 		 return isValidFormat;
 }
+	
 	public static boolean isValidRollNumberFormat(String studentRollNo) {
 		
 		 String regex = "^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$";  

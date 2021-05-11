@@ -25,7 +25,7 @@ public class AddStudentDetailsTest
 		student1.motherName="K.RAJESWARI";
 		student1.studentEmailId="divya@gmail.com";
 		student1.studentPassword="Divya@76";
-		student1.studentRollNo="AA22BB1111";
+		student1.studentRollNumber="AA22BB1111";
 		student1.gender="FEMALE";
 		student1.studentAddress="ANNA NAGAR";
 		student1.studentCity="CHENNAI";
@@ -52,7 +52,7 @@ public class AddStudentDetailsTest
 		student2.motherName="K.ESWARI";
 		student2.studentEmailId="kavi@gmail.com";
 		student2.studentPassword="Kavibh@76";
-		student2.studentRollNo="BB33CC2222";
+		student2.studentRollNumber="BB33CC2222";
 		student2.gender="MALE";
 		student2.studentAddress="VVV NAGAR";
 		student2.studentCity="SIVAKASI";
@@ -79,7 +79,7 @@ public class AddStudentDetailsTest
 		student3.motherName="";
 		student3.studentEmailId="ghiju@gmail.company";
 		student3.studentPassword="@76";
-		student3.studentRollNo="BBBBBBBB";
+		student3.studentRollNumber="BBBBBBBB";
 		student3.gender="";
 		student3.studentAddress="";
 		student3.studentCity="";

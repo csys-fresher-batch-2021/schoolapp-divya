@@ -1,7 +1,7 @@
 /**
  * 
  */
-package in.divya.Validator;
+package in.divya.validator;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -48,6 +48,16 @@ public class RegistrationValidationTest {
 		boolean isValidName = RegistrationValidation.isNameNull(name);
 		assertFalse(isValidName);
 	}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////Final Combined verification
+
+
+	@Test
+	public void isValidNameFinalTestCase1() {
+	String name = "DIVYA";
+	boolean finalEmployeeNameValidation  =  RegistrationValidation.isNameValidation(name);
+	assertTrue(finalEmployeeNameValidation);
+	}
 	
 	
 //////////////////////////////////////////////////////////////////////////////////	
@@ -72,9 +82,40 @@ public class RegistrationValidationTest {
 		boolean isValidName = RegistrationValidation.isValidEmailId(emailId);
 		assertFalse(isValidName);
 	}
-		
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	@Test
+	public void isValidPasswordFormatTest1() { //user password is wrong password is correct
+	String password =  "raja123";
+	boolean isValidPasswordLength = RegistrationValidation.isValidPasswordFormat(password);
+	assertFalse(isValidPasswordLength);
+	}
+
+	@Test
+	public void isValidPasswordFormatTest2() { //user password is wrong password is correct
+	String password =  "Divya@76";
+	boolean isValidPasswordLength = RegistrationValidation.isValidPasswordFormat(password);
+	assertTrue(isValidPasswordLength);
+	}	
 	
 //////////////////////////////////////////////////////////////////////////////////
+	
+	@Test
+	public void isValidRollNumberFormatTest1() { //user roll no is wrong password is correct
+	String rollNumber =  "2345VV67AA";
+	boolean isValidRollNumber = RegistrationValidation.isValidRollNumberFormat(rollNumber);
+	assertFalse(isValidRollNumber);
+	}
+
+	@Test
+	public void isValidRollNumberFormatTest2() { //user roll no is wrong password is correct
+	String rollNumber =  "AA23BB3456";
+	boolean isValidRollNumber = RegistrationValidation.isValidRollNumberFormat(rollNumber);
+	assertTrue(isValidRollNumber);
+	}	
+	
+//////////////////////////////////////////////////////////////////////////////////
+	
 	
 	@Test
 	public void isValidDateTestCase1() {
@@ -137,32 +178,9 @@ public class RegistrationValidationTest {
 	
 	
 	
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	
-	@Test
-	public void isValidPasswordFormatTest1() { //username is wrong password is correct
-		String password =  "raja123";
-		boolean isValidPasswordLength = RegistrationValidation.isValidPasswordFormat(password);
-		assertFalse(isValidPasswordLength);
-	}
-	
-	@Test
-	public void isValidPasswordFormatTest2() { //username is wrong password is correct
-		String password =  "Divya@76";
-		boolean isValidPasswordLength = RegistrationValidation.isValidPasswordFormat(password);
-		assertTrue(isValidPasswordLength);
-	}
-	
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////Final Combined verification
-	
-	
-	@Test
-	public void isValidNameFinalTestCase1() {
-		String name = "DIVYA";
-		boolean finalEmployeeNameValidation  =  RegistrationValidation.isNameValidation(name);
-		assertTrue(finalEmployeeNameValidation);
-	}
+
 	
 
 }

@@ -19,7 +19,7 @@ public class StudentDetails {
 		public String motherName;
 		public String studentEmailId;
 		public String studentPassword;
-		public String studentRollNo;
+		public String studentRollNumber;
 		public String gender;
 		public String studentAddress;
 		public String studentCity;
