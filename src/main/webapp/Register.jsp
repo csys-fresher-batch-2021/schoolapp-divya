@@ -52,8 +52,12 @@
 		<button type="reset" class="btn btn-secondary">RESET</button><br/><br/>
 		<%
 		String errorMessage = request.getParameter("errorMessage");
-		if(errorMessage != null){
-			out.println("<font color='red'>" + errorMessage + "</font>");
+		if(errorMessage!=null){
+			out.println("<font color='blue'>"+errorMessage+"</font>");
+		}
+		String infoMessage = request.getParameter("infoMessage");
+		if(infoMessage!=null){
+			out.println("<font color='blue'>"+infoMessage+"</font>");
 		}
 		%>
 </form>

@@ -36,7 +36,16 @@
 		student.setDateOfJoining(LocalDate.parse(request.getParameter("dateOfJoining")));
 		
 			boolean isAddedStudent = AddStudentDetails.addStudent(student);
-			if(isAddedStudent)
+			if(isAddedStudent){
+				String message = "SUCCESSFULLY REGISTERED";
+				response.sendRedirect("Register.jsp?infoMessage="+message);
+				
+			}
+			else{
+				String message = "Registration Failed";
+				response.sendRedirect("Register.jsp?errorMessage="+message);
+			}
+			/*if(isAddedStudent)
 			{
 			
 				response.sendRedirect("index.jsp");
@@ -47,7 +56,7 @@
 				response.sendRedirect("Register.jsp?errormessage="+message);
 			}
 		
-	
+	*/
 		
 		%>
 	</main>

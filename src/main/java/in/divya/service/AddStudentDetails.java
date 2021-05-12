@@ -14,11 +14,14 @@ import in.divya.model.StudentDetails;
  */
 
 public class AddStudentDetails {
+	private AddStudentDetails() {
+		//Default constructor
+	}
 	/**
 	 * Feature1: Registration-Add the student details to the HashMap
 	 * To check it is successfully add or not.
 	 */
-	private static HashMap<String, StudentDetails> studentDetailsMap = new HashMap<String, StudentDetails>();
+	private static HashMap<String, StudentDetails> studentDetailsMap = new HashMap<>();
 
 	static {
 	StudentDetails student1 = new StudentDetails();
@@ -110,14 +113,7 @@ public class AddStudentDetails {
 		}
 		return isAddedStudent;
 	}
-	/**
-	 * To check HashMap
-	 * @return
-	 */
-	public static HashMap<String, StudentDetails> getStudentMap() {
-		return studentDetailsMap;
-	}
-
+	
 	
 	}
 	

@@ -50,8 +50,10 @@ public class RegistrationValidation {
 		boolean isNameValid = false;
 		boolean isNameNotNull = isNameNotEmpty(name);
 		boolean isNameNull = isNameNull(name);
-		if(isNameNotNull && isNameNull) {
+		if(isNameNull) {
+		if(isNameNotNull) {
 			isNameValid = true;
+		}
 		}
 		return isNameValid;
 	}
@@ -171,11 +173,9 @@ public class RegistrationValidation {
 	 */
 	public static boolean isMobileNumberPositive(Long number) {
 		boolean isValidNumber = false;
-		if(number != null) {
-			if(number>0) {
+		if(number != null && number>0) {
 			isValidNumber = true;
-			}
-		}		
+			}		
 		return isValidNumber;
 	}
 	
