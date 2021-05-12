@@ -3,7 +3,8 @@ package in.divya.service;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
-import java.util.HashMap;
+
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -92,7 +93,7 @@ public class AddStudentDetailsTest
 		boolean isAddedStudent3= AddStudentDetails.addStudent(student3);
 		assertFalse(isAddedStudent3);
 		
-		HashMap<String, StudentDetails> getStudentMap = AddStudentDetails.getStudentMap();
+		Map<String, StudentDetails> getStudentMap = AddStudentDetails.getStudentMap();
 		System.out.println(getStudentMap);
 	
 	}

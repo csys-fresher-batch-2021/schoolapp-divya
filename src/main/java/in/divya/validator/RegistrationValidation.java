@@ -12,6 +12,9 @@ import java.util.regex.Pattern;
  *
  */
 public class RegistrationValidation {
+    private RegistrationValidation() {
+		//Default constructor
+	}
 	/**
 	 * This method checks whether the name has no empty value or null values
 	 * @param name

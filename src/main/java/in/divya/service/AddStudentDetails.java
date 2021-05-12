@@ -4,6 +4,7 @@
 package in.divya.service;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Map;
 
 import in.divya.validator.RegistrationValidation;
 import in.divya.model.StudentDetails;
@@ -113,6 +114,11 @@ public class AddStudentDetails {
 		}
 		return isAddedStudent;
 	}
+	 
+	public static Map<String, StudentDetails> getStudentMap() {
+		return studentDetailsMap;
+	}
+	
 	
 	
 	}
