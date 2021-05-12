@@ -52,17 +52,12 @@ public class RegistrationValidation {
 	public static boolean isNameValidation(String name) {
 		boolean isNameValid = false;
 		boolean isNameNotNull = isNameNotEmpty(name);
-		boolean isNameNull = isNameNull(name);
-		if(isNameNull) 
-		{
-			isNameValid = false;
-			
-			if(isNameNotNull) 
+		if(isNameNotNull) 
 			{
 				isNameValid = true;
 			
 			}
-		}
+		
 		return isNameValid;
 	}
 	
