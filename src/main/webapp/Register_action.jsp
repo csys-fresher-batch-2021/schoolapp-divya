@@ -45,18 +45,7 @@
 				String message = "Registration Failed";
 				response.sendRedirect("Register.jsp?errorMessage="+message);
 			}
-			/*if(isAddedStudent)
-			{
 			
-				response.sendRedirect("index.jsp");
-			}
-			
-			else {
-				String message="INVALID REGISTER CREDENTIALS";
-				response.sendRedirect("Register.jsp?errormessage="+message);
-			}
-		
-	*/
 		
 		%>
 	</main>

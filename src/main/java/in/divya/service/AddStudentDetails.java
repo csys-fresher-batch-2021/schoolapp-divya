@@ -1,6 +1,3 @@
-/**
- * 
- */
 package in.divya.service;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -8,23 +5,31 @@ import java.util.Map;
 
 import in.divya.validator.RegistrationValidation;
 import in.divya.model.StudentDetails;
+
 /**
  * 
- * @author divy2624
+ * @author divya
  *
  */
 
-public class AddStudentDetails {
-	private AddStudentDetails() {
-		//Default constructor
+public class AddStudentDetails 
+{
+	private AddStudentDetails() 
+	{
+		/**
+		 * Default constructor
+		 */
 	}
+	
 	/**
 	 * Feature1: Registration-Add the student details to the HashMap
 	 * To check it is successfully add or not.
 	 */
+	
 	private static HashMap<String, StudentDetails> studentDetailsMap = new HashMap<>();
 
-	static {
+	static 
+	{
 	StudentDetails student1 = new StudentDetails();
 	student1.setStudentName("K.DIVYA");
 	student1.setFatherName("R.KUMAR");
@@ -79,7 +84,6 @@ public class AddStudentDetails {
 	student3.setDateOfJoining(LocalDate.of(2003, 06, 05));      
 	studentDetailsMap.put(student3.getStudentRollNumber(), student3);
 
-			
 	}
 	
 	/**
@@ -87,6 +91,7 @@ public class AddStudentDetails {
 	 * @param student
 	 * @return
 	 */
+	
 	public static boolean addStudent(StudentDetails student) 
 	{	
 		boolean isAddedStudent = false;
@@ -115,13 +120,12 @@ public class AddStudentDetails {
 		return isAddedStudent;
 	}
 	 
-	public static Map<String, StudentDetails> getStudentMap() {
+	public static Map<String, StudentDetails> getStudentMap() 
+	{
 		return studentDetailsMap;
 	}
 	
-	
-	
-	}
+}
 	
 	
 

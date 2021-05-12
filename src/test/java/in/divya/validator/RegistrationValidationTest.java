@@ -20,14 +20,22 @@ import org.junit.Test;
  */
 public class RegistrationValidationTest {
 	@Test
-	public void isNameEmptyTestCase1() {// returns false if empty
+	public void isNameEmptyTestCase1() 
+	{ 
+		/**
+		 *returns false if empty 
+		 */
 		String name = "  ";
 		boolean isValidName = RegistrationValidation.isNameNull(name);
 		assertTrue(isValidName);
 	}
 	
 	@Test
-	public void isNameEmptyTestCase2() { // returns true if available
+	public void isNameNotEmptyTestCase2() 
+	{ 
+		 /**
+		  * returns true if available
+		  */
 		String name = "DIVYA";
 		boolean isValidName = RegistrationValidation.isNameNotEmpty(name);
 		assertTrue(isValidName);
@@ -49,7 +57,10 @@ public class RegistrationValidationTest {
 		assertFalse(isValidName);
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////Final Combined verification
+	
+	/**
+	 * Final Combined verification
+	 */
 
 
 	@Test
@@ -63,21 +74,34 @@ public class RegistrationValidationTest {
 //////////////////////////////////////////////////////////////////////////////////	
 	
 	@Test
-	public void isValidEmailTestCase1() {  //Valid Mail 
+	public void isValidEmailTestCase1() 
+	{  
+		/**
+		 * Valid Mail
+		 */
 		String emailId = "divya@gmail.com";
 		boolean isValidName = RegistrationValidation.isValidEmailId(emailId);
 		assertTrue(isValidName);
 	}
 	
 	@Test
-	public void isValidEmailTestCase2() {  //Valid Mail 
+	public void isValidEmailTestCase2() 
+	{  
+		/**
+		 * Invalid Mail 
+		 */
+	
 		String emailId = "divyagmail.com";
 		boolean isValidName = RegistrationValidation.isValidEmailId(emailId);
 		assertFalse(isValidName);
 	}
 		
 	@Test
-	public void isValidEmailTestCase3() {  //Valid Mail 
+	public void isValidEmailTestCase3() 
+	{ 
+		/**
+		 * Invalid Mail 
+		 */
 		String emailId = "divyagmailcom";
 		boolean isValidName = RegistrationValidation.isValidEmailId(emailId);
 		assertFalse(isValidName);
@@ -85,14 +109,22 @@ public class RegistrationValidationTest {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@Test
-	public void isValidPasswordFormatTest1() { //user password is wrong password is correct
+	public void isValidPasswordFormatTest1()
+	{ 
+		/**
+		 *The password is wrong format is correct
+		 */
 	String password =  "raja123";
 	boolean isValidPasswordLength = RegistrationValidation.isValidPasswordFormat(password);
 	assertFalse(isValidPasswordLength);
 	}
 
 	@Test
-	public void isValidPasswordFormatTest2() { //user password is wrong password is correct
+	public void isValidPasswordFormatTest2() 
+	{ 
+		/**
+		 *password is correct format is correct
+		 */
 	String password =  "Divya@76";
 	boolean isValidPasswordLength = RegistrationValidation.isValidPasswordFormat(password);
 	assertTrue(isValidPasswordLength);
@@ -101,14 +133,22 @@ public class RegistrationValidationTest {
 //////////////////////////////////////////////////////////////////////////////////
 	
 	@Test
-	public void isValidRollNumberFormatTest1() { //user roll no is wrong password is correct
+	public void isValidRollNumberFormatTest1() 
+	{ 
+		/**
+		 * user roll no is wrong password is correct
+		 */
 	String rollNumber =  "2345VV67AA";
 	boolean isValidRollNumber = RegistrationValidation.isValidRollNumberFormat(rollNumber);
 	assertFalse(isValidRollNumber);
 	}
 
 	@Test
-	public void isValidRollNumberFormatTest2() { //user roll no is wrong password is correct
+	public void isValidRollNumberFormatTest2() 
+	{ 
+		/**
+		 * user roll no is wrong password is correct
+		 */
 	String rollNumber =  "AA23BB3456";
 	boolean isValidRollNumber = RegistrationValidation.isValidRollNumberFormat(rollNumber);
 	assertTrue(isValidRollNumber);
@@ -116,7 +156,9 @@ public class RegistrationValidationTest {
 	
 //////////////////////////////////////////////////////////////////////////////////
 	
-	
+	/**
+	 * To Validate date.
+	 */
 	@Test
 	public void isValidDateTestCase1() {
 		LocalDate date = LocalDate.of(2020, 12, 02);
@@ -132,6 +174,10 @@ public class RegistrationValidationTest {
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////	
+	
+	/**
+	 * To validate mobile number.
+	 */
 	@Test
 	public void isValidMobileNumberTestCase1() {
 		long number = 1234567890l;
@@ -159,8 +205,7 @@ public class RegistrationValidationTest {
 		boolean isValidMobileNumber = RegistrationValidation.isValidMobileNumberLength(number);
 		assertFalse(isValidMobileNumber);
 	}
-	
-//////////////////////////////////////////////////////////////////////////////////	
+		
 	@Test
 	public void isMobileNumberPositiveTestCase1() {
 		Long number = -8374987334L;
