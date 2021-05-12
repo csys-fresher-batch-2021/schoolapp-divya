@@ -53,12 +53,15 @@ public class RegistrationValidation {
 		boolean isNameValid = false;
 		boolean isNameNotNull = isNameNotEmpty(name);
 		boolean isNameNull = isNameNull(name);
-		if(isNameNull) {
+		if(isNameNull) 
+		{
 			isNameValid = false;
+			
+			if(isNameNotNull) 
+			{
+				isNameValid = true;
+			
 			}
-		if(isNameNotNull) {
-			isNameValid = true;
-		
 		}
 		return isNameValid;
 	}
