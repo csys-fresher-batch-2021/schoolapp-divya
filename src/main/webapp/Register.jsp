@@ -14,7 +14,7 @@
 
 <h1>REGISTRATION FORM</h1>
 
-<form action="Register_action.jsp" method="post">
+<form action="RegisterActionServlet" method="get">
 		<label>STUDENT NAME : </label>
 		<input type="text" name="studentName" id="studentName" placeholder="Enter Your Name" required autofocus><br/><br/>
 		<label>FATHER NAME : </label>

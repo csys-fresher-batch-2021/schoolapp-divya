@@ -5,10 +5,11 @@ import java.util.Map;
 
 import in.divya.validator.RegistrationValidation;
 import in.divya.model.StudentDetails;
+import in.divya.util.Validation;
 
 /**
  * 
- * @author divya
+ * @author divy2624
  *
  */
 
@@ -95,21 +96,21 @@ public class AddStudentDetails
 	public static boolean addStudent(StudentDetails student) 
 	{	
 		boolean isAddedStudent = false;
-		boolean isValidName=RegistrationValidation.isNameValidation(student.getStudentName());
-		boolean isValidFatherName=RegistrationValidation.isNameValidation(student.getFatherName());
-		boolean isValidMotherName=RegistrationValidation.isNameValidation(student.getMotherName());
-		boolean isValidEmailId=RegistrationValidation.isValidEmailId(student.getStudentEmailId());
-		boolean isValidPassword=RegistrationValidation.isValidPasswordFormat(student.getStudentPassword());
+		boolean isValidName=Validation.isNameValidation(student.getStudentName());
+		boolean isValidFatherName=Validation.isNameValidation(student.getFatherName());
+		boolean isValidMotherName=Validation.isNameValidation(student.getMotherName());
+		boolean isValidEmailId=Validation.isValidEmailId(student.getStudentEmailId());
+		boolean isValidPassword=Validation.isValidPasswordFormat(student.getStudentPassword());
 		boolean isValidRollNumber=RegistrationValidation.isValidRollNumberFormat(student.getStudentRollNumber());
-		boolean isValidGender=RegistrationValidation.isNameValidation(student.getGender());
-		boolean isValidAddress=RegistrationValidation.isNameValidation(student.getStudentAddress());
-		boolean isValidCity=RegistrationValidation.isNameValidation(student.getStudentCity());
-		boolean isValidOccupation=RegistrationValidation.isNameValidation(student.getOccupation());
-		boolean isValidBloodGroup=RegistrationValidation.bloodGroupValidation(student.getStudentBloodGroup());
+		boolean isValidGender=Validation.isNameValidation(student.getGender());
+		boolean isValidAddress=Validation.isNameValidation(student.getStudentAddress());
+		boolean isValidCity=Validation.isNameValidation(student.getStudentCity());
+		boolean isValidOccupation=Validation.isNameValidation(student.getOccupation());
+		boolean isValidBloodGroup=Validation.bloodGroupValidation(student.getStudentBloodGroup());
 		boolean isValidStudentStandard=RegistrationValidation.standardValidation(student.getStudentStandard());
-		boolean isValidMobileNumber=RegistrationValidation.mobileNumberValidation(student.getParentMobileNumber());
-		boolean isValidDob=RegistrationValidation.isValidDate(student.getDateOfBirth());
-		boolean isValidJoiningDate=RegistrationValidation.isValidDate(student.getDateOfJoining());
+		boolean isValidMobileNumber=Validation.mobileNumberValidation(student.getParentMobileNumber());
+		boolean isValidDob=Validation.isValidDate(student.getDateOfBirth());
+		boolean isValidJoiningDate=Validation.isValidDate(student.getDateOfJoining());
 		
 		
 		if(isValidName && isValidFatherName && isValidMotherName && isValidEmailId && isValidPassword && isValidRollNumber && isValidGender && isValidAddress && isValidCity && isValidOccupation && isValidBloodGroup && isValidStudentStandard && isValidMobileNumber&& isValidDob && isValidJoiningDate) 
