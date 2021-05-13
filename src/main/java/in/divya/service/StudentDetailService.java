@@ -15,7 +15,7 @@ import in.divya.util.Validation;
 
 public class StudentDetailService 
 {
-	private StudentDetailService() 
+	private StudentDetailService()
 	{
 		/**
 		 * Default constructor
