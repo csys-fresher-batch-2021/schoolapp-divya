@@ -65,8 +65,7 @@ public class Validation {
 		{
 			boolean isStringValid = false;
 			boolean isStringNotEmpty = isStringNotEmpty(name);
-			boolean isStringNotNull=isStringNotNull(name);
-			if(isStringNotEmpty && isStringNotNull) 
+			if(isStringNotEmpty) 
 				{
 					isStringValid = true;
 				

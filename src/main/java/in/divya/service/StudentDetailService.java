@@ -27,7 +27,7 @@ public class StudentDetailService
 	 * To check it is successfully add or not.
 	 */
 	
-	private final static HashMap<String, StudentDetails> studentDetailsMap = new HashMap<>();
+	static private final HashMap<String, StudentDetails> studentDetailsMap = new HashMap<>();
 
 	
 	
@@ -81,12 +81,10 @@ public class StudentDetailService
 		boolean isValidRollNumberFormat = RegistrationValidation.isValidRollNumberFormat(studentRollNumber);
 		boolean isValidPasswordFormat = Validation.isValidPasswordFormat(studentPassword);
 		StudentDetails student=studentDetailsMap.get(studentRollNumber);
-		if (isValidName && isValidRollNumberFormat && isValidPasswordFormat && studentDetailsMap.containsKey(studentRollNumber) ) 
+		if (isValidName && isValidRollNumberFormat && isValidPasswordFormat && studentDetailsMap.containsKey(studentRollNumber) && ((student.getStudentName()).equals(studentName))&&((student.getStudentRollNumber()).equals(studentRollNumber)) && (student.getStudentPassword().equals(studentPassword)) ) 
 		{
-			if(((student.getStudentName()).equals(studentName))&&((student.getStudentRollNumber()).equals(studentRollNumber)) && (student.getStudentPassword().equals(studentPassword)))
-			{
-						isValidStudent = true;
-			}
+				isValidStudent = true;
+			
 		}
 		return isValidStudent;
 

@@ -17,10 +17,8 @@ import in.divya.service.StudentDetailService;
 public class LoginActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println("######## Login Servlet ###########");
 		
 		//Step 1: Get form values
 		String studentName = request.getParameter("studentName");
@@ -30,7 +28,6 @@ public class LoginActionServlet extends HttpServlet {
 		//Step 2: call Service
 		
 		boolean isValid = StudentDetailService.studentValidation(studentName,studentRollNumber,studentpassword);
-		System.out.println("isValid ? " + isValid);
 		if(isValid) {
 			HttpSession session = request.getSession();
 			session.setAttribute("LOGGED_IN_USER",studentName);
