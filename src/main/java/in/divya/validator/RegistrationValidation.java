@@ -37,8 +37,6 @@ public class RegistrationValidation
 	         * $ means end of string
 	         */
 
-	        
-
 	        Pattern p = Pattern.compile(regex);
 
 	        if (studentRollNo== null)
