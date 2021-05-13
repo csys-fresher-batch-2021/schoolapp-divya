@@ -15,7 +15,7 @@ import in.divya.model.StudentDetails;
  *
  */
 
-public class AddStudentDetailsTest
+public class StudentDetailServiceTest
 {
 	/**
 	 * To check the student1 details is add to HashMap or Not
@@ -40,7 +40,7 @@ public class AddStudentDetailsTest
 		student1.setParentMobileNumber(Long.parseLong("8979697865"));
 		student1.setDateOfBirth(LocalDate.of(2000, 06, 07));
 		student1.setDateOfJoining(LocalDate.of(2005, 06, 05));    
-		boolean isAddedStudent1 = AddStudentDetails.addStudent(student1);
+		boolean isAddedStudent1 = StudentDetailService.addStudent(student1);
 		assertTrue(isAddedStudent1);
 	
 	}
@@ -56,18 +56,18 @@ public class AddStudentDetailsTest
 		student2.setFatherName("R.KUMAR");
 		student2.setMotherName("K.ESWARI");
 		student2.setStudentEmailId("kavi@gmail.com");
-		student2.setStudentPassword("Brathi@70");
+		student2.setStudentPassword("Bhrathi@76");
 		student2.setStudentRollNumber("BB33CC2222");
 		student2.setGender("MALE");
 		student2.setStudentAddress("VVV NAGAR");
-		student2.setStudentCity("MADURAI");
+		student2.setStudentCity("CHENNAI");
 		student2.setOccupation("BUSINESS");
 		student2.setStudentBloodGroup("A+");
-		student2.setStudentStandard("X");
-		student2.setParentMobileNumber(Long.parseLong("8976765890"));
-		student2.setDateOfBirth(LocalDate.of(2000, 06, 13));
-		student2.setDateOfJoining(LocalDate.of(2006, 06, 05));      
-		boolean isAddedStudent2= AddStudentDetails.addStudent(student2);
+		student2.setStudentStandard("XI");
+		student2.setParentMobileNumber(Long.parseLong("8090607005"));
+		student2.setDateOfBirth(LocalDate.of(2004, 06, 13));
+		student2.setDateOfJoining(LocalDate.of(2009, 07, 13));      
+		boolean isAddedStudent2= StudentDetailService.addStudent(student2);
 		assertTrue(isAddedStudent2);
 		
 	}
@@ -94,16 +94,19 @@ public class AddStudentDetailsTest
 		student3.setParentMobileNumber(Long.parseLong("9080765049"));
 		student3.setDateOfBirth(LocalDate.of(2000, 06, 06));
 		student3.setDateOfJoining(LocalDate.of(2003, 06, 05));   
-		boolean isAddedStudent3= AddStudentDetails.addStudent(student3);
+		boolean isAddedStudent3= StudentDetailService.addStudent(student3);
 		assertFalse(isAddedStudent3);
-		
-		Map<String, StudentDetails> getStudentMap = AddStudentDetails.getStudentMap();
+		/**
+		 * To check the above details are added to HashMap
+		 */
+		Map<String, StudentDetails> getStudentMap = StudentDetailService.getStudentMap();
 		System.out.println(getStudentMap);
+		
 	
 	}
 	
+		
 	
-
 	
 
 }

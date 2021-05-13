@@ -6,7 +6,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h3>Welcome</h3>
+		<h2>STUDENT APP</h2>
 		
 		
 

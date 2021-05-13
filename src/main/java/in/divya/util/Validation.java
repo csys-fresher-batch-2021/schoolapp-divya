@@ -21,56 +21,58 @@ public class Validation {
 		}
 	 
 	 	/**
-		 * This method checks whether the name has no empty value or null values
+		 * This method checks whether the string has no empty value or null values
 		 * @param name
 		 * @return
 		 */
 	    
-		public static boolean isNameNull(String name)
+		public static boolean isStringNotNull(String name)
 		{ 
-			boolean isValidName = false;
+			boolean isValidString = true;
 			
-			if(name != null) 
+			if(name == null) 
 			{
-				isValidName = true;
+				isValidString = false;
 			}
 			
-			return isValidName;
+			return isValidString;
 		}
 		
 		/**
-		 * This method returns if the name is empty or not
+		 * This method returns if the string is empty or not
 		 * @param name
 		 * @return
 		 */
 		
-		public static boolean isNameNotEmpty(String name)
+		public static boolean isStringNotEmpty(String name)
 		{  
-			boolean isValidName = true;
+			boolean isValidString = true;
 			
 			if(name.trim().isEmpty()) 
 			{
-				isValidName = false;
+				isValidString = false;
 			}
-			return isValidName;
+			return isValidString;
 		}
 		
 		/**
-		 * This method is used to validate name.
+		 * This method is used to validate String.
 		 * @param name
 		 * @return
 		 */
 		
-		public static boolean isNameValidation(String name) {
-			boolean isNameValid = false;
-			boolean isNameNotNull = isNameNotEmpty(name);
-			if(isNameNotNull) 
+		public static boolean isValidString(String name) 
+		{
+			boolean isStringValid = false;
+			boolean isStringNotEmpty = isStringNotEmpty(name);
+			boolean isStringNotNull=isStringNotNull(name);
+			if(isStringNotEmpty && isStringNotNull) 
 				{
-					isNameValid = true;
+					isStringValid = true;
 				
 				}
 			
-			return isNameValid;
+			return isStringValid;
 		}
 		
 		/**

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import in.divya.model.StudentDetails;
-import in.divya.service.AddStudentDetails;
+import in.divya.service.StudentDetailService;
 
 /**
  * Servlet implementation class RegisterActionServlet
@@ -47,7 +47,7 @@ public class RegisterActionServlet extends HttpServlet {
 			/**
 			 * Step 2: Call Service => add student details
 			 */
-			boolean isAddedStudent = AddStudentDetails.addStudent(student);
+			boolean isAddedStudent = StudentDetailService.addStudent(student);
 			/**
 			 * Step 3: Decide to which page we should redirect ?
 			 */
