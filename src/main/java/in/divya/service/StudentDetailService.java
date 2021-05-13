@@ -27,7 +27,7 @@ public class StudentDetailService
 	 * To check it is successfully add or not.
 	 */
 	
-	static private final HashMap<String, StudentDetails> studentDetailsMap = new HashMap<>();
+	private static final HashMap<String, StudentDetails> studentDetailsMap = new HashMap<>();
 
 	
 	
