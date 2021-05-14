@@ -13,31 +13,42 @@ import in.divya.service.StudentDetailService;
 /**
  * Servlet implementation class LoginActionServlet
  */
+
 @WebServlet("/LoginActionServlet")
-public class LoginActionServlet extends HttpServlet {
+
+public class LoginActionServlet extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
        
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		
-		//Step 1: Get form values
+		/**
+		 * Step 1: Get form values
+		 */
+		
 		String studentName = request.getParameter("studentName");
 		String studentRollNumber = request.getParameter("studentRollNumber");
 		String studentpassword = request.getParameter("studentPassword");
 		
-		//Step 2: call Service
+		/**
+		 * Step 2: call Service
+		 */
 		
 		boolean isValid = StudentDetailService.studentValidation(studentName,studentRollNumber,studentpassword);
-		if(isValid) {
+		if(isValid)
+		{
 			HttpSession session = request.getSession();
 			session.setAttribute("LOGGED_IN_USER",studentName);
 			response.sendRedirect("index.jsp");
 		}
-		else {
+		else 
+		{
 			response.sendRedirect("StudentLoginPage.jsp?errorMessage=Invalid Login Credentials");
 		}
 	}
-	}
+}
 
 	
 

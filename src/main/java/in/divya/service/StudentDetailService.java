@@ -75,12 +75,20 @@ public class StudentDetailService
 	 */
 
 	
-	public static boolean studentValidation(String studentName,String studentRollNumber, String studentPassword) {
+	public static boolean studentValidation(String studentName,String studentRollNumber, String studentPassword) 
+	{
 		boolean isValidStudent = false;
 		boolean isValidName = Validation.isValidString(studentName);
 		boolean isValidRollNumberFormat = RegistrationValidation.isValidRollNumberFormat(studentRollNumber);
 		boolean isValidPasswordFormat = Validation.isValidPasswordFormat(studentPassword);
 		StudentDetails student=studentDetailsMap.get(studentRollNumber);
+		
+		/**
+		 * To validate name,rollnumber,password.
+		 * If it is true......Login sucessfully.
+		 * otherwise it is failed
+		 */
+		
 		if (isValidName && isValidRollNumberFormat && isValidPasswordFormat && studentDetailsMap.containsKey(studentRollNumber) && ((student.getStudentName()).equals(studentName))&&((student.getStudentRollNumber()).equals(studentRollNumber)) && (student.getStudentPassword().equals(studentPassword)) ) 
 		{
 				isValidStudent = true;

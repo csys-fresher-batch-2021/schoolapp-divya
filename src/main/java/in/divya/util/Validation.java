@@ -13,12 +13,12 @@ import java.util.regex.Pattern;
  */
 public class Validation {
 	
-	 private Validation()
-	    {
-			/**
-			 * Default constructor
-			 */
-		}
+		 private Validation()
+		 {
+				/**
+				 * Default constructor
+				 */
+		 }
 	 
 	 	/**
 		 * This method checks whether the string has no empty value or null values

@@ -24,7 +24,7 @@
 		<label>MOTHER NAME : </label>
 		<input type="text" name="motherName" id="motherName" placeholder="Enter Your Mother Name" required><br/><br/>
 		<label>EMAIL-ID : </label>
-		<input type="email" name="emailId" id="emailId" placeholder="Enter Your EmailId" required autofocus><br/><br/>
+		<input type="email" name="emailId" id="emailId" placeholder="Enter Your EmailId" required><br/><br/>
 		<label>PASSWORD : </label>
 		<input type="password" name="password" id="password" placeholder="Enter Your Password" required><br/><br/>
 		<label>ROLL NUMBER : </label>
