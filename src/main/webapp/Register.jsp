@@ -14,26 +14,28 @@
 
 <h1>REGISTRATION FORM</h1>
 
+<!--  Get the StudentDetails -->
+
 <form action="RegisterActionServlet" method="get">
 		<label>STUDENT NAME : </label>
 		<input type="text" name="studentName" id="studentName" placeholder="Enter Your Name" required autofocus><br/><br/>
 		<label>FATHER NAME : </label>
 		<input type="text" name="fatherName" id="fatherName" placeholder="Enter Your Father Name" required><br/><br/>
 		<label>MOTHER NAME : </label>
-		<input type="text" name="motherName" id="matherName" placeholder="Enter Your Mother Name" required><br/><br/>
+		<input type="text" name="motherName" id="motherName" placeholder="Enter Your Mother Name" required><br/><br/>
 		<label>EMAIL-ID : </label>
-		<input type="email" name="emailId" id="emailId" placeholder="Enter Your EmailId" required autofocus><br/><br/>
+		<input type="email" name="emailId" id="emailId" placeholder="Enter Your EmailId" required><br/><br/>
 		<label>PASSWORD : </label>
 		<input type="password" name="password" id="password" placeholder="Enter Your Password" required><br/><br/>
 		<label>ROLL NUMBER : </label>
 		<input type="text" name="rollNumber" id="rollNumber" placeholder="Enter Your Roll Number" required><br/><br/>
 		<label>GENDER : </label><br/>
-	    <input type="radio" id="male" name="gender" value="male">
-	    <label for="male">Male</label>
-	    <input type="radio" id="female" name="gender" value="female">
-	    <label for="female">Female</label>
-	    <input type="radio" id="other" name="gender" value="other">
-	    <label for="other">Other</label><br/><br/>
+		<label for="male">
+	    <input type="radio" id="male" name="gender" value="male" required> Male</label>
+	    <label for="female">
+	    <input type="radio" id="female" name="gender" value="female" required> Female</label>
+	    <label for="other">
+	    <input type="radio" id="other" name="gender" value="other" required> Other</label><br/><br/>
 		<label>ADDRESS : </label>
 		<input type="text" name="address" id="address" placeholder="Enter Your Address" required><br/><br/>
 		<label>CITY : </label>
@@ -47,9 +49,9 @@
 		<label> MOBILE NUMBER:</label>
 		<input type="number" name="mobileNumber" id="mobileNumber" placeholder="Enter your Mobile Number"><br/><br/>
 		<label>DATE OF BIRTH: </label>
-		<input type="date" name="dateOfBirth" id="dateOfBirth"  max="2016-01-01"placeholder="YYYY-MM-DD" required><br/><br/>
+		<input type="date" name="dateOfBirth" id="dateOfBirth"  min="2004-01-01" max="2016-01-01"placeholder="YYYY-MM-DD" required><br/><br/>
 		<label>DATE OF JOINING : </label>
-		<input type="date" name="dateOfJoining" id="dateOfJoining"   max="2021-01-01"placeholder="YYYY-MM-DD" required><br/><br/>
+		<input type="date" name="dateOfJoining" id="dateOfJoining" min="2007-01-01"  max="2021-01-01"placeholder="YYYY-MM-DD" required><br/><br/>
 		<button class="btn btn-primary">SUBMIT</button>
 		<button type="reset" class="btn btn-secondary">RESET</button><br/><br/>
 		<%

@@ -37,8 +37,6 @@ public class RegistrationValidation
 	         * $ means end of string
 	         */
 
-	        
-
 	        Pattern p = Pattern.compile(regex);
 
 	        if (studentRollNo== null)
@@ -56,9 +54,11 @@ public class RegistrationValidation
 	 * @param studentStandard
 	 * @return
 	 */
+	
 	public static boolean standardValidation(String studentStandard)
 	{
 		 String regex = "^(I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII)$"; 
+		 
 		 Pattern p = Pattern.compile(regex);
 
 	        if (studentStandard== null)
@@ -69,7 +69,7 @@ public class RegistrationValidation
 	        Matcher m = p.matcher(studentStandard);
 	        return m.matches();
 	
-	}
+	 }
 	
 	
 }
