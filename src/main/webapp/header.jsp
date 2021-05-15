@@ -8,7 +8,7 @@ String loggedInUsername = (String)session.getAttribute("LOGGED_IN_USER");
 %>
 <header>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">MyApp</a>
+  <a class="navbar-brand" href="#">School-Student-App</a>
   <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

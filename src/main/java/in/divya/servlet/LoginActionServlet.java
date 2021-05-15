@@ -41,7 +41,7 @@ public class LoginActionServlet extends HttpServlet
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("LOGGED_IN_USER",studentName);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("StudentInformationList.jsp");
 		}
 		else 
 		{
