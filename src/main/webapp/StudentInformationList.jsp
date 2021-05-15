@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>StudentInformationTopics</title>
@@ -11,6 +11,7 @@
 	<main class="container-fluid">
 	<!-- This page display the topics of Student information -->
 		<figure>
+		<figcaption>List Of Information Topics</figcaption>
 		<br/>
 			<table class = "table table-bordered">
 			<tr>
