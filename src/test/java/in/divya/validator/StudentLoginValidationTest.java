@@ -36,7 +36,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestNameValid() 
+	public void nameValid() 
 	{ 
 		String studentName = "K.DIVYA";
 		String studentRollNumber = "AA2B1111";
@@ -50,7 +50,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestRollNumberValid() 
+	public void isRollNumberValid() 
 	{ 
 		String studentName = "V.RAMYA";
 		String studentRollNumber = "AA22BB1111" ;
@@ -64,7 +64,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestPasswordValid() 
+	public void passwordValid() 
 	{ 
 		String studentName = "M.KAVITHA";
 		String studentRollNumber = "B1111" ;
@@ -78,7 +78,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestBothInValid() 
+	public void bothInValid() 
 	{ 
 		String studentName = "M.RAM";
 		String studentRollNumber = "AA2111";
