@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Staff Login Page</title>
@@ -33,10 +33,9 @@
 <jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 	
-	<div class="head"><h1><marquee>DIVVLEARN HIGHER SECONDARY SCHOOL</marquee></h1></div><br>
+	<div class="head"><h1>DIVVLEARN HIGHER SECONDARY SCHOOL</h1></div><br>
 	
-	<div align = "center">
-         <div style = "width:400px;height:350px; border: solid 1px #333333; " align = "left">
+         <div style = "width:400px;height:350px; border: solid 1px #333333; " >
             <div style = "background-color:#333333; color:#FFFFFF; padding:3px;">
 				<h2>STAFF LOGIN PORTAL</h2>
 			</div>
@@ -59,7 +58,6 @@
 				%>
             </div>
         </div>
-     </div>
-</main>
+    </main>
 </body>
 </html>

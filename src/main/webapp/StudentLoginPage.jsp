@@ -34,8 +34,10 @@
 	<main class="container-fluid">
 	
 	<br/>
-      <div align = "center">
-         <div style = "width:400px;height:500px; border: solid 1px #333333; " align = "left">
+		<div class="head"><h1>DIVVLEARN HIGHER SECONDARY SCHOOL</h1></div><br>
+	
+     
+         <div style = "width:400px;height:500px; border: solid 1px #333333; " >
             <div style = "background-color:#333333; color:#FFFFFF; padding:3px;">
 				<h2>STUDENT LOGIN PORTAL</h2>
 			</div>
@@ -60,8 +62,6 @@
 				%>
               </div>
            </div>
-      </div>
-	
-</main>
+   </main>
 </body>
 </html>
