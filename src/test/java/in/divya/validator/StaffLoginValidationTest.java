@@ -34,7 +34,7 @@ public class StaffLoginValidationTest
 	 */
 	
 	@Test
-	public void validPassword() 
+	public void staffValidationTestValidPassword() 
 	{ 
 		String staffName = "SELVA";
 		String staffPassword = "Rlakshmi@123";
@@ -47,7 +47,7 @@ public class StaffLoginValidationTest
 	 */
 	
 	@Test
-	public void testValidName()
+	public void staffValidationTestValidName()
 	{ 
 		String staffName = "M.LAKSHMI";
 		String staffPassword =  "RLaks@123";
@@ -60,7 +60,7 @@ public class StaffLoginValidationTest
 	 */
 	
 	@Test
-	public void bothInvalid() 
+	public void staffValidationTestBothInvalid() 
 	{ 
 		String staffName = "RAMYA";
 		String staffPassword =  "Ramya@56";
