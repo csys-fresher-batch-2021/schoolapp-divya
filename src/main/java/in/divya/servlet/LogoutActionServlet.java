@@ -27,6 +27,6 @@ public class LogoutActionServlet extends HttpServlet
     	
 		HttpSession session = request.getSession();
 		session.removeAttribute("LOGGED_IN_USER");
-		response.sendRedirect("StudentLoginPage.jsp");
+		response.sendRedirect("index.jsp");
 	}
 }
