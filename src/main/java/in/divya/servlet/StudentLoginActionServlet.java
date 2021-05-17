@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import in.divya.service.StudentDetailService;
 
 /**
@@ -16,12 +15,12 @@ import in.divya.service.StudentDetailService;
 
 @WebServlet("/LoginActionServlet")
 
-public class LoginActionServlet extends HttpServlet
+public class StudentLoginActionServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
        
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		
 		/**
@@ -48,6 +47,9 @@ public class LoginActionServlet extends HttpServlet
 			response.sendRedirect("StudentLoginPage.jsp?errorMessage=Invalid Login Credentials");
 		}
 	}
+	
+	
+		
 }
 
 	
