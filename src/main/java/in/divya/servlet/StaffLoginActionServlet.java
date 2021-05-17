@@ -36,7 +36,7 @@ public class StaffLoginActionServlet extends HttpServlet
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("LOGGED_IN_USER",staffName);
-			response.sendRedirect("StudentInformationList.jsp");
+			response.sendRedirect("DisplayStudentInformationListOperations.jsp");
 		}
 		else 
 		{

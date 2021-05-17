@@ -40,7 +40,7 @@ public class StudentLoginActionServlet extends HttpServlet
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("LOGGED_IN_USER",studentName);
-			response.sendRedirect("StudentInformationList.jsp");
+			response.sendRedirect("DisplayStudentInformationList.jsp");
 		}
 		else 
 		{
