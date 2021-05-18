@@ -3,6 +3,7 @@
  */
 package in.divya.util;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.apache.taglibs.standard.lang.jstl.parser.ParseException;
 import org.junit.Test;
@@ -21,7 +22,7 @@ public class NumberValidatorUtilTest
 	public void validNumberIsTestedWithoutAnyAlphabets() throws ParseException 
 	{
 		String number = "90";
-		int isValidNumber = NumberValidator.isValidNumberOnly(number, "Marks number cannot contain alphabets");
+		int isValidNumber = NumberValidatorUtil.isValidNumberOnly(number, "Marks number cannot contain alphabets");
 		assertEquals(90, isValidNumber);
 	}
 
@@ -31,7 +32,7 @@ public class NumberValidatorUtilTest
 		try 
 		{
 			String number = "2k";
-			int isValidNumber = NumberValidator.isValidNumberOnly(number, "Marks cannot contain alphabets");
+			int isValidNumber = NumberValidatorUtil.isValidNumberOnly(number, "Marks cannot contain alphabets");
 			assertEquals("2k", isValidNumber);
 		} 
 		catch (Exception e) 

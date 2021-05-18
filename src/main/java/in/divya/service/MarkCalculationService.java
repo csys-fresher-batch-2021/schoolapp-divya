@@ -38,8 +38,7 @@ public class MarkCalculationService
 		int maths=mark.getMathamaticsMark();
 		int science=mark.getScienceMark();
 		int social=mark.getSocialMark();
-		int total=tamil+english+maths+science+social;
-		return total;
+		return tamil+english+maths+science+social;
 	}
 
 	/**
@@ -50,8 +49,7 @@ public class MarkCalculationService
 
 	public static float averageMarks(int total) 
 	{
-		float average=total/5;
-		return average;
+		return ((float)total/5);
 	}
 
 	/**
@@ -88,12 +86,12 @@ public class MarkCalculationService
 	public static String gradeComment(String grade)
 	{
 		String result;
-		if(grade=="A") 
+		if(grade.equals("A")) 
 		{
 			result="EXCELLENT";
 			
 		}
-		else if(grade=="B")
+		else if(grade.equals("B"))
 		{
 			result="GOOD";
 		}

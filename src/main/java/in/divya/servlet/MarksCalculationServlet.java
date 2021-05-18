@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import in.divya.model.StudentMarksDetails;
 import in.divya.service.MarkCalculationService;
-import in.divya.util.NumberValidator;
+import in.divya.util.NumberValidatorUtil;
 
 /**
  * Servlet implementation class MarksCalculationServlet
@@ -24,6 +24,7 @@ public class MarksCalculationServlet extends HttpServlet
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		try
@@ -37,27 +38,27 @@ public class MarksCalculationServlet extends HttpServlet
 			mark.setStudentRollNumber(request.getParameter("studentRollNumber"));
 			
 			String testNumber=request.getParameter("testNumber");
-			int parsedTestNumber=NumberValidator.isValidNumberOnly(testNumber,"Invalid Test Number");
+			int parsedTestNumber=NumberValidatorUtil.isValidNumberOnly(testNumber,"Invalid Test Number");
 			mark.setTestNumber(parsedTestNumber);
 			
 			String tamilMark=request.getParameter("tamilMark");
-			int parsedTamilMark=NumberValidator.isValidNumberOnly(tamilMark,"Invalid Tamil Mark");
+			int parsedTamilMark=NumberValidatorUtil.isValidNumberOnly(tamilMark,"Invalid Tamil Mark");
 			mark.setTamilMark(parsedTamilMark);
 
 			String englishMark=request.getParameter("englishMark");
-			int parsedEnglishMark=NumberValidator.isValidNumberOnly(englishMark,"Invalid English Mark");
+			int parsedEnglishMark=NumberValidatorUtil.isValidNumberOnly(englishMark,"Invalid English Mark");
 			mark.setEnglishMark(parsedEnglishMark);
 
 			String mathamaticsMark=request.getParameter("mathsMark");
-			int parsedMathamaticsMark=NumberValidator.isValidNumberOnly(mathamaticsMark,"Invalid Mathamatics Mark");
+			int parsedMathamaticsMark=NumberValidatorUtil.isValidNumberOnly(mathamaticsMark,"Invalid Mathamatics Mark");
 			mark.setMathamaticsMark(parsedMathamaticsMark);
 
 			String scienceMark=request.getParameter("scienceMark");
-			int parsedScienceMark=NumberValidator.isValidNumberOnly(scienceMark,"Invalid Science Mark");
+			int parsedScienceMark=NumberValidatorUtil.isValidNumberOnly(scienceMark,"Invalid Science Mark");
 			mark.setScienceMark(parsedScienceMark);
 
 			String socialMark=request.getParameter("socialMark");
-			int parsedSocialMark=NumberValidator.isValidNumberOnly(socialMark,"Invalid Social Mark");
+			int parsedSocialMark=NumberValidatorUtil.isValidNumberOnly(socialMark,"Invalid Social Mark");
 			mark.setSocialMark(parsedSocialMark);
 			
 			/**
