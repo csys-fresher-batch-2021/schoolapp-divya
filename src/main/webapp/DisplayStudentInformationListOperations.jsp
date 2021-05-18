@@ -27,7 +27,7 @@
 					TEST MARKS
 				</th>
 				<th scope = "col">
-					<button type="button" class="btn btn-primary">ADD TEST MARKS</button>
+					<button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/app/TestMarks.jsp'">ADD TEST MARKS</button>
 					<button type="button" class="btn btn-primary">UPDATE TEST MARKS</button>
 					<button type="button" class="btn btn-primary">DELETE TEST MARKS</button>
 				</th>

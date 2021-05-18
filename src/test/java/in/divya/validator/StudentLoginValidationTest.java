@@ -22,7 +22,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestBothValid() 
+	public void isStudentBothValidTestCase() 
 	{ 
 		String studentName = "K.DIVYA";
 		String studentRollNumber =  "AA22BB1111";
@@ -32,11 +32,11 @@ public class StudentLoginValidationTest
 	}
 	
 	/**
-	 * Invalid Rollnumber and password
+	 * InValid Rollnumber and password
 	 */
 	
 	@Test
-	public void studentValidationTestNameValid() 
+	public void studentValidationTest1() 
 	{ 
 		String studentName = "K.DIVYA";
 		String studentRollNumber = "AA2B1111";
@@ -50,7 +50,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestRollNumberValid() 
+	public void studentValidationTest2() 
 	{ 
 		String studentName = "V.RAMYA";
 		String studentRollNumber = "AA22BB1111" ;
@@ -64,7 +64,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestPasswordValid() 
+	public void studentValidationTest3() 
 	{ 
 		String studentName = "M.KAVITHA";
 		String studentRollNumber = "B1111" ;
@@ -78,7 +78,7 @@ public class StudentLoginValidationTest
 	 */
 	
 	@Test
-	public void studentValidationTestBothInValid() 
+	public void isStudentBothInValidTestCase() 
 	{ 
 		String studentName = "M.RAM";
 		String studentRollNumber = "AA2111";
