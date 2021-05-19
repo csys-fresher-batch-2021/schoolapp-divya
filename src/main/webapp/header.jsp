@@ -21,13 +21,6 @@ String loggedInUsername = (String)session.getAttribute("LOGGED_IN_USER");
       <li class="nav-item">
         <a class="nav-link" href="StaffLoginPage.jsp">STAFF</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="index.jsp" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdownId">
-          <a class="dropdown-item" href=""></a>
-          <a class="dropdown-item" href=""></a>
-        </div>
-      </li>
     </ul>
      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
      <% if (loggedInUsername == null){ %>
