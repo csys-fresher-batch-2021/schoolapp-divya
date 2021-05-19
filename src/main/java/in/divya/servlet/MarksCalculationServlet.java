@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import in.divya.exceptions.CannotAddIntoMapException;
 import in.divya.model.StudentMarksDetails;
 import in.divya.service.MarkCalculationService;
 import in.divya.util.NumberValidatorUtil;
@@ -25,7 +26,7 @@ public class MarksCalculationServlet extends HttpServlet
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException ,CannotAddIntoMapException
 	{
 		try
 		{
@@ -92,7 +93,7 @@ public class MarksCalculationServlet extends HttpServlet
 			}
 			else 
 			{
-				throw new RuntimeException("Cannot add into the map");
+				throw new CannotAddIntoMapException("Cannot add into the map");
 			}
  			
 		}
