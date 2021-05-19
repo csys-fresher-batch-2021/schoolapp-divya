@@ -42,7 +42,7 @@ public class NumberValidatorUtilTest
 		{
 			String number = "8o";
 			int isInValidNumber = NumberValidatorUtil.isValidNumberOnly(number,"Marks cannot contain alphabets");
-			assertEquals("80", isInValidNumber);
+			assertEquals(80, isInValidNumber);
 		}
 		catch (Exception e) 
 		{
