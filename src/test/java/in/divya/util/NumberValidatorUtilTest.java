@@ -31,10 +31,10 @@ public class NumberValidatorUtilTest
 	{
 		try 
 		{
-			String number = "2k";
+			String number = "8o";
 			int isValidNumber = NumberValidatorUtil.isValidNumberOnly(number, "Marks cannot contain alphabets");
-			assertEquals("2k", isValidNumber);
-		} 
+			assertEquals("80", isValidNumber);
+		}
 		catch (Exception e) 
 		{
 			assertEquals("Marks cannot contain alphabets", e.getMessage());

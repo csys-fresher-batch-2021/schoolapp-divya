@@ -26,7 +26,7 @@ public class MarksCalculationServiceTest
 	public void secondTestMarkAverage()
 	{
 	float averageTest2=MarkCalculationService.averageMarks(463);
-	assertEquals(92.0,averageTest2,0.001);
+	assertEquals(92.6,averageTest2,0.001);
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class MarksCalculationServiceTest
 	public void thirdTestMarkAverage()
 	{
 	float averageTest3=MarkCalculationService.averageMarks(491);
-	assertEquals(98.0,averageTest3,0.001);
+	assertEquals(98.2,averageTest3,0.001);
 	}
 	
 	/**
