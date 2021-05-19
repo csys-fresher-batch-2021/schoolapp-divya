@@ -2,27 +2,27 @@
  * 
  */
 package in.divya.util;
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.assertEquals;
 
 import org.apache.taglibs.standard.lang.jstl.parser.ParseException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-
-import in.divya.util.NumberValidatorUtilTest;
+import in.divya.exceptions.InvalidNumberException;
+import in.divya.util.NumberValidatorUtil;
 
 /**
  * @author divy2624
  *
  */
-public class NumberValidatorUtilTest
-{
+@SuppressWarnings("unused")
+public class NumberValidatorUtilTest {
 	
 	@Test
-	public void validNumberIsTestedWithoutAnyAlphabets() throws ParseException 
+	public void validNumberIsTestedWithoutAnyAlphabets() throws ParseException, InvalidNumberException 
 	{
 		String number = "90";
-		int isValidNumber = NumberValidatorUtil.isValidNumberOnly(number, "Marks number cannot contain alphabets");
+		int isValidNumber = NumberValidatorUtil.isValidNumberOnly(number,"Marks number cannot contain alphabets");
 		assertEquals(90, isValidNumber);
 	}
 
@@ -32,7 +32,7 @@ public class NumberValidatorUtilTest
 		try 
 		{
 			String number = "8o";
-			int isValidNumber = NumberValidatorUtil.isValidNumberOnly(number, "Marks cannot contain alphabets");
+			int isValidNumber = NumberValidatorUtil.isValidNumberOnly(number,"Marks cannot contain alphabets");
 			assertEquals("80", isValidNumber);
 		}
 		catch (Exception e) 
@@ -40,6 +40,5 @@ public class NumberValidatorUtilTest
 			assertEquals("Marks cannot contain alphabets", e.getMessage());
 		}
 	}
-
 
 }

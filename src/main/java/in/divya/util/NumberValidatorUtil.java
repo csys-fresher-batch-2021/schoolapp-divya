@@ -3,11 +3,14 @@
  */
 package in.divya.util;
 
+import in.divya.exceptions.InvalidNumberException;
+
 /**
  * @author divy2624
  *
  */
-public class NumberValidatorUtil {
+public class NumberValidatorUtil 
+{
 	private NumberValidatorUtil()
 	{
 		/**
@@ -15,7 +18,7 @@ public class NumberValidatorUtil {
 		 */
 	}
 	
-	public static int isValidNumberOnly(String number, String errorMessage)
+	public static int isValidNumberOnly(String number, String errorMessage) throws InvalidNumberException
 	{
 		try 
 		{
@@ -23,7 +26,7 @@ public class NumberValidatorUtil {
 		} 
 		catch (Exception e) 
 		{
-			throw new RuntimeException(errorMessage);
+			throw new InvalidNumberException(errorMessage);
 		}
 	}
 
