@@ -44,10 +44,9 @@
 					out.println("<h3>WELCOME "+studentName+"</h3><br/>");
 					out.println("<h4>TEST NUMBER    :  "+testMarks.getTestNumber()+"</th></h4><br/>");
 					out.println("<tr>");
-					out.println("<tr>");
 					out.println("<th>"+"SUBJECTS"+"</th>");
 					out.println("<th>"+"MARKS"+"</th>");
-					out.println("<tr>");
+					out.println("</tr>");
 					out.println("<td>"+"TAMIL MARK"+"</td>");
 					out.println("<td>"+testMarks.getTamilMark()+"</td>");
 					out.println("</tr>");
