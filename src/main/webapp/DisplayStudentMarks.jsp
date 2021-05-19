@@ -35,6 +35,10 @@
 		<figure>
 		<figcaption><h3>DIVVLEARN MARK PORTAL</h3><br/></figcaption>
 			<table border="1" class="center">
+			<tr>
+			<th scope="col">SUBJECTS</th>
+    		<th scope="col">MARKS</th>
+            </tr>
 				<tbody>
 				<%
 					Map<String, StudentMarksDetails> studentMarksDetailsMap = MarkCalculationService.getMarks();
@@ -43,10 +47,6 @@
 					StudentMarksDetails testMarks =MarkCalculationService.viewStudentMarkDetails(studentRollNumber);
 					out.println("<h3>WELCOME "+studentName+"</h3><br/>");
 					out.println("<h4>TEST NUMBER    :  "+testMarks.getTestNumber()+"</th></h4><br/>");
-					out.println("<tr>");
-					out.println("<th>"+"SUBJECTS"+"</th>");
-					out.println("<th>"+"MARKS"+"</th>");
-					out.println("</tr>");
 					out.println("<td>"+"TAMIL MARK"+"</td>");
 					out.println("<td>"+testMarks.getTamilMark()+"</td>");
 					out.println("</tr>");
