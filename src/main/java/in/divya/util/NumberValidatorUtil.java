@@ -11,23 +11,23 @@ import in.divya.exceptions.InvalidNumberException;
  */
 public class NumberValidatorUtil 
 {
-	private NumberValidatorUtil()
-	{
-		/**
-		 * Default constructor
-		 */
-	}
-	
-	public static int isValidNumberOnly(String number, String errorMessage) throws InvalidNumberException
-	{
-		try 
+		private NumberValidatorUtil()
 		{
-			return Integer.parseInt(number);
-		} 
-		catch (Exception e) 
-		{
-			throw new InvalidNumberException(errorMessage);
+			/**
+			 * Default constructor
+			 */
 		}
-	}
+		
+		public static int isValidNumberOnly(String number, String errorMessage) throws InvalidNumberException
+		{
+			try 
+			{
+				return Integer.parseInt(number);
+			} 
+			catch (Exception e) 
+			{
+				throw new InvalidNumberException(errorMessage);
+			}
+		}
 
 }
