@@ -2,25 +2,25 @@
  * 
  */
 package in.divya.util;
-
 import static org.junit.Assert.assertEquals;
 
 import org.apache.taglibs.standard.lang.jstl.parser.ParseException;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import in.divya.exceptions.InvalidNumberException;
-import in.divya.util.NumberValidatorUtil;
 
 /**
  * @author divy2624
  *
  */
-
-
-public class NumberValidatorUtilTest {
+public class NumberValidatorUtilTest 
+{
+	/**
+	 * To check given input is valid.
+	 * @throws ParseException
+	 * @throws InvalidNumberException
+	 */
 	
-	
-
 	@Test
 	public void validNumberIsTestedWithoutAnyAlphabets() throws ParseException, InvalidNumberException 
 	{
@@ -29,6 +29,12 @@ public class NumberValidatorUtilTest {
 		assertEquals(90, isValidNumber);
 	}
 
+	/**
+	 * To check given input is invalid.
+	 * @throws ParseException
+	 * @throws InvalidNumberException
+	 */
+	
 	@Test
 	public void invalidNumberIsTestedWithAlphabet() 
 	{
@@ -43,5 +49,4 @@ public class NumberValidatorUtilTest {
 			assertEquals("Marks cannot contain alphabets", e.getMessage());
 		}
 	}
-
 }
