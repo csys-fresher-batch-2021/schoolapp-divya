@@ -1,6 +1,6 @@
 <%@page import="in.divya.service.MarkCalculationService"%>
 <%@page import="in.divya.model.StudentMarksDetails"%>
-<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,65 +20,73 @@
 			     	color : blue;
 			     	text-align:center;
 			    }
+			    h4
+			    {
+			     	color : red;
+			     	text-align:center;
+			    }
 		</style>
 	</head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<a href="DisplayStudentInformationList.jsp">Previous page</a>
+		<a href="DisplayStudentInformationList.jsp">Previous page</a><br/>
 		<!-- Display Student Marks -->
-		<table border="1" class="center">
-			<tbody>
-			<%
-				HashMap<String, StudentMarksDetails> studentMarksDetailsMap = MarkCalculationService.getMarks();
-				String studentRollNumber = (String)session.getAttribute("LOGGED_IN_USER_NO");
-				String studentName = (String)session.getAttribute("LOGGED_IN_USER");
-				StudentMarksDetails testMarks =MarkCalculationService.viewStudentMarkDetails(studentRollNumber);
-				out.println("<h3>WELCOME "+studentName+"</h3><br/>");
-				out.println("<tr>");
-				out.println("<th>"+"TEST NUMBER "+"</th>");
-				out.println("<td>"+testMarks.getTestNumber()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"TAMIL MARK"+"</th>");
-				out.println("<td>"+testMarks.getTamilMark()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"ENGLISH MARK"+"</th>");
-				out.println("<td>"+testMarks.getEnglishMark()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"MATHAMATICS MARK"+"</th>");
-				out.println("<td>"+testMarks.getMathamaticsMark()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"SCIENCE MARK"+"</th>");
-				out.println("<td>"+testMarks.getScienceMark()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"SOCIAL MARK"+"</th>");
-				out.println("<td>"+testMarks.getSocialMark()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"TOTAL"+"</th>");
-				out.println("<td>"+testMarks.getTotalMark()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"AVERAGE"+"</th>");
-				out.println("<td>"+testMarks.getAverageMark()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<th>"+"GRADE"+"</th>");
-				out.println("<td>"+testMarks.getGrade()+"</td>");
-				out.println("</tr>");
-				out.println("<tr>");
-				out.println("<tr>");
-				out.println("<th>"+"COMMENT"+"</th>");
-				out.println("<td>"+testMarks.getGradeComment()+"</td>");
-				out.println("</tr>");
-			%>
-			</tbody>
-		</table>
+		<figure>
+		<figcaption><h3>DIVVLEARN MARK PORTAL</h3><br/></figcaption>
+			<table border="1" class="center">
+				<tbody>
+				<%
+					Map<String, StudentMarksDetails> studentMarksDetailsMap = MarkCalculationService.getMarks();
+					String studentRollNumber = (String)session.getAttribute("LOGGED_IN_USER_NO");
+					String studentName = (String)session.getAttribute("LOGGED_IN_USER");
+					StudentMarksDetails testMarks =MarkCalculationService.viewStudentMarkDetails(studentRollNumber);
+					out.println("<h3>WELCOME "+studentName+"</h3><br/>");
+					out.println("<h4>TEST NUMBER    :  "+testMarks.getTestNumber()+"</th></h4><br/>");
+					out.println("<tr>");
+					out.println("<tr>");
+					out.println("<th>"+"SUBJECTS"+"</th>");
+					out.println("<th>"+"MARKS"+"</th>");
+					out.println("<tr>");
+					out.println("<td>"+"TAMIL MARK"+"</td>");
+					out.println("<td>"+testMarks.getTamilMark()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"ENGLISH MARK"+"</td>");
+					out.println("<td>"+testMarks.getEnglishMark()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"MATHAMATICS MARK"+"</td>");
+					out.println("<td>"+testMarks.getMathamaticsMark()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"SCIENCE MARK"+"</td>");
+					out.println("<td>"+testMarks.getScienceMark()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"SOCIAL MARK"+"</td>");
+					out.println("<td>"+testMarks.getSocialMark()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"TOTAL"+"</td>");
+					out.println("<td>"+testMarks.getTotalMark()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"AVERAGE"+"</td>");
+					out.println("<td>"+testMarks.getAverageMark()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"GRADE"+"</td>");
+					out.println("<td>"+testMarks.getGrade()+"</td>");
+					out.println("</tr>");
+					out.println("<tr>");
+					out.println("<td>"+"COMMENT"+"</td>");
+					out.println("<td>"+testMarks.getGradeComment()+"</td>");
+					out.println("</tr>");
+				%>
+				</tbody>
+			</table>
+		</figure>
 	</main>
 </body>
 </html>
