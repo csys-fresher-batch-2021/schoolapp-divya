@@ -40,6 +40,8 @@ public class StudentLoginActionServlet extends HttpServlet
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("LOGGED_IN_USER",studentName);
+			session.setAttribute("LOGGED_IN_USER_NO",studentRollNumber);
+
 			response.sendRedirect("DisplayStudentInformationList.jsp");
 		}
 		else 

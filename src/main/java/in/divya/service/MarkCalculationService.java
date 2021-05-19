@@ -115,4 +115,33 @@ public class MarkCalculationService
 		
 	}
 	
+	/**
+	 * This Method displays the hashMap that stores the student marks data
+	 * 
+	 * @return
+	 */
+	
+	public static HashMap <String,StudentMarksDetails > getMarks() 
+	{
+		return studentMarksDetailsMap;
+	}
+
+	/**
+	 * This method passing student marks from studentMarksDetailsMap.
+	 * It also checks details are found or not in map.
+	 * @param studentRollNumber
+	 * @return
+	 */
+	
+	public static StudentMarksDetails viewStudentMarkDetails( String studentRollNumber) 
+	{
+		StudentMarksDetails viewStudentMarkDetails =studentMarksDetailsMap.get(studentRollNumber);
+		if(viewStudentMarkDetails == null) 
+		{
+			System.out.println(studentRollNumber +"  Not Found");
+		}
+		System.out.println(viewStudentMarkDetails);
+		return viewStudentMarkDetails;
+	}
+	
 }
