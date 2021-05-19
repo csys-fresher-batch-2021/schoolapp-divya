@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
  * @author divy2624
  *
  */
-public class Validation {
+public class Validation 
+{
 	
 		 private Validation()
 		 {
