@@ -47,42 +47,43 @@
 					StudentMarksDetails testMarks =MarkCalculationService.viewStudentMarkDetails(studentRollNumber);
 					out.println("<h3>WELCOME "+studentName+"</h3><br/>");
 					out.println("<h4>TEST NUMBER    :  "+testMarks.getTestNumber()+"</th></h4><br/>");
-					out.println("<td>"+"TAMIL MARK"+"</td>");
-					out.println("<td>"+testMarks.getTamilMark()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"ENGLISH MARK"+"</td>");
-					out.println("<td>"+testMarks.getEnglishMark()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"MATHAMATICS MARK"+"</td>");
-					out.println("<td>"+testMarks.getMathamaticsMark()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"SCIENCE MARK"+"</td>");
-					out.println("<td>"+testMarks.getScienceMark()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"SOCIAL MARK"+"</td>");
-					out.println("<td>"+testMarks.getSocialMark()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"TOTAL"+"</td>");
-					out.println("<td>"+testMarks.getTotalMark()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"AVERAGE"+"</td>");
-					out.println("<td>"+testMarks.getAverageMark()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"GRADE"+"</td>");
-					out.println("<td>"+testMarks.getGrade()+"</td>");
-					out.println("</tr>");
-					out.println("<tr>");
-					out.println("<td>"+"COMMENT"+"</td>");
-					out.println("<td>"+testMarks.getGradeComment()+"</td>");
-					out.println("</tr>");
 				%>
+				<tr>
+					<td>TAMIL MARK</td>
+					<td><%= testMarks.getTamilMark() %></td>
+				</tr>
+				<tr>
+					<td>ENGLISH MARK</td>
+					<td><%= testMarks.getEnglishMark() %></td>
+				</tr>
+				<tr>
+					<td>MATHAMATICS MARK</td>
+					<td><%= testMarks.getMathamaticsMark() %></td>
+				</tr>
+				<tr>
+					<td>SCIENCE MARK</td>
+					<td><%= testMarks.getScienceMark()  %></td>
+				</tr>
+				<tr>
+					<td>SOCIAL MARK</td>
+					<td><%= testMarks.getSocialMark() %></td>
+				</tr>
+				<tr>
+					<td>TOTAL</td>
+					<td><%= testMarks.getTotalMark() %></td>
+				</tr>
+				<tr>
+					<td>AVERAGE</td>
+					<td><%= testMarks.getAverageMark() %></td>
+				</tr>
+				<tr>
+					<td>GRADE</td>
+					<td><%= testMarks.getGrade() %></td>
+				</tr>
+				<tr>
+					<td>COMMENT</td>
+					<td><%= testMarks.getGradeComment() %></td>
+				</tr>
 				</tbody>
 			</table>
 		</figure>
