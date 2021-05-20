@@ -17,7 +17,8 @@ import in.divya.service.StudentDetailService;
  * Servlet implementation class RegisterActionServlet
  */
 @WebServlet("/RegisterActionServlet")
-public class RegisterActionServlet extends HttpServlet {
+public class RegisterActionServlet extends HttpServlet 
+{
 	private static final long serialVersionUID = 1L;
        
     @Override

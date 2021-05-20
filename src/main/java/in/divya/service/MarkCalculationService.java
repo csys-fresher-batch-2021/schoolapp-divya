@@ -5,6 +5,7 @@ package in.divya.service;
 
 
 import java.util.HashMap;
+import java.util.Map;
 
 import in.divya.model.StudentMarksDetails;
 
@@ -21,7 +22,7 @@ public class MarkCalculationService
 		 */
 	}
 	
-	private static final HashMap<String, StudentMarksDetails> studentMarksDetailsMap = new HashMap<>();
+	private static final Map<String, StudentMarksDetails> studentMarksDetailsMap = new HashMap<>();
 
     /**
      * To add the student marks.       
@@ -113,6 +114,34 @@ public class MarkCalculationService
 		studentMarksDetailsMap.put(mark.getStudentRollNumber(),mark);
 		return true;
 		
+	}
+	
+	/**
+	 * This Method displays the hashMap that stores the student marks data
+	 * 
+	 * @return
+	 */
+	
+	public static Map <String,StudentMarksDetails > getMarks() 
+	{
+		return studentMarksDetailsMap;
+	}
+
+	/**
+	 * This method passing student marks from studentMarksDetailsMap.
+	 * It also checks details are found or not in map.
+	 * @param studentRollNumber
+	 * @return
+	 */
+	
+	public static StudentMarksDetails viewStudentMarkDetails( String studentRollNumber) 
+	{
+		StudentMarksDetails viewStudentMarkDetails =studentMarksDetailsMap.get(studentRollNumber);
+		if(viewStudentMarkDetails == null) 
+		{
+			return null;
+		}
+		return viewStudentMarkDetails;
 	}
 	
 }

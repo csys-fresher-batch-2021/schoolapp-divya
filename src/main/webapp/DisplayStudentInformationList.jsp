@@ -27,7 +27,7 @@
 					TEST MARKS
 				</th>
 				<th scope = "col">
-					<button type="button" class="btn btn-primary">VIEW</button>
+					<button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/app/DisplayStudentMarks.jsp'">VIEW</button>
 				</th>
 			</tr>
 			<tr>
@@ -39,14 +39,7 @@
 				</th>
 			</tr>
 			
-			<tr>
-				<th scope = "col">
-					ATTENDANCE DETAILS
-				</th>
-				<th scope = "col">
-					<button type="button" class="btn btn-primary">VIEW</button>
-				</th>
-			</tr>
+			
 			
 			</table>
 		</figure>
