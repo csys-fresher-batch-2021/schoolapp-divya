@@ -116,10 +116,11 @@ public class MarkCalculationService {
 	 * @return
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
+	 * @throws InValidCredentialsException 
 	 */
 
 	public static Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
-			throws ClassNotFoundException, SQLException {
+			throws ClassNotFoundException, SQLException, InValidCredentialsException {
 
 		return MarkCalculationDAO.getMarksData(studentRollNumber);
 
