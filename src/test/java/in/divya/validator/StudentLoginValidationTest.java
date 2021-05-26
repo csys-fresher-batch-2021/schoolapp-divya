@@ -6,6 +6,8 @@ package in.divya.validator;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.SQLException;
+
 import org.junit.Test;
 
 import in.divya.service.StudentDetailService;
@@ -19,10 +21,12 @@ public class StudentLoginValidationTest
 
 	/**
 	 * All are Valid
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void isStudentBothValidTestCase() 
+	public void isStudentBothValidTestCase() throws ClassNotFoundException, SQLException 
 	{ 
 		String studentName = "K.DIVYA";
 		String studentRollNumber =  "AA22BB1111";
@@ -33,10 +37,12 @@ public class StudentLoginValidationTest
 	
 	/**
 	 * InValid Rollnumber and password
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void studentValidationTest1() 
+	public void studentValidationTest1() throws ClassNotFoundException, SQLException 
 	{ 
 		String studentName = "K.DIVYA";
 		String studentRollNumber = "AA2B1111";
@@ -47,10 +53,12 @@ public class StudentLoginValidationTest
 	
 	/**
 	 * InValid Name and Invalid password
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void studentValidationTest2() 
+	public void studentValidationTest2() throws ClassNotFoundException, SQLException 
 	{ 
 		String studentName = "V.RAMYA";
 		String studentRollNumber = "AA22BB1111" ;
@@ -61,10 +69,12 @@ public class StudentLoginValidationTest
 	
 	/**
 	 * Invalid Name and Password
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void studentValidationTest3() 
+	public void studentValidationTest3() throws ClassNotFoundException, SQLException 
 	{ 
 		String studentName = "M.KAVITHA";
 		String studentRollNumber = "B1111" ;
@@ -75,10 +85,12 @@ public class StudentLoginValidationTest
 	
 	/**
 	 * All are Invalid
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void isStudentBothInValidTestCase() 
+	public void isStudentBothInValidTestCase() throws ClassNotFoundException, SQLException 
 	{ 
 		String studentName = "M.RAM";
 		String studentRollNumber = "AA2111";

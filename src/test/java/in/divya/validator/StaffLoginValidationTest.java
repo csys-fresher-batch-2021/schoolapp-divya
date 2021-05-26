@@ -6,6 +6,8 @@ package in.divya.validator;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.SQLException;
+
 import org.junit.Test;
 
 import in.divya.service.StaffDetailService;
@@ -18,10 +20,12 @@ public class StaffLoginValidationTest
 {
 	/**
 	 * Both are Valid
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void isStaffBothValidTestCase() 
+	public void isStaffBothValidTestCase() throws ClassNotFoundException, SQLException 
 	{ 
 		String staffName = "M.LAKSHMI";
 		String staffPassword =  "Rlakshmi@123";
@@ -31,10 +35,12 @@ public class StaffLoginValidationTest
 	
 	/**
 	 * Invalid staffName and valid password
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void isStaffValidNameTestCase() 
+	public void isStaffValidNameTestCase() throws ClassNotFoundException, SQLException 
 	{ 
 		String staffName = "SELVA";
 		String staffPassword = "Rlakshmi@123";
@@ -44,10 +50,12 @@ public class StaffLoginValidationTest
 	
 	/**
 	 * Valid staffName and Invalid password
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void isStaffValidPasswordTestCase()
+	public void isStaffValidPasswordTestCase() throws ClassNotFoundException, SQLException
 	{ 
 		String staffName = "M.LAKSHMI";
 		String staffPassword =  "RLaks@123";
@@ -57,10 +65,12 @@ public class StaffLoginValidationTest
 	
 	/**
 	 * Invalid staff name and Invalid password
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 	
 	@Test
-	public void isStaffBothInvalidTestCase() 
+	public void isStaffBothInvalidTestCase() throws ClassNotFoundException, SQLException 
 	{ 
 		String staffName = "RAMYA";
 		String staffPassword =  "Ramya@56";

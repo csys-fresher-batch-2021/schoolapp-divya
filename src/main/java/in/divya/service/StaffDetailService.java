@@ -3,53 +3,45 @@
  */
 package in.divya.service;
 
-import java.util.HashMap;
-import in.divya.util.Validation;
+import java.sql.SQLException;
+
+import java.util.List;
+
+import in.divya.dao.StaffDetailDAO;
 
 /**
  * @author divy2624
  *
  */
-public class StaffDetailService
-{
-	private StaffDetailService()
-	{
+public class StaffDetailService {
+	private StaffDetailService() {
 		/**
 		 * Default constructor
 		 */
 	}
-	
-	private static final HashMap<String, String> staffDetailsMap = new HashMap<>();
-	
-	static
-	{
-		staffDetailsMap.put("M.LAKSHMI", "Rlakshmi@123");
-	}
-	
+
 	/**
 	 * To Validate Staff Login
+	 * 
 	 * @param staffName
 	 * @param staffPassword
 	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
-	
-	public static boolean staffValidation(String staffName,String staffPassword) 
-	{
-		boolean isValidStaff = false;
-		boolean isValidName = Validation.isValidString(staffName);
-		boolean isValidPasswordFormat = Validation.isValidPasswordFormat(staffPassword);
-		
+
+	public static boolean staffValidation(String staffName, String staffPassword)
+			throws ClassNotFoundException, SQLException {
+
+		boolean isValidStaffCredentials = false;
+		List<String> staffCredetials = StaffDetailDAO.staffCredentialData();
 		/**
-		 * To validate name,password.
-		 * If it is true......Login sucessfully.
-		 * otherwise it is failed
+		 * If it is true......Login sucessfully. otherwise it is failed
 		 */
-		if (isValidName  && isValidPasswordFormat && staffDetailsMap.containsKey(staffName) && staffPassword.equals(staffDetailsMap.get(staffName))) 
-		{
-				isValidStaff = true;
-			
+		if (staffCredetials.contains(staffName) && staffCredetials.contains(staffPassword)) {
+			isValidStaffCredentials = true;
 		}
-		return isValidStaff;
+		return isValidStaffCredentials;
 
 	}
 
