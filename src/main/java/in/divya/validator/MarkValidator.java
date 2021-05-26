@@ -21,7 +21,7 @@ public class MarkValidator {
 		if (number > 0) {
 			isValidNumber = true;
 		} else {
-			throw new NumberCannotBeNegativeException("Mobile Number Cannot be Negative");
+			throw new NumberCannotBeNegativeException("Number Cannot be Negative");
 		}
 
 		return isValidNumber;
