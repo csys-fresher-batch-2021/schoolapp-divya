@@ -22,7 +22,7 @@ import in.divya.exceptions.InValidLongNumberTypeException;
  * @author divy2624
  *
  */
-class ValidationUtilTest {
+public class ValidationUtilTest {
 
 	/**
 	 * To Check Empty String TestCase
