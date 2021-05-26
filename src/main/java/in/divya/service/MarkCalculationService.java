@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import in.divya.dao.MarkCalculationDAO;
-import in.divya.exceptions.InvalidCredentialsException;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
 
 /**
@@ -96,15 +96,15 @@ public class MarkCalculationService {
 	 * 
 	 * @param mark
 	 * @return
-	 * @throws InvalidCredentialsException
+	 * @throws InValidCredentialsException
 	 */
-	public static boolean addStudentMarks(StudentMarksDetails mark) throws InvalidCredentialsException {
+	public static boolean addStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
 		boolean isAddedStudent = true;
 		try {
 			MarkCalculationDAO.addStudentMarks(mark);
 			return isAddedStudent;
 		} catch (Exception e) {
-			throw new InvalidCredentialsException("Cannot add marks");
+			throw new InValidCredentialsException("Cannot add marks");
 
 		}
 

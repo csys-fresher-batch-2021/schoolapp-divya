@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
 import in.divya.util.ConnectionUtil;
 
@@ -18,14 +19,19 @@ import in.divya.util.ConnectionUtil;
  *
  */
 public class MarkCalculationDAO {
+	private MarkCalculationDAO() {
+		// Default Constructor
+	}
+
 	/**
 	 * To insert student marks into the database.
 	 * 
 	 * @param mark
 	 * @throws SQLException
+	 * @throws InValidCredentialsException 
 	 */
 
-	public static void addStudentMarks(StudentMarksDetails mark) throws SQLException {
+	public static void addStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 
@@ -69,9 +75,10 @@ public class MarkCalculationDAO {
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
+	 * @throws InValidCredentialsException 
 	 */
 	public static Map<String, StudentMarksDetails> getMarksData(String rollNumber)
-			throws ClassNotFoundException, SQLException {
+			throws SQLException, InValidCredentialsException {
 
 		Map<String, StudentMarksDetails> studentMarksData = new HashMap<>();
 		StudentMarksDetails markDB = new StudentMarksDetails();
@@ -82,14 +89,12 @@ public class MarkCalculationDAO {
 		try {
 
 			connection = ConnectionUtil.getConnection();
-			System.out.println(rollNumber);
 
 			String sql = "select * from student_mark where student_roll_number=?";
 
 			pst = connection.prepareStatement(sql);
 			pst.setString(1, rollNumber);
 			rs = pst.executeQuery();
-			System.out.println("bds");
 
 			while (rs.next()) {
 				String studentRollNumber = rs.getString("student_roll_number");

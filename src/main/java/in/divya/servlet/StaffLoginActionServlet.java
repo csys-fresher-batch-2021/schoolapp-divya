@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import in.divya.exceptions.InvalidCredentialsException;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.service.StaffDetailService;
 import in.divya.util.PasswordValidatorUtil;
 import in.divya.util.StringValidatorUtil;
@@ -43,7 +43,7 @@ public class StaffLoginActionServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("DisplayStudentInformationListOperations.jsp");
 				rd.forward(request, response);
 			} else {
-				throw new InvalidCredentialsException("Invalid Staff Credentials");
+				throw new InValidCredentialsException("Invalid Staff Credentials");
 			}
 		} catch (Exception e) {
 			RequestDispatcher rd = request.getRequestDispatcher("StaffLoginPage.jsp?errorMessage=" + e.getMessage());

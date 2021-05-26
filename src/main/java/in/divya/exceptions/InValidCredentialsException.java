@@ -1,13 +1,13 @@
 package in.divya.exceptions;
 
-public class InvalidCredentialsException extends Exception {
+public class InValidCredentialsException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @param message
 	 */
-	public InvalidCredentialsException(String message) {
+	public InValidCredentialsException(String message) {
 		super(message);
 	}
 

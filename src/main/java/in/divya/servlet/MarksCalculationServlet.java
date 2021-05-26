@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import in.divya.exceptions.CannotRegisterStudentException;
-import in.divya.exceptions.InvalidCredentialsException;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
 import in.divya.service.MarkCalculationService;
 import in.divya.validator.MarkValidator;
@@ -99,12 +99,11 @@ public class MarksCalculationServlet extends HttpServlet {
 						+ "&grade=" + grade + "&gradeComment=" + gradeComment);
 
 			} else {
-				throw new InvalidCredentialsException("Cannot Register user");
+				throw new InValidCredentialsException("Cannot Register user");
 			}
 
 		} catch (Exception e) {
-//			String message = e.getMessage();
-//			response.sendRedirect("TestMarks.jsp?errorMessage=" + message);
+
 			e.printStackTrace();
 			RequestDispatcher rd = request.getRequestDispatcher("TestMarks.jsp?errorMessage=" + e.getMessage());
 			rd.forward(request, response);

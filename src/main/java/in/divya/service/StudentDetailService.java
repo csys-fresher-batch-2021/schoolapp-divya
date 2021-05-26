@@ -6,7 +6,7 @@ import java.util.List;
 
 import in.divya.dao.StudentDetailDAO;
 import in.divya.exceptions.CannotRegisterStudentException;
-
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentDetails;
 
 /**
@@ -58,9 +58,10 @@ public class StudentDetailService {
 	 * 
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
+	 * @throws InValidCredentialsException 
 	 */
 	public static boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
-			throws ClassNotFoundException, SQLException {
+			throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		boolean isValidStudentCredentials = false;
 		List<String> studentCredetials = StudentDetailDAO.studentCredentialData();
 		/**

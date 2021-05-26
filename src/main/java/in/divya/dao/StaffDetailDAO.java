@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.util.ConnectionUtil;
 
 /**
@@ -17,6 +18,9 @@ import in.divya.util.ConnectionUtil;
  *
  */
 public class StaffDetailDAO {
+	private StaffDetailDAO() {
+		// Default Constructor
+	}
 
 	/**
 	 * To Verify Staff Login using database
@@ -24,8 +28,9 @@ public class StaffDetailDAO {
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
+	 * @throws InValidCredentialsException 
 	 */
-	public static List<String> staffCredentialData() throws ClassNotFoundException, SQLException {
+	public static List<String> staffCredentialData() throws SQLException, InValidCredentialsException {
 
 		List<String> staffCredetials = new ArrayList<>();
 		Connection connection = null;

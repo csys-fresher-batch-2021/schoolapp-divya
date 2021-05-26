@@ -204,8 +204,4 @@ public class StudentMarksDetails {
 				+ ", averageMark=" + averageMark + ", grade=" + grade + ", gradeComment=" + gradeComment + "]";
 	}
 
-	public boolean equalsIgnoreCase(String studentRollNumber2) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

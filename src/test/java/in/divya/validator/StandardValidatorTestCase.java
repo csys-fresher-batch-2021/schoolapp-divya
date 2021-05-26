@@ -33,7 +33,7 @@ public class StandardValidatorTestCase {
 	 */
 
 	@Test
-	public void inValidStandardFormatIsTested1() {
+	public void InValidStandardFormatIsTested1() {
 		try {
 			String standard = "X&7";
 			boolean isValidRollNumber = StandardValidator.isValidStandardValidation(standard,

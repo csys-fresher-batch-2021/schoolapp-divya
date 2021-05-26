@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import in.divya.exceptions.InvalidCredentialsException;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.service.StudentDetailService;
 import in.divya.util.PasswordValidatorUtil;
 import in.divya.util.StringValidatorUtil;
@@ -53,7 +53,7 @@ public class StudentLoginActionServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("DisplayStudentInformationList.jsp");
 				rd.forward(request, response);
 			} else {
-				throw new InvalidCredentialsException("Invalid Student Credentials");
+				throw new InValidCredentialsException("Invalid Student Credentials");
 			}
 		} catch (Exception e) {
 			RequestDispatcher rd = request.getRequestDispatcher("StudentLoginPage.jsp?errorMessage=" + e.getMessage());

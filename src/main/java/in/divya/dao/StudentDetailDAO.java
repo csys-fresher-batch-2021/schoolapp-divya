@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentDetails;
 import in.divya.util.ConnectionUtil;
 
@@ -19,6 +20,9 @@ import in.divya.util.ConnectionUtil;
  *
  */
 public class StudentDetailDAO {
+	private StudentDetailDAO() {
+		// Default Constructor
+	}
 
 	private static final String INSERT_STUDENT_DATA_QUERY = "insert into student_data(student_name,father_name,mother_name,student_email_id,student_password,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,student_staff_name,parent_mobile_number,date_of_birth) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -71,14 +75,16 @@ public class StudentDetailDAO {
 	}
 
 	/**
-	 * This method returns a hashmap of student credentials required for the verification process
+	 * This method returns a hashmap of student credentials required for the
+	 * verification process
 	 * 
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
+	 * @throws InValidCredentialsException 
 	 */
 
-	public static List<String> studentCredentialData() throws ClassNotFoundException, SQLException {
+	public static List<String> studentCredentialData() throws SQLException, InValidCredentialsException {
 
 		List<String> studentCredentials = new ArrayList<>();
 		Connection connection = null;

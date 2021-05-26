@@ -2,7 +2,6 @@ package in.divya.servlet;
 
 import java.io.IOException;
 
-
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
@@ -33,28 +32,10 @@ public class RegistrationActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public RegistrationActionServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -112,7 +93,6 @@ public class RegistrationActionServlet extends HttpServlet {
 			student.setStudentStandard(studentStandard);
 			student.setStaffName(studentStaffName);
 			student.setParentMobileNumber(studentValidMobileNumber);
-			;
 			student.setDateOfBirth(studentParsedDate);
 			/**
 			 * Step 2: Call Service => add student details
