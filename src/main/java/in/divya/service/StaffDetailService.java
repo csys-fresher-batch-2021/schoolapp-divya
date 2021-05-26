@@ -29,11 +29,11 @@ public class StaffDetailService {
 	 * @return
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
-	 * @throws InValidCredentialsException 
+	 * @throws InValidCredentialsException
 	 */
 
 	public static boolean staffValidation(String staffName, String staffPassword)
-			throws ClassNotFoundException, SQLException, InValidCredentialsException {
+			throws SQLException, InValidCredentialsException {
 
 		boolean isValidStaffCredentials = false;
 		List<String> staffCredetials = StaffDetailDAO.staffCredentialData();

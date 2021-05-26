@@ -58,10 +58,10 @@ public class StudentDetailService {
 	 * 
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
-	 * @throws InValidCredentialsException 
+	 * @throws InValidCredentialsException
 	 */
 	public static boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
-			throws ClassNotFoundException, SQLException, InValidCredentialsException {
+			throws SQLException, InValidCredentialsException {
 		boolean isValidStudentCredentials = false;
 		List<String> studentCredetials = StudentDetailDAO.studentCredentialData();
 		/**

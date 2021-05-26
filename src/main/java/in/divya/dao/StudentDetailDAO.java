@@ -30,10 +30,12 @@ public class StudentDetailDAO {
 	 * This Method Registers a new student into a Database with their data.
 	 * 
 	 * @param student
+	 * @throws InValidCredentialsException 
+	 * @throws SQLException 
 	 * @throws Exception
 	 */
 
-	public static void addStudent(StudentDetails student) throws Exception {
+	public static void addStudent(StudentDetails student) throws InValidCredentialsException, SQLException{
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {

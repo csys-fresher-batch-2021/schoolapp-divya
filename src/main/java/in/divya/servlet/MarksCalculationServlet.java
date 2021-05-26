@@ -85,7 +85,6 @@ public class MarksCalculationServlet extends HttpServlet {
 			mark.setAverageMark(average);
 			mark.setGrade(grade);
 			mark.setGradeComment(gradeComment);
-			System.out.println(mark);
 
 			boolean isAddedMark = MarkCalculationService.addStudentMarks(mark);
 
