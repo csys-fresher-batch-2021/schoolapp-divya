@@ -35,11 +35,11 @@ h3 {
 					<th scope="col">TEST MARKS</th>
 					<th scope="col">
 						<button type="button" class="btn btn-primary"
-							onclick="window.location.href='http://localhost:8080/app/TestMarks.jsp'">ADD
+							onclick="window.location.href='http://localhost:8080/app/StudentMarkAdd.jsp'">ADD
 							TEST MARKS</button>
-						<button type="button" class="btn btn-primary">UPDATE TEST
+						<button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/app/StudentMarkModify.jsp'">UPDATE TEST
 							MARKS</button>
-						<button type="button" class="btn btn-primary">DELETE TEST
+						<button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/app/StudentMarkRemove.jsp'">DELETE TEST
 							MARKS</button>
 					</th>
 				</tr>

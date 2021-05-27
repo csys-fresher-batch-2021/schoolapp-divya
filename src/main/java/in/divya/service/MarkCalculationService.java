@@ -145,4 +145,8 @@ public class MarkCalculationService {
 
 	}
 
+	public static boolean deleteStudentMarks(int testNo) throws InValidCredentialsException, ClassNotFoundException {
+		return MarkCalculationDAO.deleteTestMarkFromTable(testNo);
+	}
+
 }

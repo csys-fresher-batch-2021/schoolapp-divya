@@ -33,7 +33,7 @@ h3 {
 					<th scope="col">TEST MARKS</th>
 					<th scope="col">
 						<button type="button" class="btn btn-primary"
-							onclick="window.location.href='http://localhost:8080/app/DisplayStudentMarks.jsp'">VIEW</button>
+							onclick="window.location.href='http://localhost:8080/app/StudentMarkDisplay.jsp'">VIEW</button>
 					</th>
 				</tr>
 				<tr>
