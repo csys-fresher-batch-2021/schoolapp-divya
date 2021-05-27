@@ -32,7 +32,6 @@ public class StudentDetailDAO {
 	 * @param student
 	 * @throws InValidCredentialsException 
 	 * @throws SQLException 
-	 * @throws Exception
 	 */
 
 	public static void addStudent(StudentDetails student) throws InValidCredentialsException, SQLException{

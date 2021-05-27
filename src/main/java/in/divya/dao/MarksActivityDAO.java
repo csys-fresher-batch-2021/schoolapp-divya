@@ -7,7 +7,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import in.divya.exceptions.InValidCredentialsException;
@@ -18,8 +20,8 @@ import in.divya.util.ConnectionUtil;
  * @author divy2624
  *
  */
-public class MarkCalculationDAO {
-	private MarkCalculationDAO() {
+public class MarksActivityDAO {
+	private MarksActivityDAO() {
 		// Default Constructor
 	}
 
@@ -172,7 +174,7 @@ public class MarkCalculationDAO {
 				markDB.setGradeComment(gradeComment);
 
 				/**
-				 * Store all products in list
+				 * Store marks in map
 				 */
 
 				studentMarksData.put(markDB.getStudentRollNumber(), markDB);
@@ -193,8 +195,7 @@ public class MarkCalculationDAO {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean deleteTestMarkFromTable(int testNo)
-			throws InValidCredentialsException {
+	public static boolean deleteTestMarkFromTable(int testNo) throws InValidCredentialsException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -216,6 +217,72 @@ public class MarkCalculationDAO {
 		}
 		return isDeleted;
 
+	}
+
+	/**
+	 * To diaplay all student marks.
+	 * 
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public static List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
+
+		List<StudentMarksDetails> allStudentMarksToDisplay = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			connection = ConnectionUtil.getConnection();
+
+			String str = "select * from student_mark";
+			pst = connection.prepareStatement(str);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				StudentMarksDetails allMark = new StudentMarksDetails();
+
+				String studentRollNumber = rs.getString("student_roll_number");
+				int testNumber = rs.getInt("test_number");
+				int tamilMark = rs.getInt("tamil_mark");
+				int englishMark = rs.getInt("english_mark");
+				int mathamaticsMark = rs.getInt("mathamatics_mark");
+				int scienceMark = rs.getInt("science_mark");
+				int socialMark = rs.getInt("social_mark");
+				int totalMark = rs.getInt("total_mark");
+				float averageMark = rs.getFloat("average_mark");
+				String grade = rs.getString("grade_mark");
+				String gradeComment = rs.getString("grade_comment");
+				/**
+				 * Store the data in model
+				 */
+
+				allMark.setStudentRollNumber(studentRollNumber);
+				allMark.setTestNumber(testNumber);
+				allMark.setTamilMark(tamilMark);
+				allMark.setEnglishMark(englishMark);
+				allMark.setMathamaticsMark(mathamaticsMark);
+				allMark.setScienceMark(scienceMark);
+				allMark.setSocialMark(socialMark);
+				allMark.setTotalMark(totalMark);
+				allMark.setAverageMark(averageMark);
+				allMark.setGrade(grade);
+				allMark.setGradeComment(gradeComment);
+
+				/**
+				 * Store marks in list.
+				 */
+
+				allStudentMarksToDisplay.add(allMark);
+
+			}
+		} catch (SQLException e) {
+
+			e.getMessage();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return allStudentMarksToDisplay;
 	}
 
 }

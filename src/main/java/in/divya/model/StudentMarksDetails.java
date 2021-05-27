@@ -20,6 +20,8 @@ public class StudentMarksDetails {
 	private String grade;
 	private String gradeComment;
 
+	
+
 	/**
 	 * @return the studentRollNumber
 	 */

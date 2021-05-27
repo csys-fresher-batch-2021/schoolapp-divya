@@ -4,10 +4,10 @@
 package in.divya.service;
 
 import java.sql.SQLException;
-
+import java.util.List;
 import java.util.Map;
 
-import in.divya.dao.MarkCalculationDAO;
+import in.divya.dao.MarksActivityDAO;
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
 
@@ -15,8 +15,8 @@ import in.divya.model.StudentMarksDetails;
  * @author divy2624
  *
  */
-public class MarkCalculationService {
-	private MarkCalculationService() {
+public class MarksActivityService {
+	private MarksActivityService() {
 		/**
 		 * Default constructor
 		 */
@@ -101,7 +101,7 @@ public class MarkCalculationService {
 	public static boolean addStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
 		boolean isAddedStudent = true;
 		try {
-			MarkCalculationDAO.addStudentMarks(mark);
+			MarksActivityDAO.addStudentMarks(mark);
 			return isAddedStudent;
 		} catch (Exception e) {
 			throw new InValidCredentialsException("Cannot add marks");
@@ -120,7 +120,7 @@ public class MarkCalculationService {
 	public static boolean updateStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
 		boolean isUpdatedStudent = true;
 		try {
-			MarkCalculationDAO.updateStudentMarks(mark);
+			MarksActivityDAO.updateStudentMarks(mark);
 			return isUpdatedStudent;
 		} catch (Exception e) {
 			throw new InValidCredentialsException("Cannot Update marks");
@@ -141,12 +141,30 @@ public class MarkCalculationService {
 	public static Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
 			throws SQLException, InValidCredentialsException {
 
-		return MarkCalculationDAO.getMarksData(studentRollNumber);
+		return MarksActivityDAO.getMarksData(studentRollNumber);
 
 	}
 
+	/**
+	 * Delete Test
+	 * 
+	 * @param testNo
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
 	public static boolean deleteStudentMarks(int testNo) throws InValidCredentialsException {
-		return MarkCalculationDAO.deleteTestMarkFromTable(testNo);
+		return MarksActivityDAO.deleteTestMarkFromTable(testNo);
 	}
 
+	/**
+	 * To display all student marks.
+	 * 
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public static List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
+		return MarksActivityDAO.displayAllStudentMarks();
+
+	}
 }

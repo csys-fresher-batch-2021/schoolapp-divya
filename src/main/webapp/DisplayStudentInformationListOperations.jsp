@@ -32,14 +32,28 @@ h3 {
 					<th scope="col">OPERATIONS</th>
 				</tr>
 				<tr>
+					<th scope="col">STUDENT DETAILS</th>
+					<th scope="col">
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentMarkAdd.jsp'">
+							VIEW STUDENT INFORMATION</button>
+					</th>
+
+				</tr>
+				<tr>
 					<th scope="col">TEST MARKS</th>
 					<th scope="col">
 						<button type="button" class="btn btn-primary"
 							onclick="window.location.href='http://localhost:8080/app/StudentMarkAdd.jsp'">ADD
 							TEST MARKS</button>
-						<button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/app/StudentMarkModify.jsp'">UPDATE TEST
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentMarkModify.jsp'">UPDATE
 							MARKS</button>
-						<button type="button" class="btn btn-primary" onclick="window.location.href='http://localhost:8080/app/StudentMarkRemove.jsp'">DELETE TEST
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentMarkRemove.jsp'">DELETE
+							MARKS</button>
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/AllStudentMarksDisplay.jsp'">VIEW
 							MARKS</button>
 					</th>
 				</tr>

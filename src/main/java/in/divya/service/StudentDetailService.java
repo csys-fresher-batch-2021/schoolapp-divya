@@ -23,13 +23,10 @@ public class StudentDetailService {
 		 */
 	}
 
-	/**
-	 * Feature1: Registration-Add the student details To check it is successfully
-	 * add or not.
-	 */
+
 
 	/**
-	 * 
+	 * Feature1: Registration-Add the student details To check it is successfully
 	 * @param student
 	 * @return
 	 * @throws EmptyStringException
@@ -48,7 +45,7 @@ public class StudentDetailService {
 			StudentDetailDAO.addStudent(student);
 			return isAddedStudent;
 		} catch (Exception e) {
-			throw new CannotRegisterStudentException("Cannot add employee");
+			throw new CannotRegisterStudentException("Cannot add Student");
 
 		}
 	}

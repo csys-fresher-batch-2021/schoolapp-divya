@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import in.divya.service.MarkCalculationService;
+import in.divya.service.MarksActivityService;
 import in.divya.validator.MarkValidator;
 
 /**
@@ -41,7 +41,7 @@ public class StudentMarkRemoveServlet extends HttpServlet {
 			MarkValidator.isNumberPositive(testNo);
 		
 
-			boolean isMarkDeleted = MarkCalculationService.deleteStudentMarks(testNo);
+			boolean isMarkDeleted = MarksActivityService.deleteStudentMarks(testNo);
 
 			/**
 			 * To check student marks are sucessfully delete  or not.

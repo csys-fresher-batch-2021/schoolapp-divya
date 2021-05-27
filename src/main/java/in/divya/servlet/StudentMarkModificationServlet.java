@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
-import in.divya.service.MarkCalculationService;
+import in.divya.service.MarksActivityService;
 import in.divya.validator.MarkValidator;
 import in.divya.validator.RollNumberValidator;
 
 /**
  * Servlet implementation class MarkModificationServlet
  */
-@WebServlet("/MarkModificationServlet")
-public class MarkModificationServlet extends HttpServlet {
+@WebServlet("/StudentMarkModificationServlet")
+public class StudentMarkModificationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -75,17 +75,17 @@ public class MarkModificationServlet extends HttpServlet {
 			/**
 			 * Find Total Find Average Find Grade Find Comment
 			 */
-			int total = MarkCalculationService.addMarks(mark);
-			float average = MarkCalculationService.averageMarks(total);
-			String grade = MarkCalculationService.gradeRank(average);
-			String gradeComment = MarkCalculationService.gradeComment(grade);
+			int total = MarksActivityService.addMarks(mark);
+			float average = MarksActivityService.averageMarks(total);
+			String grade = MarksActivityService.gradeRank(average);
+			String gradeComment = MarksActivityService.gradeComment(grade);
 
 			mark.setTotalMark(total);
 			mark.setAverageMark(average);
 			mark.setGrade(grade);
 			mark.setGradeComment(gradeComment);
 
-			boolean isUpdatedMark = MarkCalculationService.updateStudentMarks(mark);
+			boolean isUpdatedMark = MarksActivityService.updateStudentMarks(mark);
 
 			/**
 			 * To check student marks are sucessfully update into map or not.
