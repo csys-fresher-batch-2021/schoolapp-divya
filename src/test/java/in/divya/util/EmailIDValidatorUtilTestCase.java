@@ -23,7 +23,7 @@ public class EmailIDValidatorUtilTestCase {
 
 	@Test
 	public void validEmailIdIsTested() throws InValidEmailIDException {
-		String emailId = "divya@gmail.com";
+		String emailId = "divyamar@gmail.com";
 		boolean isValidMail = EmailIDValidatorUtil.isValidEmailId(emailId, "InValid EmailId Format");
 		assertTrue(isValidMail);
 	}

@@ -39,7 +39,7 @@ h1 {
 		<br>
 		<div style="margin: 50px">
 			<!-- Mark Portal Page -->
-			<form action="MarkModificationServlet" method="post">
+			<form action="StudentMarkModificationServlet" method="post">
 				<label>STUDENT ROLL NUMBER : </label> <input type="text"
 					name="studentRollNumber" id="studentRollNumber"
 					placeholder="Enter Student Roll Number" required><br />

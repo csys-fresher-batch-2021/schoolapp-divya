@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import in.divya.exceptions.CannotRegisterStudentException;
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
-import in.divya.service.MarkCalculationService;
+import in.divya.service.MarksActivityService;
 import in.divya.validator.MarkValidator;
 import in.divya.validator.RollNumberValidator;
 
@@ -20,8 +20,8 @@ import in.divya.validator.RollNumberValidator;
  * Servlet implementation class MarksCalculationServlet
  */
 
-@WebServlet("/MarksCalculationServlet")
-public class MarksCalculationServlet extends HttpServlet {
+@WebServlet("/StudentMarksAddingServlet")
+public class StudentMarksAddingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -76,17 +76,17 @@ public class MarksCalculationServlet extends HttpServlet {
 			/**
 			 * Find Total Find Average Find Grade Find Comment
 			 */
-			int total = MarkCalculationService.addMarks(mark);
-			float average = MarkCalculationService.averageMarks(total);
-			String grade = MarkCalculationService.gradeRank(average);
-			String gradeComment = MarkCalculationService.gradeComment(grade);
+			int total = MarksActivityService.addMarks(mark);
+			float average = MarksActivityService.averageMarks(total);
+			String grade = MarksActivityService.gradeRank(average);
+			String gradeComment = MarksActivityService.gradeComment(grade);
 
 			mark.setTotalMark(total);
 			mark.setAverageMark(average);
 			mark.setGrade(grade);
 			mark.setGradeComment(gradeComment);
 
-			boolean isAddedMark = MarkCalculationService.addStudentMarks(mark);
+			boolean isAddedMark = MarksActivityService.addStudentMarks(mark);
 
 			/**
 			 * To check student marks are sucessfully added into map or not.
