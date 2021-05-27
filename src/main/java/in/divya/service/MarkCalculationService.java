@@ -92,7 +92,7 @@ public class MarkCalculationService {
 	}
 
 	/**
-	 * To add all student mark details into map.
+	 * To add all student mark details into db.
 	 * 
 	 * @param mark
 	 * @return
@@ -111,12 +111,31 @@ public class MarkCalculationService {
 	}
 
 	/**
+	 * To update student mark details into db.
+	 * 
+	 * @param mark
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public static boolean updateStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+		boolean isUpdatedStudent = true;
+		try {
+			MarkCalculationDAO.updateStudentMarks(mark);
+			return isUpdatedStudent;
+		} catch (Exception e) {
+			throw new InValidCredentialsException("Cannot Update marks");
+
+		}
+
+	}
+
+	/**
 	 * This Method displays the list that stores the student marks data
 	 * 
 	 * @return
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
-	 * @throws InValidCredentialsException 
+	 * @throws InValidCredentialsException
 	 */
 
 	public static Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
