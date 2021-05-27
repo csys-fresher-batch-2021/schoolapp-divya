@@ -93,17 +93,17 @@ public class MarkModificationServlet extends HttpServlet {
 
 			if (isUpdatedMark) {
 				String message = "MARKS UPDATED SUCCESSFULLY";
-				response.sendRedirect("MarkModification.jsp?infoMessage=" + message + "&total=" + total + "&average="
+				response.sendRedirect("StudentMarkModify.jsp?infoMessage=" + message + "&total=" + total + "&average="
 						+ average + "&grade=" + grade + "&gradeComment=" + gradeComment);
 
 			} else {
-				throw new InValidCredentialsException("Cannot Register user");
+				throw new InValidCredentialsException("Cannot update student mark");
 			}
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			RequestDispatcher rd = request.getRequestDispatcher("TestMarks.jsp?errorMessage=" + e.getMessage());
+			RequestDispatcher rd = request.getRequestDispatcher("StudentMarkModify.jsp?errorMessage=" + e.getMessage());
 			rd.forward(request, response);
 		}
 

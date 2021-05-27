@@ -186,4 +186,36 @@ public class MarkCalculationDAO {
 		return studentMarksData;
 	}
 
+	/**
+	 * Delete student marks in database table.
+	 * 
+	 * @param testNo
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public static boolean deleteTestMarkFromTable(int testNo)
+			throws InValidCredentialsException {
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+
+		boolean isDeleted = false;
+		try {
+			connection = ConnectionUtil.getConnection();
+			String str = "delete from student_mark where test_number=?";
+			pst = connection.prepareStatement(str);
+			pst.setInt(1, testNo);
+			pst.executeUpdate();
+			isDeleted = true;
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pst, connection);
+		}
+		return isDeleted;
+
+	}
+
 }

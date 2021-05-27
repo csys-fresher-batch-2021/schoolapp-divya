@@ -73,14 +73,14 @@ h1 {
 			    {
 					out.println("<font color='blue'>"+errorMessage+"</font>");
 				}
-			    String infoMessage = request.getParameter("infoMessage");
-				String total = request.getParameter("total");
-				String average = request.getParameter("average");
-				String grade = request.getParameter("grade");
-				String gradeComment = request.getParameter("gradeComment");
-				if(infoMessage!=null && total!=null && average!=null && grade!=null && gradeComment!=null)
+			    String infoMessage1 = request.getParameter("infoMessage");
+				String total1 = request.getParameter("total");
+				String average1 = request.getParameter("average");
+				String grade1 = request.getParameter("grade");
+				String gradeComment1 = request.getParameter("gradeComment");
+				if(infoMessage1!=null && total1!=null && average1!=null && grade1!=null && gradeComment1!=null)
 				{
-					out.println("<font color='blue'><h3>"+infoMessage+"</font></h3><br/>"+"<h4>TOTAL MARK = <font color='blue'> "+ total +"</font></h4>" +"<h4> AVERAGE MARK = <font color ='blue'> "+ average +"</font></h4>" + "<h4> GRADE = <font color='blue'> "+ grade +"</font></h4>"+"<h4>GRADE COMMENT = <font color='blue'> "+ gradeComment+"</font></h4>");
+					out.println("<font color='blue'><h3>"+infoMessage1+"</font></h3><br/>"+"<h4>TOTAL MARK = <font color='blue'> "+ total1 +"</font></h4>" +"<h4> AVERAGE MARK = <font color ='blue'> "+ average1 +"</font></h4>" + "<h4> GRADE = <font color='blue'> "+ grade1 +"</font></h4>"+"<h4>GRADE COMMENT = <font color='blue'> "+ gradeComment1+"</font></h4>");
 				}
 				%>
 			</form>

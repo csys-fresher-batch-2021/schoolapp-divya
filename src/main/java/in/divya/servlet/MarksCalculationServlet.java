@@ -94,7 +94,7 @@ public class MarksCalculationServlet extends HttpServlet {
 
 			if (isAddedMark) {
 				String message = "MARKS ADDED SUCCESSFULLY";
-				response.sendRedirect("TestMarks.jsp?infoMessage=" + message + "&total=" + total + "&average=" + average
+				response.sendRedirect("StudentMarkAdd.jsp?infoMessage=" + message + "&total=" + total + "&average=" + average
 						+ "&grade=" + grade + "&gradeComment=" + gradeComment);
 
 			} else {
@@ -104,7 +104,7 @@ public class MarksCalculationServlet extends HttpServlet {
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			RequestDispatcher rd = request.getRequestDispatcher("TestMarks.jsp?errorMessage=" + e.getMessage());
+			RequestDispatcher rd = request.getRequestDispatcher("StudentMarkAdd.jsp?errorMessage=" + e.getMessage());
 			rd.forward(request, response);
 		}
 
