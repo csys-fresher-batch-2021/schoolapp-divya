@@ -28,7 +28,7 @@ public class MarkCalculationDAO {
 	 * 
 	 * @param mark
 	 * @throws SQLException
-	 * @throws InValidCredentialsException 
+	 * @throws InValidCredentialsException
 	 */
 
 	public static void addStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
@@ -41,7 +41,6 @@ public class MarkCalculationDAO {
 			String sql = "insert into student_mark(student_roll_number,test_number,tamil_mark,english_mark,mathamatics_mark,science_mark,social_mark,total_mark,average_mark,grade_mark,grade_comment)values (?,?,?,?,?,?,?,?,?,?,?)";
 
 			pst = connection.prepareStatement(sql);
-
 			pst.setString(1, mark.getStudentRollNumber());
 			pst.setInt(2, mark.getTestNumber());
 			pst.setInt(3, mark.getTamilMark());
@@ -69,14 +68,61 @@ public class MarkCalculationDAO {
 	}
 
 	/**
+	 * To update student marks into the database.
+	 * 
+	 * @param mark
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+
+	public static void updateStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
+		PreparedStatement pst = null;
+		Connection connection = null;
+
+		try {
+			connection = ConnectionUtil.getConnection();
+
+			String sql = "update student_mark set test_number=?,tamil_mark=?,english_mark=?,mathamatics_mark=?,science_mark=?,social_mark=?,total_mark=?,average_mark=?,grade_mark=?,grade_comment=? where student_roll_number=?";
+
+			pst = connection.prepareStatement(sql);
+
+			pst.setInt(1, mark.getTestNumber());
+			pst.setInt(2, mark.getTamilMark());
+			pst.setInt(3, mark.getEnglishMark());
+			pst.setInt(4, mark.getMathamaticsMark());
+			pst.setInt(5, mark.getScienceMark());
+			pst.setInt(6, mark.getSocialMark());
+			pst.setInt(7, mark.getTotalMark());
+			pst.setFloat(8, mark.getAverageMark());
+			pst.setString(9, mark.getGrade());
+			pst.setString(10, mark.getGradeComment());
+			pst.setString(11, mark.getStudentRollNumber());
+
+			pst.executeUpdate();
+
+		} catch (SQLException e) {
+			e.getMessage();
+		} finally {
+			if (pst != null) {
+				pst.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+
+	}
+
+	/**
 	 * To display student marks.
 	 * 
 	 * @param rollNumber
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
-	 * @throws InValidCredentialsException 
+	 * @throws InValidCredentialsException
 	 */
+
 	public static Map<String, StudentMarksDetails> getMarksData(String rollNumber)
 			throws SQLException, InValidCredentialsException {
 
