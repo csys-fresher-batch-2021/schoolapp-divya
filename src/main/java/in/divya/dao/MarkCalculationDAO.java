@@ -192,10 +192,9 @@ public class MarkCalculationDAO {
 	 * @param testNo
 	 * @return
 	 * @throws InValidCredentialsException
-	 * @throws ClassNotFoundException
 	 */
 	public static boolean deleteTestMarkFromTable(int testNo)
-			throws InValidCredentialsException, ClassNotFoundException {
+			throws InValidCredentialsException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
