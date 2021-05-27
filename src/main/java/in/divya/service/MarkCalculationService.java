@@ -3,145 +3,127 @@
  */
 package in.divya.service;
 
+import java.sql.SQLException;
 
-import java.util.HashMap;
 import java.util.Map;
 
+import in.divya.dao.MarkCalculationDAO;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
 
 /**
  * @author divy2624
  *
  */
-public class MarkCalculationService 
-{
-	private MarkCalculationService()
-	{
+public class MarkCalculationService {
+	private MarkCalculationService() {
 		/**
 		 * Default constructor
 		 */
 	}
-	
-	private static final Map<String, StudentMarksDetails> studentMarksDetailsMap = new HashMap<>();
 
-    /**
-     * To add the student marks.       
-     * @param mark
-     * @return
-     */
-	
-	public static int addMarks(StudentMarksDetails mark)
-	{
-		
+	/**
+	 * To add the student marks.
+	 * 
+	 * @param mark
+	 * @return
+	 */
 
-		int tamil=mark.getTamilMark();
-		int english=mark.getEnglishMark();
-		int maths=mark.getMathamaticsMark();
-		int science=mark.getScienceMark();
-		int social=mark.getSocialMark();
-		return tamil+english+maths+science+social;
+	public static int addMarks(StudentMarksDetails mark) {
+
+		int tamil = mark.getTamilMark();
+		int english = mark.getEnglishMark();
+		int maths = mark.getMathamaticsMark();
+		int science = mark.getScienceMark();
+		int social = mark.getSocialMark();
+		return tamil + english + maths + science + social;
 	}
 
 	/**
 	 * Find average from total.
+	 * 
 	 * @param total
 	 * @return
 	 */
 
-	public static float averageMarks(int total) 
-	{
-		return ((float)total/5);
+	public static float averageMarks(int total) {
+		return ((float) total / 5);
 	}
 
 	/**
 	 * Find grade from average
+	 * 
 	 * @param average
 	 * @return
 	 */
 
-	public static String gradeRank(float average) 
-	{
-		String grade=null;
-        if(average>90)
-        {
-       	 grade="A";
-        }
-        else if( average<=90 && average>=70) 
-        {
-       	 grade="B";
-        }
-        else
-        {
-       	 grade="C";
-        }
-        return grade;
-		
-	}
-	
-	/**
-	 * Find comments from grade.
-	 * @param grade
-	 * @return
-	 */
-	
-	public static String gradeComment(String grade)
-	{
-		String result;
-		if(grade.equals("A")) 
-		{
-			result="EXCELLENT";
-			
+	public static String gradeRank(float average) {
+		String grade = null;
+		if (average > 90) {
+			grade = "A";
+		} else if (average <= 90 && average >= 70) {
+			grade = "B";
+		} else {
+			grade = "C";
 		}
-		else if(grade.equals("B"))
-		{
-			result="GOOD";
-		}
-		else
-		{
-			result="BAD";
-		}
-	    
-		return result;
-	}
-	
-	/**
-	 * To add all student mark details into map.
-	 * @param mark
-	 * @return
-	 */
-	public static boolean addMarksToMap(StudentMarksDetails mark)
-	{
-		studentMarksDetailsMap.put(mark.getStudentRollNumber(),mark);
-		return true;
-		
-	}
-	
-	/**
-	 * This Method displays the hashMap that stores the student marks data
-	 * 
-	 * @return
-	 */
-	
-	public static Map <String,StudentMarksDetails > getMarks() 
-	{
-		return studentMarksDetailsMap;
+		return grade;
+
 	}
 
 	/**
-	 * This method passing student marks from studentMarksDetailsMap.
-	 * It also checks details are found or not in map.
-	 * @param studentRollNumber
+	 * Find comments from grade.
+	 * 
+	 * @param grade
 	 * @return
 	 */
-	
-	public static StudentMarksDetails viewStudentMarkDetails( String studentRollNumber) 
-	{
-		StudentMarksDetails viewStudentMarkDetails =studentMarksDetailsMap.get(studentRollNumber);
-		if(viewStudentMarkDetails == null) 
-		{
-			return null;
+
+	public static String gradeComment(String grade) {
+		String result;
+		if (grade.equals("A")) {
+			result = "EXCELLENT";
+
+		} else if (grade.equals("B")) {
+			result = "GOOD";
+		} else {
+			result = "BAD";
 		}
-		return viewStudentMarkDetails;
+
+		return result;
 	}
-	
+
+	/**
+	 * To add all student mark details into map.
+	 * 
+	 * @param mark
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public static boolean addStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+		boolean isAddedStudent = true;
+		try {
+			MarkCalculationDAO.addStudentMarks(mark);
+			return isAddedStudent;
+		} catch (Exception e) {
+			throw new InValidCredentialsException("Cannot add marks");
+
+		}
+
+	}
+
+	/**
+	 * This Method displays the list that stores the student marks data
+	 * 
+	 * @return
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 * @throws InValidCredentialsException 
+	 */
+
+	public static Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
+			throws SQLException, InValidCredentialsException {
+
+		return MarkCalculationDAO.getMarksData(studentRollNumber);
+
+	}
+
 }

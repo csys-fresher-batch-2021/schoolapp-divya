@@ -5,7 +5,7 @@
  */
 package in.divya.exceptions;
 
-public class CannotAddIntoMapException extends RuntimeException 
+public class CannotRegisterStudentException extends RuntimeException 
 {
 
 	/**
@@ -13,7 +13,7 @@ public class CannotAddIntoMapException extends RuntimeException
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public CannotAddIntoMapException(String errorMessage) {
+	public CannotRegisterStudentException(String errorMessage) {
 		super(errorMessage);
 	}
 

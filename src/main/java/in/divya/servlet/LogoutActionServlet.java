@@ -13,18 +13,18 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/LogoutActionServlet")
 
-public class LogoutActionServlet extends HttpServlet
-{
+public class LogoutActionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-    	/**
-    	 * Gets the HTTPSession object.
-    	 * And removes the object bound with the specified name(LOGGED_IN_USER) from the session.
-    	 * And response passing to the StudentLoginPage.
-    	 */
-    	
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		/**
+		 * Gets the HTTPSession object. And removes the object bound with the specified
+		 * name(LOGGED_IN_USER) from the session. And response passing to the
+		 * StudentLoginPage.
+		 */
+
 		HttpSession session = request.getSession();
 		session.removeAttribute("LOGGED_IN_USER");
 		response.sendRedirect("index.jsp");
