@@ -41,7 +41,6 @@ public class MarkCalculationDAO {
 			String sql = "insert into student_mark(student_roll_number,test_number,tamil_mark,english_mark,mathamatics_mark,science_mark,social_mark,total_mark,average_mark,grade_mark,grade_comment)values (?,?,?,?,?,?,?,?,?,?,?)";
 
 			pst = connection.prepareStatement(sql);
-
 			pst.setString(1, mark.getStudentRollNumber());
 			pst.setInt(2, mark.getTestNumber());
 			pst.setInt(3, mark.getTamilMark());
@@ -98,6 +97,7 @@ public class MarkCalculationDAO {
 			pst.setString(9, mark.getGrade());
 			pst.setString(10, mark.getGradeComment());
 			pst.setString(11, mark.getStudentRollNumber());
+
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
@@ -122,6 +122,7 @@ public class MarkCalculationDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
+
 	public static Map<String, StudentMarksDetails> getMarksData(String rollNumber)
 			throws SQLException, InValidCredentialsException {
 

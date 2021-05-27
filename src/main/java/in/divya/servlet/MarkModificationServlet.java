@@ -22,13 +22,13 @@ import in.divya.validator.RollNumberValidator;
 public class MarkModificationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
-
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 			StudentMarksDetails mark = new StudentMarksDetails();
 
@@ -45,30 +45,31 @@ public class MarkModificationServlet extends HttpServlet {
 			String socialMark = request.getParameter("socialMark");
 
 			RollNumberValidator.isValidRollNumberFormat(studentRollNumber, "Invalid RollNumber Format");
-			mark.setStudentRollNumber(studentRollNumber);
 
 			int testNumber1 = MarkValidator.isValidNumberOnly(testNumber, "Invalid Test Number");
 			MarkValidator.isNumberPositive(testNumber1);
-			mark.setTestNumber(testNumber1);
 
 			int tamilMark1 = MarkValidator.isValidNumberOnly(tamilMark, "Invalid Tamil Mark");
 			MarkValidator.isNumberPositive(tamilMark1);
-			mark.setTamilMark(tamilMark1);
 
 			int englishMark1 = MarkValidator.isValidNumberOnly(englishMark, "Invalid English Mark");
 			MarkValidator.isNumberPositive(englishMark1);
-			mark.setEnglishMark(englishMark1);
 
 			int mathamaticsMark1 = MarkValidator.isValidNumberOnly(mathamaticsMark, "Invalid Mathamatics Mark");
 			MarkValidator.isNumberPositive(mathamaticsMark1);
-			mark.setMathamaticsMark(mathamaticsMark1);
 
 			int scienceMark1 = MarkValidator.isValidNumberOnly(scienceMark, "Invalid Science mark");
 			MarkValidator.isNumberPositive(scienceMark1);
-			mark.setScienceMark(scienceMark1);
 
 			int socialMark1 = MarkValidator.isValidNumberOnly(socialMark, "Invalid Social Mark");
 			MarkValidator.isNumberPositive(socialMark1);
+
+			mark.setStudentRollNumber(studentRollNumber);
+			mark.setTestNumber(testNumber1);
+			mark.setTamilMark(tamilMark1);
+			mark.setEnglishMark(englishMark1);
+			mark.setMathamaticsMark(mathamaticsMark1);
+			mark.setScienceMark(scienceMark1);
 			mark.setSocialMark(socialMark1);
 
 			/**
@@ -92,8 +93,8 @@ public class MarkModificationServlet extends HttpServlet {
 
 			if (isUpdatedMark) {
 				String message = "MARKS UPDATED SUCCESSFULLY";
-				response.sendRedirect("MarkModification.jsp?infoMessage=" + message + "&total=" + total + "&average=" + average
-						+ "&grade=" + grade + "&gradeComment=" + gradeComment);
+				response.sendRedirect("MarkModification.jsp?infoMessage=" + message + "&total=" + total + "&average="
+						+ average + "&grade=" + grade + "&gradeComment=" + gradeComment);
 
 			} else {
 				throw new InValidCredentialsException("Cannot Register user");
@@ -107,6 +108,5 @@ public class MarkModificationServlet extends HttpServlet {
 		}
 
 	}
-	
 
 }
