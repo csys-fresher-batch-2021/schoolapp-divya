@@ -33,17 +33,17 @@ public class StudentRemoveServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String studentRollNumber = request.getParameter("studentRollNumber");
+		String studentRollNumber = request.getParameter("allInfo");
 		try {
 			boolean isRemoved = StudentDetailService.deleteStudentFromTheDataBase(studentRollNumber);
 			if (isRemoved) {
 				RequestDispatcher rd = request.getRequestDispatcher(
-						"AllStudentInformationDisplay.jsp?infoMessage=SuccessFully Deleted Student-"
+						"AllStudentInformationDisplay.jsp?infoMessage=SuccessFully Deleted Student - "
 								+ studentRollNumber);
 				rd.forward(request, response);
 			} else {
 				RequestDispatcher rd = request.getRequestDispatcher(
-						"AllStudentInformationDisplay.jsp?errorMessage=Cannot Delete Student" + studentRollNumber);
+						"AllStudentInformationDisplay.jsp?errorMessage=Cannot Delete Student - " + studentRollNumber);
 				rd.forward(request, response);
 			}
 		} catch (InValidCredentialsException e) {

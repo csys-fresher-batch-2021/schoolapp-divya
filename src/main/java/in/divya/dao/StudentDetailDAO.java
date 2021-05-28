@@ -199,7 +199,6 @@ public class StudentDetailDAO {
 	public static boolean deleteStudentFromTable(String studentRollNumber) throws InValidCredentialsException {
 		Connection connection = null;
 		PreparedStatement pst = null;
-
 		boolean isDeleted = false;
 		try {
 			connection = ConnectionUtil.getConnection();

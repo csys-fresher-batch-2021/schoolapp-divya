@@ -90,7 +90,7 @@ h3 {
 						<td><%=allInfo.getParentMobileNumber()   %></td>
 						<td><%=allInfo.getDateOfBirth()   %></td>
 						<td><a
-						href="StudentRemoveServlet?allInfo=<%=allInfo.getStudentRollNumber() %> " onclick="return deleteConfirmation('<%=allInfo.getStudentRollNumber()%>')">Delete
+						href="StudentRemoveServlet?allInfo=<%=allInfo.getStudentRollNumber()%> " onclick="return deleteConfirmation('<%=allInfo.getStudentRollNumber()%>')">Delete
 						</a></td>
 					</tr>
 					<%
@@ -104,6 +104,16 @@ h3 {
 
 
 		</figure>
+	
 	</main>
+	<script>
+	function deleteConfirmation(studentRollNumber){
+		if(confirm("Are You sure want to delete "+studentRollNumber)){
+		}else{
+			event.preventDefault();
+		}
+	}
+	</script>
+	
 </body>
 </html>
