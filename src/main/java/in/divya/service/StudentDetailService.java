@@ -1,6 +1,6 @@
 package in.divya.service;
 
-import java.sql.SQLException;
+
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class StudentDetailService {
 	 * @throws InValidCredentialsException
 	 */
 	public static boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
-			throws SQLException, InValidCredentialsException {
+			throws InValidCredentialsException {
 		boolean isValidStudentCredentials = false;
 		List<String> studentCredetials = StudentDetailDAO.studentCredentialData();
 		/**
@@ -78,7 +78,7 @@ public class StudentDetailService {
 	 * @throws InValidCredentialsException
 	 */
 	public static List<StudentDetails> displayAllStudentInformation(String staffName)
-			throws SQLException, InValidCredentialsException {
+			throws  InValidCredentialsException {
 		return StudentDetailDAO.displayAllStudentInformation(staffName);
 
 	}
