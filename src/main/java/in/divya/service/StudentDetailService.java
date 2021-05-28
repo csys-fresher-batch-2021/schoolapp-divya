@@ -1,9 +1,6 @@
 package in.divya.service;
 
-
-
 import java.util.List;
-
 import in.divya.dao.StudentDetailDAO;
 import in.divya.exceptions.CannotRegisterStudentException;
 import in.divya.exceptions.InValidCredentialsException;

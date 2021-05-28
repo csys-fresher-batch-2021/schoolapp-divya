@@ -117,6 +117,13 @@ public class StudentDetailDAO {
 		return studentCredentials;
 	}
 
+	/**
+	 * Display All student Information
+	 * 
+	 * @param staffName
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
 	public static List<StudentDetails> displayAllStudentInformation(String staffName)
 			throws InValidCredentialsException {
 
