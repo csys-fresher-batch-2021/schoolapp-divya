@@ -1,6 +1,8 @@
 package in.divya.service;
 
 import java.util.List;
+import java.util.Map;
+
 import in.divya.dao.StudentDetailDAO;
 import in.divya.exceptions.CannotRegisterStudentException;
 import in.divya.exceptions.InValidCredentialsException;
@@ -20,19 +22,12 @@ public class StudentDetailService {
 		 */
 	}
 
+	 
 	/**
-	 * Feature1: Registration-Add the student details To check it is successfully
+	 * Registration-Add the student details To check it is successfully
 	 * 
 	 * @param student
 	 * @return
-	 * @throws EmptyStringException
-	 * @throws InValidEmailIDException
-	 * @throws InValidPasswordFormatException
-	 * @throws InValidRollNumberFormatException
-	 * @throws InValidBloodGroupFormatException
-	 * @throws InValidStandardFormatException
-	 * @throws InValidMobileNumberException
-	 * @throws InValidDateException
 	 */
 
 	public static boolean addStudent(StudentDetails student) {
@@ -49,10 +44,9 @@ public class StudentDetailService {
 	/**
 	 * If it is true......Login sucessfully. otherwise it is failed
 	 * 
-	 * @throws SQLException
-	 * @throws ClassNotFoundException
 	 * @throws InValidCredentialsException
 	 */
+	
 	public static boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
 			throws InValidCredentialsException {
 		boolean isValidStudentCredentials = false;
@@ -71,13 +65,25 @@ public class StudentDetailService {
 	 * To display all student Information.
 	 * 
 	 * @return
-	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
 	public static List<StudentDetails> displayAllStudentInformation(String staffName)
-			throws  InValidCredentialsException {
+			throws InValidCredentialsException {
 		return StudentDetailDAO.displayAllStudentInformation(staffName);
 
+	}
+
+	/**
+	 * To display individual student information.
+	 * 
+	 * @param studentRollnumber
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public static Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
+			throws InValidCredentialsException {
+
+		return StudentDetailDAO.displayIndividualStudentData(studentRollnumber);
 	}
 
 	/**
