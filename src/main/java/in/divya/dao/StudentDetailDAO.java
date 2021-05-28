@@ -10,7 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentDetails;
@@ -77,12 +79,9 @@ public class StudentDetailDAO {
 	}
 
 	/**
-	 * This method returns a hashmap of student credentials required for the
-	 * verification process
+	 * This method returns a list of student credentials required for login purpose.
 	 * 
 	 * @return
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
 
@@ -143,40 +142,16 @@ public class StudentDetailDAO {
 				StudentDetails studentInfo = new StudentDetails();
 
 				String studentName = rs.getString("student_name");
-				String fatherName = rs.getString("father_name");
-				String motherName = rs.getString("mother_name");
-				String studentEmailID = rs.getString("student_email_id");
-				String studentPassword = rs.getString("student_password");
+
 				String studentRollNumber = rs.getString("student_roll_number");
-				String gender = rs.getString("gender");
-				String studentAddress = rs.getString("address");
-				String studentCity = rs.getString("city");
-				String occupation = rs.getString("parent_occupation");
-				String studentBloodGroup = rs.getString("student_blood_group");
-				String studentStandard = rs.getString("student_standard");
-				String staffname = rs.getString("student_staff_name");
-				Long parentMobileNumber = Long.parseLong(rs.getString("parent_mobile_number"));
-				LocalDate dateOfBirth = LocalDate.parse(rs.getString("date_of_birth"));
 
 				/**
 				 * Store the data in model
 				 */
 
 				studentInfo.setStudentName(studentName);
-				studentInfo.setFatherName(fatherName);
-				studentInfo.setMotherName(motherName);
-				studentInfo.setStudentEmailId(studentEmailID);
-				studentInfo.setStudentPassword(studentPassword);
+
 				studentInfo.setStudentRollNumber(studentRollNumber);
-				studentInfo.setGender(gender);
-				studentInfo.setStudentAddress(studentAddress);
-				studentInfo.setStudentCity(studentCity);
-				studentInfo.setOccupation(occupation);
-				studentInfo.setStudentBloodGroup(studentBloodGroup);
-				studentInfo.setStudentStandard(studentStandard);
-				studentInfo.setStaffName(staffname);
-				studentInfo.setParentMobileNumber(parentMobileNumber);
-				studentInfo.setDateOfBirth(dateOfBirth);
 
 				/**
 				 * StoreInformation in list.
@@ -194,8 +169,13 @@ public class StudentDetailDAO {
 	}
 
 	/**
-	 * To delte student details from the database.
+	 * To delete student 
+	 * 
+	 * @param studentRollNumber
+	 * @return
+	 * @throws InValidCredentialsException
 	 */
+
 	public static boolean deleteStudentFromTable(String studentRollNumber) throws InValidCredentialsException {
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -216,6 +196,79 @@ public class StudentDetailDAO {
 			ConnectionUtil.close(pst, connection);
 		}
 		return isDeleted;
+	}
+
+	/**
+	 * To display individual student information.
+	 * 
+	 * @param studentRollnumber
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+
+	public static Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
+			throws InValidCredentialsException {
+		Map<String, StudentDetails> individualStudentInformationDisplay = new HashMap<>();
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			connection = ConnectionUtil.getConnection();
+
+			String str = "select student_name,father_name,mother_name,student_email_id,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,parent_mobile_Number,date_of_birth from student_data where student_roll_number=?";
+			pst = connection.prepareStatement(str);
+			pst.setString(1, studentRollnumber);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				StudentDetails individualStudentInfo = new StudentDetails();
+
+				String studentName = rs.getString("student_name");
+				String fatherName = rs.getString("father_name");
+				String motherName = rs.getString("mother_name");
+				String studentEmailID = rs.getString("student_email_id");
+				String studentRollNumber = rs.getString("student_roll_number");
+				String gender = rs.getString("gender");
+				String studentAddress = rs.getString("address");
+				String studentCity = rs.getString("city");
+				String occupation = rs.getString("parent_occupation");
+				String studentBloodGroup = rs.getString("student_blood_group");
+				String studentStandard = rs.getString("student_standard");
+				Long parentMobileNumber = Long.parseLong(rs.getString("parent_mobile_number"));
+				LocalDate dateOfBirth = LocalDate.parse(rs.getString("date_of_birth"));
+
+				/**
+				 * Store the data in model
+				 */
+
+				individualStudentInfo.setStudentName(studentName);
+				individualStudentInfo.setFatherName(fatherName);
+				individualStudentInfo.setMotherName(motherName);
+				individualStudentInfo.setStudentEmailId(studentEmailID);
+				individualStudentInfo.setStudentRollNumber(studentRollNumber);
+				individualStudentInfo.setGender(gender);
+				individualStudentInfo.setStudentAddress(studentAddress);
+				individualStudentInfo.setStudentCity(studentCity);
+				individualStudentInfo.setOccupation(occupation);
+				individualStudentInfo.setStudentBloodGroup(studentBloodGroup);
+				individualStudentInfo.setStudentStandard(studentStandard);
+				individualStudentInfo.setParentMobileNumber(parentMobileNumber);
+				individualStudentInfo.setDateOfBirth(dateOfBirth);
+
+				/**
+				 * StoreInformation in list.
+				 */
+
+				individualStudentInformationDisplay.put(individualStudentInfo.getStudentRollNumber(),
+						individualStudentInfo);
+			}
+		} catch (SQLException e) {
+
+			e.getMessage();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return individualStudentInformationDisplay;
 	}
 
 }
