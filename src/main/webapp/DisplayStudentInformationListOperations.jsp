@@ -35,7 +35,7 @@ h3 {
 					<th scope="col">STUDENT DETAILS</th>
 					<th scope="col">
 						<button type="button" class="btn btn-primary"
-							onclick="window.location.href='http://localhost:8080/app/StudentMarkAdd.jsp'">
+							onclick="window.location.href='http://localhost:8080/app/AllStudentInformationDisplay.jsp'">
 							VIEW STUDENT INFORMATION</button>
 					</th>
 
@@ -55,17 +55,6 @@ h3 {
 						<button type="button" class="btn btn-primary"
 							onclick="window.location.href='http://localhost:8080/app/AllStudentMarksDisplay.jsp'">VIEW
 							MARKS</button>
-					</th>
-				</tr>
-				<tr>
-					<th scope="col">PAYMENT DETAILS</th>
-					<th scope="col">
-						<button type="button" class="btn btn-primary">ADD PAYMENT
-							DETAILS</button>
-						<button type="button" class="btn btn-primary">UPDATE
-							PAYMENT DETAILS</button>
-						<button type="button" class="btn btn-primary">DELETE
-							PAYMENT DETAILS</button>
 					</th>
 				</tr>
 			</table>

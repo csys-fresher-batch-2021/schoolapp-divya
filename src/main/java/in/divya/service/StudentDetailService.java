@@ -1,9 +1,6 @@
 package in.divya.service;
 
-import java.sql.SQLException;
-
 import java.util.List;
-
 import in.divya.dao.StudentDetailDAO;
 import in.divya.exceptions.CannotRegisterStudentException;
 import in.divya.exceptions.InValidCredentialsException;
@@ -23,10 +20,9 @@ public class StudentDetailService {
 		 */
 	}
 
-
-
 	/**
 	 * Feature1: Registration-Add the student details To check it is successfully
+	 * 
 	 * @param student
 	 * @return
 	 * @throws EmptyStringException
@@ -58,7 +54,7 @@ public class StudentDetailService {
 	 * @throws InValidCredentialsException
 	 */
 	public static boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
-			throws SQLException, InValidCredentialsException {
+			throws InValidCredentialsException {
 		boolean isValidStudentCredentials = false;
 		List<String> studentCredetials = StudentDetailDAO.studentCredentialData();
 		/**
@@ -69,6 +65,32 @@ public class StudentDetailService {
 			isValidStudentCredentials = true;
 		}
 		return isValidStudentCredentials;
+	}
+
+	/**
+	 * To display all student Information.
+	 * 
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public static List<StudentDetails> displayAllStudentInformation(String staffName)
+			throws  InValidCredentialsException {
+		return StudentDetailDAO.displayAllStudentInformation(staffName);
+
+	}
+
+	/**
+	 * To delete student details.
+	 * 
+	 * @param studentRollNumber
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+
+	public static boolean deleteStudentFromTheDataBase(String studentRollNumber) throws InValidCredentialsException {
+		return StudentDetailDAO.deleteStudentFromTable(studentRollNumber);
+
 	}
 
 }

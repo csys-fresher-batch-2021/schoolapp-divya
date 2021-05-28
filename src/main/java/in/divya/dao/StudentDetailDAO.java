@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,11 +31,11 @@ public class StudentDetailDAO {
 	 * This Method Registers a new student into a Database with their data.
 	 * 
 	 * @param student
-	 * @throws InValidCredentialsException 
-	 * @throws SQLException 
+	 * @throws InValidCredentialsException
+	 * @throws SQLException
 	 */
 
-	public static void addStudent(StudentDetails student) throws InValidCredentialsException, SQLException{
+	public static void addStudent(StudentDetails student) throws InValidCredentialsException, SQLException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -82,10 +83,10 @@ public class StudentDetailDAO {
 	 * @return
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
-	 * @throws InValidCredentialsException 
+	 * @throws InValidCredentialsException
 	 */
 
-	public static List<String> studentCredentialData() throws SQLException, InValidCredentialsException {
+	public static List<String> studentCredentialData() throws InValidCredentialsException {
 
 		List<String> studentCredentials = new ArrayList<>();
 		Connection connection = null;
@@ -114,6 +115,107 @@ public class StudentDetailDAO {
 			ConnectionUtil.close(rs, pst, connection);
 		}
 		return studentCredentials;
+	}
+
+	/**
+	 * Display All student Information
+	 * 
+	 * @param staffName
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public static List<StudentDetails> displayAllStudentInformation(String staffName)
+			throws InValidCredentialsException {
+
+		List<StudentDetails> allStudentInformationDisplay = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			connection = ConnectionUtil.getConnection();
+
+			String str = "select * from student_data where student_staff_name=?";
+			pst = connection.prepareStatement(str);
+			pst.setString(1, staffName);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				StudentDetails studentInfo = new StudentDetails();
+
+				String studentName = rs.getString("student_name");
+				String fatherName = rs.getString("father_name");
+				String motherName = rs.getString("mother_name");
+				String studentEmailID = rs.getString("student_email_id");
+				String studentPassword = rs.getString("student_password");
+				String studentRollNumber = rs.getString("student_roll_number");
+				String gender = rs.getString("gender");
+				String studentAddress = rs.getString("address");
+				String studentCity = rs.getString("city");
+				String occupation = rs.getString("parent_occupation");
+				String studentBloodGroup = rs.getString("student_blood_group");
+				String studentStandard = rs.getString("student_standard");
+				String staffname = rs.getString("student_staff_name");
+				Long parentMobileNumber = Long.parseLong(rs.getString("parent_mobile_number"));
+				LocalDate dateOfBirth = LocalDate.parse(rs.getString("date_of_birth"));
+
+				/**
+				 * Store the data in model
+				 */
+
+				studentInfo.setStudentName(studentName);
+				studentInfo.setFatherName(fatherName);
+				studentInfo.setMotherName(motherName);
+				studentInfo.setStudentEmailId(studentEmailID);
+				studentInfo.setStudentPassword(studentPassword);
+				studentInfo.setStudentRollNumber(studentRollNumber);
+				studentInfo.setGender(gender);
+				studentInfo.setStudentAddress(studentAddress);
+				studentInfo.setStudentCity(studentCity);
+				studentInfo.setOccupation(occupation);
+				studentInfo.setStudentBloodGroup(studentBloodGroup);
+				studentInfo.setStudentStandard(studentStandard);
+				studentInfo.setStaffName(staffname);
+				studentInfo.setParentMobileNumber(parentMobileNumber);
+				studentInfo.setDateOfBirth(dateOfBirth);
+
+				/**
+				 * StoreInformation in list.
+				 */
+
+				allStudentInformationDisplay.add(studentInfo);
+			}
+		} catch (SQLException e) {
+
+			e.getMessage();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return allStudentInformationDisplay;
+	}
+
+	/**
+	 * To delte student details from the database.
+	 */
+	public static boolean deleteStudentFromTable(String studentRollNumber) throws InValidCredentialsException {
+		Connection connection = null;
+		PreparedStatement pst = null;
+		boolean isDeleted = false;
+		try {
+			connection = ConnectionUtil.getConnection();
+
+			String str = "delete from student_data where student_roll_number=?";
+			pst = connection.prepareStatement(str);
+			pst.setString(1, studentRollNumber);
+			pst.executeUpdate();
+			isDeleted = true;
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pst, connection);
+		}
+		return isDeleted;
 	}
 
 }
