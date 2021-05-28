@@ -24,13 +24,13 @@ public class StudentRemoveServlet extends HttpServlet {
 	 */
 	public StudentRemoveServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String studentRollNumber = request.getParameter("studentRollNumber");

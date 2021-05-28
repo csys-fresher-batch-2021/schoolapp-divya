@@ -149,7 +149,7 @@ public class StudentDetailDAO {
 				String studentStandard = rs.getString("student_standard");
 				String staffname = rs.getString("student_staff_name");
 				Long parentMobileNumber = Long.parseLong(rs.getString("parent_mobile_number"));
-				LocalDate DateOfBirth = LocalDate.parse(rs.getString("date_of_birth"));
+				LocalDate dateOfBirth = LocalDate.parse(rs.getString("date_of_birth"));
 
 				/**
 				 * Store the data in model
@@ -169,7 +169,7 @@ public class StudentDetailDAO {
 				studentInfo.setStudentStandard(studentStandard);
 				studentInfo.setStaffName(staffname);
 				studentInfo.setParentMobileNumber(parentMobileNumber);
-				studentInfo.setDateOfBirth(DateOfBirth);
+				studentInfo.setDateOfBirth(dateOfBirth);
 
 				/**
 				 * StoreInformation in list.
