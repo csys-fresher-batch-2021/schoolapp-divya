@@ -86,7 +86,7 @@ public class StudentDetailDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static List<String> studentCredentialData() throws SQLException, InValidCredentialsException {
+	public static List<String> studentCredentialData() throws InValidCredentialsException {
 
 		List<String> studentCredentials = new ArrayList<>();
 		Connection connection = null;
