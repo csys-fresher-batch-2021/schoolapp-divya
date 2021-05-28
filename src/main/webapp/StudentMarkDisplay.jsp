@@ -36,53 +36,53 @@ h4 {
 						<th scope="col">SUBJECTS</th>
 						<th scope="col">MARKS</th>
 					</tr>
-					<tbody>
-						<%
-						String studentRollNumber = (String) session.getAttribute("LOGGED_IN_USER_NO");
-										String studentName = (String) session.getAttribute("LOGGED_IN_USER");
-										Map<String, StudentMarksDetails> studentMarksData = MarksActivityService.displayStudentMarks(studentRollNumber);
-										StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
-										out.println("<h3>WELCOME " + studentName + "</h3><br/>");
-										out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
-						%>
-	
-						<tr>
-							<td>TAMIL MARK</td>
-							<td><%=markDB.getTamilMark()%></td>
-						</tr>
-						<tr>
-							<td>ENGLISH MARK</td>
-							<td><%=markDB.getEnglishMark()%></td>
-						</tr>
-						<tr>
-							<td>MATHAMATICS MARK</td>
-							<td><%=markDB.getMathamaticsMark()%></td>
-						</tr>
-						<tr>
-							<td>SCIENCE MARK</td>
-							<td><%=markDB.getScienceMark()%></td>
-						</tr>
-						<tr>
-							<td>SOCIAL MARK</td>
-							<td><%=markDB.getSocialMark()%></td>
-						</tr>
-						<tr>
-							<td>TOTAL</td>
-							<td><%=markDB.getTotalMark()%></td>
-						</tr>
-						<tr>
-							<td>AVERAGE</td>
-							<td><%=markDB.getAverageMark()%></td>
-						</tr>
-						<tr>
-							<td>GRADE</td>
-							<td><%=markDB.getGrade()%></td>
-						</tr>
-						<tr>
-							<td>COMMENT</td>
-							<td><%=markDB.getGradeComment()%></td>
-						</tr>
-					</tbody>
+				<tbody>
+					<%
+					String studentRollNumber = (String) session.getAttribute("LOGGED_IN_USER_NO");
+					String studentName = (String) session.getAttribute("LOGGED_IN_USER");
+					Map<String, StudentMarksDetails> studentMarksData = MarksActivityService.displayStudentMarks(studentRollNumber);
+					StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
+					out.println("<h3>WELCOME " + studentName + "</h3><br/>");
+					out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
+					%>
+
+					<tr>
+						<td>TAMIL MARK</td>
+						<td><%=markDB.getTamilMark()%></td>
+					</tr>
+					<tr>
+						<td>ENGLISH MARK</td>
+						<td><%=markDB.getEnglishMark()%></td>
+					</tr>
+					<tr>
+						<td>MATHAMATICS MARK</td>
+						<td><%=markDB.getMathamaticsMark()%></td>
+					</tr>
+					<tr>
+						<td>SCIENCE MARK</td>
+						<td><%=markDB.getScienceMark()%></td>
+					</tr>
+					<tr>
+						<td>SOCIAL MARK</td>
+						<td><%=markDB.getSocialMark()%></td>
+					</tr>
+					<tr>
+						<td>TOTAL</td>
+						<td><%=markDB.getTotalMark()%></td>
+					</tr>
+					<tr>
+						<td>AVERAGE</td>
+						<td><%=markDB.getAverageMark()%></td>
+					</tr>
+					<tr>
+						<td>GRADE</td>
+						<td><%=markDB.getGrade()%></td>
+					</tr>
+					<tr>
+						<td>COMMENT</td>
+						<td><%=markDB.getGradeComment()%></td>
+					</tr>
+				</tbody>
 				<thead>
 			</table>
 		</figure>

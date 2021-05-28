@@ -23,10 +23,9 @@ public class StudentDetailService {
 		 */
 	}
 
-
-
 	/**
 	 * Feature1: Registration-Add the student details To check it is successfully
+	 * 
 	 * @param student
 	 * @return
 	 * @throws EmptyStringException
@@ -69,6 +68,32 @@ public class StudentDetailService {
 			isValidStudentCredentials = true;
 		}
 		return isValidStudentCredentials;
+	}
+
+	/**
+	 * To display all student Information.
+	 * 
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public static List<StudentDetails> displayAllStudentInformation(String staffName)
+			throws SQLException, InValidCredentialsException {
+		return StudentDetailDAO.displayAllStudentInformation(staffName);
+
+	}
+
+	/**
+	 * To delete student details.
+	 * 
+	 * @param studentRollNumber
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+
+	public static boolean deleteStudentFromTheDataBase(String studentRollNumber) throws InValidCredentialsException {
+		return StudentDetailDAO.deleteStudentFromTable(studentRollNumber);
+
 	}
 
 }
