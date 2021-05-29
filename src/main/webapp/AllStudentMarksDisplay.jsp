@@ -27,6 +27,8 @@ h3 {
 				<h3>DIVVLEARN MARK PORTAL</h3>
 				<br />
 			</figcaption>
+			
+			
 			<%
 			String infoMessage = request.getParameter("infoMessage");
 			if (infoMessage != null) {

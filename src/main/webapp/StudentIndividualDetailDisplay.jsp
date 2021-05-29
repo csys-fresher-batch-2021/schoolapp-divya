@@ -28,7 +28,6 @@
 			</figcaption>
 			<%
 			String studentRollNumber = request.getParameter("allInfo");
-			System.out.println(studentRollNumber);
 			Map<String, StudentDetails> individualStudentData = StudentDetailService
 					.displayIndividualStudentData(studentRollNumber);
 			StudentDetails data = individualStudentData.get(studentRollNumber);

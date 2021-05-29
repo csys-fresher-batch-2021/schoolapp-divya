@@ -17,9 +17,7 @@ h3 {
 	<main class="container-fluid">
 		<!-- This page display the topics of Student information -->
 		<figure>
-			<figcaption>
-				<h2>List Of Information Topics Operations</h2>
-			</figcaption>
+			<figcaption>Student Information</figcaption>
 			<br />
 			<%
 			String staffName = (String) session.getAttribute("LOGGED_IN_USER");
@@ -28,8 +26,8 @@ h3 {
 			<br />
 			<table class="table table-bordered">
 				<tr>
-					<th scope="col">INFORMATION</th>
-					<th scope="col">OPERATIONS</th>
+					<th scope="col">LIST</th>
+					<th scope="col">ACTIONS</th>
 				</tr>
 				<tr>
 					<th scope="col">STUDENT DETAILS</th>
