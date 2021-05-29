@@ -4,7 +4,7 @@
 <%@page import="in.divya.model.StudentMarksDetails"%>
 <%@page import="java.util.Map"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Individual Syudent Mark</title>
