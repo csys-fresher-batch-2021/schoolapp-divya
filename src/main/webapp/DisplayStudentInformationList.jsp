@@ -17,7 +17,7 @@ h3 {
 	<main class="container-fluid">
 		<!-- This page display the topics of Student information -->
 		<figure>
-			<figcaption>List Of Information Topics</figcaption>
+			<figcaption>Student Information</figcaption>
 			<br />
 			<%
 			String studentName = (String) session.getAttribute("LOGGED_IN_USER");

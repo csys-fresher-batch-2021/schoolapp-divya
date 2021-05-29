@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
-
-
 <%@page import="in.divya.service.StudentDetailService"%>
 <%@page import="in.divya.model.StudentDetails"%>
 
@@ -51,6 +49,7 @@ h3 {
 						<th scope="col">ROLL NUMBER</th>
 						<th scope="col">VIEW</th>
 						<th scope="col">DELETE</th>
+						<th scope="col">Mark</th>
 
 
 
@@ -73,6 +72,9 @@ h3 {
 						<td><a
 							href="StudentRemoveServlet?allInfo=<%=allInfo.getStudentRollNumber()%> "
 							onclick="return deleteConfirmation('<%=allInfo.getStudentRollNumber()%>')">DELETE
+						</a></td>
+						<td><a
+							href="StudentIndividualMarkDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
 						</a></td>
 					</tr>
 					<%
