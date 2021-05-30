@@ -50,7 +50,7 @@ public class StudentLoginActionServlet extends HttpServlet {
 				session.setAttribute("LOGGED_IN_USER", studentName);
 				session.setAttribute("LOGGED_IN_USER_NO", studentRollNumber);
 
-				RequestDispatcher rd = request.getRequestDispatcher("DisplayStudentInformationList.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("DisplayStudentHomePage.jsp");
 				rd.forward(request, response);
 			} else {
 				throw new InValidCredentialsException("Invalid Student Credentials");

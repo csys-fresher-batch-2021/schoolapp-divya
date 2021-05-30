@@ -5,13 +5,14 @@
  */
 package in.divya.exceptions;
 
-public class CannotRegisterStudentException extends RuntimeException 
-{
+public class CannotRegisterStudentException extends RuntimeException {
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
+	 * @param errorMessage
 	 */
-	private static final long serialVersionUID = 1L;
 
 	public CannotRegisterStudentException(String errorMessage) {
 		super(errorMessage);

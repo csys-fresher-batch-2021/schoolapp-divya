@@ -23,7 +23,7 @@ h4 {
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<a href="DisplayStudentInformationList.jsp">Previous page</a><br />
+		<a href="DisplayStudentHomePage.jsp">Previous page</a><br />
 		<!-- Display Student Marks -->
 		<figure>
 			<figcaption>

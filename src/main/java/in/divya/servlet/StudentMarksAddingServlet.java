@@ -98,7 +98,7 @@ public class StudentMarksAddingServlet extends HttpServlet {
 						+ "&grade=" + grade + "&gradeComment=" + gradeComment);
 
 			} else {
-				throw new InValidCredentialsException("Cannot Register user");
+				throw new InValidCredentialsException("Cannot add marks");
 			}
 
 		} catch (Exception e) {

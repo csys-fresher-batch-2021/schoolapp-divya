@@ -40,7 +40,7 @@ public class StaffLoginActionServlet extends HttpServlet {
 			if (isValidStudent) {
 				HttpSession session = request.getSession();
 				session.setAttribute("LOGGED_IN_USER", staffName);
-				RequestDispatcher rd = request.getRequestDispatcher("DisplayStudentInformationListOperations.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("DisplayStaffHomePage.jsp");
 				rd.forward(request, response);
 			} else {
 				throw new InValidCredentialsException("Invalid Staff Credentials");

@@ -20,7 +20,7 @@ h3 {
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<a href="DisplayStudentInformationListOperations.jsp">Previous page</a><br />
+		<a href="DisplayStaffHomePage.jsp">Previous page</a><br />
 		<!-- Display All Student Marks -->
 		<figure>
 			<figcaption>

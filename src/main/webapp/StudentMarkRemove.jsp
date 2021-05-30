@@ -33,12 +33,12 @@ h1 {
 		<br />
 		<h2>
 			<button class="btn btn-link"
-				onclick="window.location.href='http://localhost:8080/app/DisplayStudentInformationListOperations.jsp'">BACK</button>
+				onclick="window.location.href='http://localhost:8080/app/DisplayStaffHomePage.jsp'">BACK</button>
 		</h2>
 		<div class="head">MARK PORTAL PAGE</div>
 		<br>
 		<div style="margin: 50px">
-			<!-- Mark Portal Page -->
+			<!-- TEST MARK REMOVE PAGE -->
 			<form action="StudentMarkRemoveServlet" method="post">
 				
 				<br /> <label>TEST NUMBER : </label> <input type="number"
