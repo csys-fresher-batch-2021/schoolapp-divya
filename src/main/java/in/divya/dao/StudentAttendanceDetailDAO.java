@@ -4,6 +4,7 @@
 package in.divya.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -46,6 +47,49 @@ public class StudentAttendanceDetailDAO {
 			pst.setString(6, attendance.getReason());
 
 			pst.executeUpdate();
+
+		} catch (SQLException e) {
+			e.getMessage();
+		} finally {
+			if (pst != null) {
+				pst.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+
+	}
+
+	/**
+	 * To update student Attendance in database.
+	 * 
+	 * @param attendance
+	 * @throws InValidCredentialsException
+	 * @throws SQLException
+	 */
+	public static void updateStudentMarks(StudentAttendanceDetails attendance)
+			throws InValidCredentialsException, SQLException {
+		PreparedStatement pst = null;
+		Connection connection = null;
+		int rs = 0;
+
+		try {
+			connection = ConnectionUtil.getConnection();
+			String sql = "update attendance_data set attendance_status=?,in_time=?,out_time=?,reason=? where student_roll_number=? and attendance_date=?";
+
+			pst = connection.prepareStatement(sql);
+
+			pst.setString(1, attendance.getStudentAttendance());
+			pst.setObject(2, attendance.getInTime());
+			pst.setObject(3, attendance.getOutTime());
+			pst.setString(4, attendance.getReason());
+			pst.setString(5, attendance.getStudentRollNumber());
+			pst.setObject(6, attendance.getDate());
+			rs = pst.executeUpdate();
+			if (rs == 0) {
+				throw new InValidCredentialsException("Cannot Update Attendance");
+			}
 
 		} catch (SQLException e) {
 			e.getMessage();

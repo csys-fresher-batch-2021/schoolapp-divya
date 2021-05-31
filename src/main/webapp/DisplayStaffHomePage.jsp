@@ -56,10 +56,13 @@ h3 {
 					</th>
 				</tr>
 				<tr>
-					<th scope="col">Attendance</th>
+					<th scope="col">ATTENDANCE</th>
 					<th scope="col">
 						<button type="button" class="btn btn-primary"
 							onclick="window.location.href='http://localhost:8080/app/StudentAttendanceAdd.jsp'">ADD
+							ATTENDANCE</button>
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentAttendanceModify.jsp'">UPDATE
 							ATTENDANCE</button>
 
 					</th>
