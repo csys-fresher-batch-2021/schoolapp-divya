@@ -92,7 +92,7 @@ public class MarksActivityService {
 	}
 
 	/**
-	 * To add all student mark details into db.
+	 * To add student mark details(only for registered students) into db.
 	 * 
 	 * @param mark
 	 * @return
@@ -104,7 +104,7 @@ public class MarksActivityService {
 			MarksActivityDAO.addStudentMarks(mark);
 			return isAddedStudent;
 		} catch (Exception e) {
-			throw new InValidCredentialsException("Cannot add marks");
+			throw new InValidCredentialsException("ALREADY EXISTS  (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 
 		}
 
@@ -123,7 +123,7 @@ public class MarksActivityService {
 			MarksActivityDAO.updateStudentMarks(mark);
 			return isUpdatedStudent;
 		} catch (Exception e) {
-			throw new InValidCredentialsException("Cannot Update marks");
+			throw new InValidCredentialsException("CANNOT UPDATE (MARK RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 
 		}
 
@@ -158,7 +158,7 @@ public class MarksActivityService {
 			MarksActivityDAO.deleteTestMarkFromTable(testNo);
 			return isDeleteTest;
 		} catch (Exception e) {
-			throw new InValidCredentialsException("Cannot Delete marks");
+			throw new InValidCredentialsException("TEST MARKS NOT EXISTS");
 	}
 }
 	/**

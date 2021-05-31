@@ -57,7 +57,10 @@ public class MarksActivityDAO {
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
-			e.getMessage();
+			e.printStackTrace();
+			throw new InValidCredentialsException(
+					"ALREADY EXISTS  (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS))");
+
 		} finally {
 			if (pst != null) {
 				pst.close();
@@ -80,7 +83,7 @@ public class MarksActivityDAO {
 	public static void updateStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
-
+		int rs = 0;
 		try {
 			connection = ConnectionUtil.getConnection();
 
@@ -100,7 +103,11 @@ public class MarksActivityDAO {
 			pst.setString(10, mark.getGradeComment());
 			pst.setString(11, mark.getStudentRollNumber());
 
-			pst.executeUpdate();
+			rs = pst.executeUpdate();
+			if (rs == 0) {
+				throw new InValidCredentialsException(
+						"CANNOT UPDATE (MARK RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+			}
 
 		} catch (SQLException e) {
 			e.getMessage();
@@ -199,19 +206,17 @@ public class MarksActivityDAO {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
-		int rs=0;
+		int rs = 0;
 
-		
 		try {
 			connection = ConnectionUtil.getConnection();
 			String str = "delete from student_mark where test_number=?";
 			pst = connection.prepareStatement(str);
 			pst.setInt(1, testNo);
-			rs=pst.executeUpdate();
-			if(rs==0) {
-				throw new InValidCredentialsException("Cannot Delete");
+			rs = pst.executeUpdate();
+			if (rs == 0) {
+				throw new InValidCredentialsException("TEST MARKS NOT EXISTS");
 			}
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -49,7 +49,7 @@ public class StudentAttendanceDetailDAO {
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
-			e.getMessage();
+			throw new InValidCredentialsException("ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
 		} finally {
 			if (pst != null) {
 				pst.close();
@@ -88,7 +88,7 @@ public class StudentAttendanceDetailDAO {
 			pst.setObject(6, attendance.getDate());
 			rs = pst.executeUpdate();
 			if (rs == 0) {
-				throw new InValidCredentialsException("Cannot Update Attendance");
+				throw new InValidCredentialsException("CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 			}
 
 		} catch (SQLException e) {

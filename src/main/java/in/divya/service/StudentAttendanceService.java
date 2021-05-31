@@ -31,7 +31,7 @@ public class StudentAttendanceService {
 			StudentAttendanceDetailDAO.saveAttendance(attendance);
 			return isAddedAttendance;
 		} catch (Exception e) {
-			throw new CannotAddDetailsException("Cannot Add Attendance");
+			throw new CannotAddDetailsException("ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
 
 		}
 	}
@@ -49,7 +49,7 @@ public class StudentAttendanceService {
 			StudentAttendanceDetailDAO.updateStudentMarks(attendance);
 			return isUpdatedAttendance;
 		} catch (Exception e) {
-			throw new InValidCredentialsException("Cannot Update Attendance");
+			throw new InValidCredentialsException("CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 
 		}
 

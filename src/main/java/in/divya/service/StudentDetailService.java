@@ -36,7 +36,7 @@ public class StudentDetailService {
 			StudentDetailDAO.addStudent(student);
 			return isAddedStudent;
 		} catch (Exception e) {
-			throw new CannotRegisterStudentException("Cannot add Student");
+			throw new CannotRegisterStudentException("ALREADY EXISTS");
 
 		}
 	}
