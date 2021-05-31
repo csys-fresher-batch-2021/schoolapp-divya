@@ -1,1 +1,1 @@
-create table attendance_data(student_roll_number varchar(15) not null,attendance_date date,attendance_status varchar(10)not null,in_time time,out_time time,reason varchar(70)not null); 
+create table attendance_data(student_roll_number varchar(30) not null,attendance_date date,attendance_status varchar(10)not null,in_time time,out_time time,reason varchar(70)not null,CONSTRAINT FK_roll_number FOREIGN KEY (student_roll_number) REFERENCES student_data(student_roll_number) on delete cascade); 
