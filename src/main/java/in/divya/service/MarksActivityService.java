@@ -153,9 +153,14 @@ public class MarksActivityService {
 	 * @throws InValidCredentialsException
 	 */
 	public static boolean deleteStudentMarks(int testNo) throws InValidCredentialsException {
-		return MarksActivityDAO.deleteTestMarkFromTable(testNo);
+		boolean isDeleteTest = true;
+		try {
+			MarksActivityDAO.deleteTestMarkFromTable(testNo);
+			return isDeleteTest;
+		} catch (Exception e) {
+			throw new InValidCredentialsException("Cannot Delete marks");
 	}
-
+}
 	/**
 	 * To display all student marks.
 	 * 

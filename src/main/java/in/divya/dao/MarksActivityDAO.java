@@ -195,27 +195,29 @@ public class MarksActivityDAO {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean deleteTestMarkFromTable(int testNo) throws InValidCredentialsException {
+	public static void deleteTestMarkFromTable(int testNo) throws InValidCredentialsException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
+		int rs=0;
 
-		boolean isDeleted = false;
+		
 		try {
 			connection = ConnectionUtil.getConnection();
 			String str = "delete from student_mark where test_number=?";
 			pst = connection.prepareStatement(str);
 			pst.setInt(1, testNo);
-			pst.executeUpdate();
-			isDeleted = true;
+			rs=pst.executeUpdate();
+			if(rs==0) {
+				throw new InValidCredentialsException("Cannot Delete");
+			}
+			
 
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(pst, connection);
 		}
-		return isDeleted;
 
 	}
 
