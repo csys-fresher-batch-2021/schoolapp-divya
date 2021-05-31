@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.service.MarksActivityService;
 import in.divya.validator.MarkValidator;
 
@@ -51,13 +52,13 @@ public class StudentMarkRemoveServlet extends HttpServlet {
 				rd.forward(request, response);
 
 			} else {
-				RequestDispatcher rd=request.getRequestDispatcher("StudentMarkRemove.jsp?errorMessage=CANNOT DELETE TEST "+testNo+" MARKS");  
-				rd.forward(request, response);
+				throw new InValidCredentialsException("TEST MARKS NOT EXISTS");
+
 				}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			RequestDispatcher rd=request.getRequestDispatcher("StudentMarkRemove.jsp?errorMessage=CANNOT DELETE TEST MARKS");  
+			RequestDispatcher rd=request.getRequestDispatcher("StudentMarkRemove.jsp?errorMessage=TEST MARKS NOT EXISTS");  
 			rd.forward(request, response);
 
 		}

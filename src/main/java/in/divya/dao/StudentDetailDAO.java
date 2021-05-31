@@ -66,7 +66,8 @@ public class StudentDetailDAO {
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
-			e.getMessage();
+			e.printStackTrace();
+			throw new InValidCredentialsException("ALREADY EXISTS");
 		} finally {
 			if (pst != null) {
 				pst.close();
@@ -169,7 +170,7 @@ public class StudentDetailDAO {
 	}
 
 	/**
-	 * To delete student 
+	 * To delete student
 	 * 
 	 * @param studentRollNumber
 	 * @return
