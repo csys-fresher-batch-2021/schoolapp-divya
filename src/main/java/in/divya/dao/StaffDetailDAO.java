@@ -40,7 +40,7 @@ public class StaffDetailDAO {
 
 			connection = ConnectionUtil.getConnection();
 
-			String sql = "select * from staff_data";
+			String sql = "select staff_name,staff_password from staff_data";
 			pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();
 

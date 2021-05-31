@@ -97,7 +97,7 @@ public class StudentDetailDAO {
 
 			connection = ConnectionUtil.getConnection();
 
-			String sql = "select * from student_data";
+			String sql = "select student_name,student_roll_number,student_password from student_data";
 			pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();
 
@@ -135,7 +135,7 @@ public class StudentDetailDAO {
 		try {
 			connection = ConnectionUtil.getConnection();
 
-			String str = "select * from student_data where student_staff_name=?";
+			String str = "select student_name,student_roll_number from student_data where student_staff_name=?";
 			pst = connection.prepareStatement(str);
 			pst.setString(1, staffName);
 			rs = pst.executeQuery();
