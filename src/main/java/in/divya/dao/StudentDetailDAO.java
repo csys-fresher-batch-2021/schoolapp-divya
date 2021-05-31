@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import in.divya.exceptions.CannotRegisterStudentException;
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentDetails;
 import in.divya.util.ConnectionUtil;
@@ -37,7 +38,7 @@ public class StudentDetailDAO {
 	 * @throws SQLException
 	 */
 
-	public static void addStudent(StudentDetails student) throws InValidCredentialsException, SQLException {
+	public static void addStudent(StudentDetails student) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -67,7 +68,7 @@ public class StudentDetailDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new InValidCredentialsException("ALREADY EXISTS");
+			throw new CannotRegisterStudentException("ALREADY EXISTS");
 		} finally {
 			if (pst != null) {
 				pst.close();
