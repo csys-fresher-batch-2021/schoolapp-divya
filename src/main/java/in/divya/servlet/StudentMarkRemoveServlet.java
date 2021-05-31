@@ -57,6 +57,8 @@ public class StudentMarkRemoveServlet extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			RequestDispatcher rd=request.getRequestDispatcher("StudentMarkRemove.jsp?errorMessage=CANNOT DELETE TEST MARKS");  
+			rd.forward(request, response);
 
 		}
 		
