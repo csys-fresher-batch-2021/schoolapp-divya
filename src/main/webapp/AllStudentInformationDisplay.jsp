@@ -47,9 +47,9 @@ h3 {
 						<th scope="col">STUDENT NAME</th>
 
 						<th scope="col">ROLL NUMBER</th>
-						<th scope="col">VIEW</th>
-						<th scope="col">DELETE</th>
+						<th scope="col">PERSONAL INFORMATION</th>
 						<th scope="col">Mark</th>
+						<th scope="col">DELETE</th>
 
 
 
@@ -70,11 +70,11 @@ h3 {
 							href="StudentIndividualDetailDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
 						</a></td>
 						<td><a
-							href="StudentRemoveServlet?allInfo=<%=allInfo.getStudentRollNumber()%> "
-							onclick="return deleteConfirmation('<%=allInfo.getStudentRollNumber()%>')">DELETE
+							href="StudentIndividualMarkDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
 						</a></td>
 						<td><a
-							href="StudentIndividualMarkDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
+							href="StudentRemoveServlet?allInfo=<%=allInfo.getStudentRollNumber()%> "
+							onclick="return deleteConfirmation('<%=allInfo.getStudentRollNumber()%>')">DELETE
 						</a></td>
 					</tr>
 					<%

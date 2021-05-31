@@ -3,16 +3,18 @@
  */
 package in.divya.service;
 
+
 import in.divya.dao.StudentAttendanceDetailDAO;
 import in.divya.exceptions.CannotAddDetailsException;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentAttendanceDetails;
 
 /**
  * @author divy2624
  *
  */
-public class StudentAttendanceAddService {
-	private StudentAttendanceAddService() {
+public class StudentAttendanceService {
+	private StudentAttendanceService() {
 		// Default Constructor
 	}
 
@@ -34,4 +36,22 @@ public class StudentAttendanceAddService {
 		}
 	}
 
+	/**
+	 * To update student attendance details.
+	 * 
+	 * @param mark
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public static boolean updateAttendance(StudentAttendanceDetails attendance) throws  InValidCredentialsException {
+		boolean isUpdatedAttendance = true;
+		try {
+			StudentAttendanceDetailDAO.updateStudentMarks(attendance);
+			return isUpdatedAttendance;
+		} catch (Exception e) {
+			throw new InValidCredentialsException("Cannot Update Attendance");
+
+		}
+
+	}
 }
