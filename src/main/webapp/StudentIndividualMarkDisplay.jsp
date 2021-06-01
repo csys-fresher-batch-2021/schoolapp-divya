@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="in.divya.service.MarksActivityService"%>
+<%@page import="in.divya.service.StudentMarkService"%>
 <%@page import="in.divya.model.StudentMarksDetails"%>
 <%@page import="java.util.Map"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Individual Syudent Mark</title>
+<title>Individual Student Mark</title>
 <style>
 h3 {
 	color: blue;
@@ -15,7 +15,7 @@ h3 {
 }
 
 h4 {
-	color: red;
+	color: blank;
 	text-align: center;
 }
 </style>
@@ -23,8 +23,7 @@ h4 {
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<a href="AllStudentInformationDisplay.jsp">Previous
-			page</a><br />
+		<a href="AllStudentInformationDisplay.jsp">Previous page</a><br />
 		<!-- Display Student Marks -->
 		<figure>
 			<figcaption>
@@ -40,10 +39,11 @@ h4 {
 				<tbody>
 					<%
 					String studentRollNumber = request.getParameter("allInfo");
-					Map<String, StudentMarksDetails> studentMarksData = MarksActivityService.displayStudentMarks(studentRollNumber);
-					StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
-					out.println("<h4>STUDENT ROLL NUMBER    :  " + markDB.getStudentRollNumber() + "</th></h4><br/>");
-					out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
+								Map<String, StudentMarksDetails> studentMarksData = StudentMarkService.displayStudentMarks(studentRollNumber);
+								if (studentMarksData != null && !studentMarksData.isEmpty()) {
+									StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
+									out.println("<h4>STUDENT ROLL NUMBER    :  " + markDB.getStudentRollNumber() + "</th></h4><br/>");
+									out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
 					%>
 
 					<tr>
@@ -82,6 +82,16 @@ h4 {
 						<td>COMMENT</td>
 						<td><%=markDB.getGradeComment()%></td>
 					</tr>
+					<%
+					} else {
+					%>
+
+					<tr>
+						<td colspan="2"><h4>MARKS NOT FOUND</h4></td>
+					</tr>
+					<%
+					}
+					%>
 				</tbody>
 				<thead>
 			</table>

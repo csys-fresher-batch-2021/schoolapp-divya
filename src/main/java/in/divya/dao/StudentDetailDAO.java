@@ -38,7 +38,7 @@ public class StudentDetailDAO {
 	 * @throws SQLException
 	 */
 
-	public static void addStudent(StudentDetails student) throws SQLException, InValidCredentialsException {
+	public static void saveStudent(StudentDetails student) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -125,7 +125,7 @@ public class StudentDetailDAO {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentDetails> displayAllStudentInformation(String staffName)
+	public static List<StudentDetails> findAllStudentInformation(String staffName)
 			throws InValidCredentialsException {
 
 		List<StudentDetails> allStudentInformationDisplay = new ArrayList<>();
@@ -208,7 +208,7 @@ public class StudentDetailDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
+	public static Map<String, StudentDetails> findIndividualStudentData(String studentRollnumber)
 			throws InValidCredentialsException {
 		Map<String, StudentDetails> individualStudentInformationDisplay = new HashMap<>();
 		Connection connection = null;

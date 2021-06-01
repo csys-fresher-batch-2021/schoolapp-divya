@@ -33,7 +33,7 @@ public class StudentDetailService {
 	public static boolean addStudent(StudentDetails student) {
 		boolean isAddedStudent = true;
 		try {
-			StudentDetailDAO.addStudent(student);
+			StudentDetailDAO.saveStudent(student);
 			return isAddedStudent;
 		} catch (Exception e) {
 			throw new CannotRegisterStudentException("ALREADY EXISTS");
@@ -69,7 +69,7 @@ public class StudentDetailService {
 	 */
 	public static List<StudentDetails> displayAllStudentInformation(String staffName)
 			throws InValidCredentialsException {
-		return StudentDetailDAO.displayAllStudentInformation(staffName);
+		return StudentDetailDAO.findAllStudentInformation(staffName);
 
 	}
 
@@ -83,7 +83,7 @@ public class StudentDetailService {
 	public static Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
 			throws InValidCredentialsException {
 
-		return StudentDetailDAO.displayIndividualStudentData(studentRollnumber);
+		return StudentDetailDAO.findIndividualStudentData(studentRollnumber);
 	}
 
 	/**

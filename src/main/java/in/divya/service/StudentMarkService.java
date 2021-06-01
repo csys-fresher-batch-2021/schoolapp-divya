@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import in.divya.dao.MarksActivityDAO;
+import in.divya.dao.StudentMarkDAO;
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
 
@@ -15,8 +15,8 @@ import in.divya.model.StudentMarksDetails;
  * @author divy2624
  *
  */
-public class MarksActivityService {
-	private MarksActivityService() {
+public class StudentMarkService {
+	private StudentMarkService() {
 		/**
 		 * Default constructor
 		 */
@@ -101,10 +101,11 @@ public class MarksActivityService {
 	public static boolean addStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
 		boolean isAddedStudent = true;
 		try {
-			MarksActivityDAO.addStudentMarks(mark);
+			StudentMarkDAO.saveStudentMarks(mark);
 			return isAddedStudent;
 		} catch (Exception e) {
-			throw new InValidCredentialsException("ALREADY EXISTS  (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+			throw new InValidCredentialsException(
+					"ALREADY EXISTS  (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 
 		}
 
@@ -120,10 +121,11 @@ public class MarksActivityService {
 	public static boolean updateStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
 		boolean isUpdatedStudent = true;
 		try {
-			MarksActivityDAO.updateStudentMarks(mark);
+			StudentMarkDAO.updateStudentMarks(mark);
 			return isUpdatedStudent;
 		} catch (Exception e) {
-			throw new InValidCredentialsException("CANNOT UPDATE (MARK RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+			throw new InValidCredentialsException(
+					"CANNOT UPDATE (MARK RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 
 		}
 
@@ -141,7 +143,7 @@ public class MarksActivityService {
 	public static Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
 			throws SQLException, InValidCredentialsException {
 
-		return MarksActivityDAO.getMarksData(studentRollNumber);
+		return StudentMarkDAO.findStudentMarks(studentRollNumber);
 
 	}
 
@@ -155,12 +157,13 @@ public class MarksActivityService {
 	public static boolean deleteStudentMarks(int testNo) throws InValidCredentialsException {
 		boolean isDeleteTest = true;
 		try {
-			MarksActivityDAO.deleteTestMarkFromTable(testNo);
+			StudentMarkDAO.deleteTestMarkFromTable(testNo);
 			return isDeleteTest;
 		} catch (Exception e) {
 			throw new InValidCredentialsException("TEST MARKS NOT EXISTS");
+		}
 	}
-}
+
 	/**
 	 * To display all student marks.
 	 * 
@@ -169,7 +172,7 @@ public class MarksActivityService {
 	 * @throws InValidCredentialsException
 	 */
 	public static List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
-		return MarksActivityDAO.displayAllStudentMarks();
+		return StudentMarkDAO.findAllStudentMarks();
 
 	}
 }

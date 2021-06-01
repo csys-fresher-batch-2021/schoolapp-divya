@@ -64,6 +64,9 @@ h3 {
 						<button type="button" class="btn btn-primary"
 							onclick="window.location.href='http://localhost:8080/app/StudentAttendanceModify.jsp'">UPDATE
 							ATTENDANCE</button>
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentAttendanceRemove.jsp'">DELETE
+							ATTENDANCE</button>
 
 					</th>
 				</tr>

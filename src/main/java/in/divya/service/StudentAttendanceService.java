@@ -3,6 +3,7 @@
  */
 package in.divya.service;
 
+import java.time.LocalDate;
 
 import in.divya.dao.StudentAttendanceDetailDAO;
 import in.divya.exceptions.CannotAddDetailsException;
@@ -31,7 +32,8 @@ public class StudentAttendanceService {
 			StudentAttendanceDetailDAO.saveAttendance(attendance);
 			return isAddedAttendance;
 		} catch (Exception e) {
-			throw new CannotAddDetailsException("ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
+			throw new CannotAddDetailsException(
+					"ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
 
 		}
 	}
@@ -43,15 +45,33 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean updateAttendance(StudentAttendanceDetails attendance) throws  InValidCredentialsException {
+	public static boolean updateAttendance(StudentAttendanceDetails attendance) throws InValidCredentialsException {
 		boolean isUpdatedAttendance = true;
 		try {
 			StudentAttendanceDetailDAO.updateStudentMarks(attendance);
 			return isUpdatedAttendance;
 		} catch (Exception e) {
-			throw new InValidCredentialsException("CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+			throw new InValidCredentialsException(
+					"CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 
 		}
 
+	}
+
+	/**
+	 * To delete Attendance
+	 * 
+	 * @param attendanceDate
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public static boolean deleteStudentAttendance(LocalDate attendanceDate) throws InValidCredentialsException {
+		boolean isDelete = true;
+		try {
+			StudentAttendanceDetailDAO.romoveAttendanceFromTable(attendanceDate);
+			return isDelete;
+		} catch (Exception e) {
+			throw new InValidCredentialsException("DATE OF ATTENDANCE NOT FOUND");
+		}
 	}
 }

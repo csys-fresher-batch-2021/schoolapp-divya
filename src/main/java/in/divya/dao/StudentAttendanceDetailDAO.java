@@ -7,6 +7,7 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentAttendanceDetails;
@@ -49,7 +50,8 @@ public class StudentAttendanceDetailDAO {
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
-			throw new InValidCredentialsException("ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
+			throw new InValidCredentialsException(
+					"ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
 		} finally {
 			if (pst != null) {
 				pst.close();
@@ -88,7 +90,8 @@ public class StudentAttendanceDetailDAO {
 			pst.setObject(6, attendance.getDate());
 			rs = pst.executeUpdate();
 			if (rs == 0) {
-				throw new InValidCredentialsException("CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+				throw new InValidCredentialsException(
+						"CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 			}
 
 		} catch (SQLException e) {
@@ -103,4 +106,35 @@ public class StudentAttendanceDetailDAO {
 		}
 
 	}
+
+	/**
+	 * To remove attendance
+	 * 
+	 * @param attendance_date
+	 * @throws InValidCredentialsException
+	 */
+	public static void romoveAttendanceFromTable(LocalDate attendance_date) throws InValidCredentialsException {
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		int rs = 0;
+
+		try {
+			connection = ConnectionUtil.getConnection();
+			String str = "delete from attendance_data where attendance_date=?";
+			pst = connection.prepareStatement(str);
+			pst.setObject(1, attendance_date);
+			rs = pst.executeUpdate();
+			if (rs == 0) {
+				throw new InValidCredentialsException("DATE OF ATTENDANCE NOT FOUND");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pst, connection);
+		}
+
+	}
+
 }

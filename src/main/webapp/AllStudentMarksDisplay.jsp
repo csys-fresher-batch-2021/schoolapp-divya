@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
-<%@page import="in.divya.service.MarksActivityService"%>
+<%@page import="in.divya.service.StudentMarkService"%>
 <%@page import="in.divya.model.StudentMarksDetails"%>
 
 
@@ -9,10 +9,14 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>All Student Markd Display</title>
+<title>All Student Mark Display</title>
 <style>
 h3 {
 	color: blue;
+	text-align: center;
+}
+h4 {
+	color: black;
 	text-align: center;
 }
 </style>
@@ -30,14 +34,14 @@ h3 {
 			
 			
 			<%
-			String infoMessage = request.getParameter("infoMessage");
-			if (infoMessage != null) {
-				out.println("<p style=color:green>" + infoMessage + "</p>");
-			}
-			%>
+									String infoMessage = request.getParameter("infoMessage");
+										if (infoMessage != null) {
+											out.println("<p style=color:green>" + infoMessage + "</p>");
+										}
+									%>
 
 			<%
-			List<StudentMarksDetails> allStudentMarksToDisplay = MarksActivityService.displayAllStudentMarks();
+			List<StudentMarksDetails> allStudentMarksToDisplay = StudentMarkService.displayAllStudentMarks();
 			%>
 
 			<table class="table" border="1">
@@ -59,7 +63,7 @@ h3 {
 				</thead>
 				<tbody>
 					<%
-					if (allStudentMarksToDisplay != null) {
+					if (allStudentMarksToDisplay != null && !allStudentMarksToDisplay.isEmpty()) {
 						int i = 1;
 						for (StudentMarksDetails allMark : allStudentMarksToDisplay) {
 
@@ -81,6 +85,13 @@ h3 {
 					</tr>
 					<%
 					}
+					}
+					else{
+					%>
+					<tr>
+						<td colspan="11"><h4>MARKS NOT FOUND</h4></td>
+					</tr>
+					<%
 					}
 					%>
 				</tbody>

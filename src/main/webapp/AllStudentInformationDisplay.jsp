@@ -14,13 +14,16 @@ h3 {
 	color: blue;
 	text-align: center;
 }
+h4 {
+	color: black;
+	text-align: center;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<a href="DisplayStaffHomePage.jsp">Previous
-			page</a><br />
+		<a href="DisplayStaffHomePage.jsp">Previous page</a><br />
 		<!-- Display All Student Information-->
 		<figure>
 			<figcaption>
@@ -57,7 +60,7 @@ h3 {
 				</thead>
 				<tbody>
 					<%
-					if (allStudentInformationDisplay != null) {
+					if (allStudentInformationDisplay != null && !allStudentInformationDisplay.isEmpty()) {
 						int i = 1;
 						for (StudentDetails allInfo : allStudentInformationDisplay) {
 							i++;
@@ -79,8 +82,15 @@ h3 {
 					</tr>
 					<%
 					}
+					} else {
+					%>
+					<tr>
+						<td colspan="11"><h4>RECORD NOT FOUND</h4></td>
+					</tr>
+					<%
 					}
 					%>
+
 				</tbody>
 			</table>
 		</figure>

@@ -20,8 +20,8 @@ import in.divya.util.ConnectionUtil;
  * @author divy2624
  *
  */
-public class MarksActivityDAO {
-	private MarksActivityDAO() {
+public class StudentMarkDAO {
+	private StudentMarkDAO() {
 		// Default Constructor
 	}
 
@@ -33,7 +33,7 @@ public class MarksActivityDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static void addStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
+	public static void saveStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 
@@ -132,11 +132,11 @@ public class MarksActivityDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static Map<String, StudentMarksDetails> getMarksData(String rollNumber)
+	public static Map<String, StudentMarksDetails> findStudentMarks(String rollNumber)
 			throws SQLException, InValidCredentialsException {
 
 		Map<String, StudentMarksDetails> studentMarksData = new HashMap<>();
-		StudentMarksDetails markDB = new StudentMarksDetails();
+		
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -150,8 +150,9 @@ public class MarksActivityDAO {
 			pst = connection.prepareStatement(sql);
 			pst.setString(1, rollNumber);
 			rs = pst.executeQuery();
-
+			
 			while (rs.next()) {
+				StudentMarksDetails markDB = new StudentMarksDetails();
 				String studentRollNumber = rs.getString("student_roll_number");
 				int testNumber = rs.getInt("test_number");
 				int tamilMark = rs.getInt("tamil_mark");
@@ -187,8 +188,7 @@ public class MarksActivityDAO {
 				studentMarksData.put(markDB.getStudentRollNumber(), markDB);
 			}
 		} catch (SQLException e) {
-
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(rs, pst, connection);
 		}
@@ -233,7 +233,7 @@ public class MarksActivityDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
+	public static List<StudentMarksDetails> findAllStudentMarks() throws SQLException, InValidCredentialsException {
 
 		List<StudentMarksDetails> allStudentMarksToDisplay = new ArrayList<>();
 		Connection connection = null;
