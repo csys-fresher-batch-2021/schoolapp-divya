@@ -113,7 +113,7 @@ public class StudentAttendanceDetailDAO {
 	 * @param attendance_date
 	 * @throws InValidCredentialsException
 	 */
-	public static void romoveAttendanceFromTable(LocalDate attendance_date) throws InValidCredentialsException {
+	public static void romoveAttendanceFromTable(LocalDate attendanceDate) throws InValidCredentialsException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -123,7 +123,7 @@ public class StudentAttendanceDetailDAO {
 			connection = ConnectionUtil.getConnection();
 			String str = "delete from attendance_data where attendance_date=?";
 			pst = connection.prepareStatement(str);
-			pst.setObject(1, attendance_date);
+			pst.setObject(1, attendanceDate);
 			rs = pst.executeUpdate();
 			if (rs == 0) {
 				throw new InValidCredentialsException("DATE OF ATTENDANCE NOT FOUND");
