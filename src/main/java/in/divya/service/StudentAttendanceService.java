@@ -3,7 +3,10 @@
  */
 package in.divya.service;
 
+import java.sql.SQLException;
+
 import java.time.LocalDate;
+import java.util.List;
 
 import in.divya.dao.StudentAttendanceDetailDAO;
 import in.divya.exceptions.CannotAddDetailsException;
@@ -52,7 +55,7 @@ public class StudentAttendanceService {
 			return isUpdatedAttendance;
 		} catch (Exception e) {
 			throw new InValidCredentialsException(
-					"CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+					"CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 
 		}
 
@@ -74,4 +77,20 @@ public class StudentAttendanceService {
 			throw new InValidCredentialsException("DATE OF ATTENDANCE NOT FOUND");
 		}
 	}
+
+	/**
+	 * To display attendance list
+	 * 
+	 * @param studentRollNumber
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public static List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
+			throws SQLException, InValidCredentialsException {
+
+		return StudentAttendanceDetailDAO.findStudentAttendance(studentRollNumber);
+
+	}
+
 }

@@ -32,13 +32,6 @@ h4 {
 				<br />
 			</figcaption>
 			
-			
-			<%
-									String infoMessage = request.getParameter("infoMessage");
-										if (infoMessage != null) {
-											out.println("<p style=color:green>" + infoMessage + "</p>");
-										}
-									%>
 
 			<%
 			List<StudentMarksDetails> allStudentMarksToDisplay = StudentMarkService.displayAllStudentMarks();

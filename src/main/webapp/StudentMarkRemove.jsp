@@ -35,7 +35,7 @@ h1 {
 			<button class="btn btn-link"
 				onclick="window.location.href='http://localhost:8080/app/DisplayStaffHomePage.jsp'">BACK</button>
 		</h2>
-		<div class="head">MARK PORTAL PAGE</div>
+		<div class="head">MARK REMOVE PAGE</div>
 		<br>
 		<div style="margin: 50px">
 			<!-- TEST MARK REMOVE PAGE -->
