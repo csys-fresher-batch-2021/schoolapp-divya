@@ -36,6 +36,13 @@ h3 {
 							onclick="window.location.href='http://localhost:8080/app/StudentMarkDisplay.jsp'">VIEW</button>
 					</th>
 				</tr>
+				<tr>
+					<th scope="col">ATTENDANCE</th>
+					<th scope="col">
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentAttendanceDisplay.jsp'">VIEW</button>
+					</th>
+				</tr>
 
 			</table>
 		</figure>
