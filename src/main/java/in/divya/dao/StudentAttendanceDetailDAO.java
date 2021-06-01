@@ -6,8 +6,12 @@ package in.divya.dao;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentAttendanceDetails;
@@ -137,4 +141,63 @@ public class StudentAttendanceDetailDAO {
 
 	}
 
+	/**
+	 * To display student attendance.
+	 * 
+	 * @param rollNumber
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public static List<StudentAttendanceDetails> findStudentAttendance(String rollNumber)
+			throws SQLException, InValidCredentialsException {
+
+		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+
+			connection = ConnectionUtil.getConnection();
+
+			String sql = "select * from attendance_data where student_roll_number=?";
+
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, rollNumber);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				StudentAttendanceDetails attendance = new StudentAttendanceDetails();
+
+				String studentRollNumber = rs.getString("student_roll_number");
+				LocalDate attendanceDate = LocalDate.parse(rs.getString("attendance_date"));
+				String attendanceStatus = rs.getString("attendance_status");
+				LocalTime inTime = LocalTime.parse(rs.getString("in_time"));
+				LocalTime outTime = LocalTime.parse(rs.getString("out_time"));
+				String reason = rs.getString("reason");
+
+				/**
+				 * Store the data in model
+				 */
+				attendance.setStudentRollNumber(studentRollNumber);
+				attendance.setDate(attendanceDate);
+				attendance.setStudentAttendance(attendanceStatus);
+				attendance.setInTime(inTime);
+				attendance.setOutTime(outTime);
+				attendance.setReason(reason);
+
+				/**
+				 * Store attendance in map
+				 */
+
+				studentAttendanceData.add(attendance);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return studentAttendanceData;
+	}
 }

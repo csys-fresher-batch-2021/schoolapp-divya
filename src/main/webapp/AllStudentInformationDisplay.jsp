@@ -14,6 +14,7 @@ h3 {
 	color: blue;
 	text-align: center;
 }
+
 h4 {
 	color: black;
 	text-align: center;
@@ -51,7 +52,8 @@ h4 {
 
 						<th scope="col">ROLL NUMBER</th>
 						<th scope="col">PERSONAL INFORMATION</th>
-						<th scope="col">Mark</th>
+						<th scope="col">MARK</th>
+						<th scope="col">ATTENDANCE</th>
 						<th scope="col">DELETE</th>
 
 
@@ -74,6 +76,9 @@ h4 {
 						</a></td>
 						<td><a
 							href="StudentIndividualMarkDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
+						</a></td>
+						<td><a
+							href="StudentIndividualAttendanceDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
 						</a></td>
 						<td><a
 							href="StudentRemoveServlet?allInfo=<%=allInfo.getStudentRollNumber()%> "
