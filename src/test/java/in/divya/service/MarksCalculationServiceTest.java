@@ -14,7 +14,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void firstTestMarkAverage()
 	{
-	float averageTest1=MarksActivityService.averageMarks(490);
+	float averageTest1=StudentMarkService.averageMarks(490);
 	assertEquals(98.0,averageTest1,0.001);
 	}
 	
@@ -25,7 +25,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void secondTestMarkAverage()
 	{
-	float averageTest2=MarksActivityService.averageMarks(463);
+	float averageTest2=StudentMarkService.averageMarks(463);
 	assertEquals(92.6,averageTest2,0.001);
 	}
 	
@@ -36,7 +36,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void thirdTestMarkAverage()
 	{
-	float averageTest3=MarksActivityService.averageMarks(491);
+	float averageTest3=StudentMarkService.averageMarks(491);
 	assertEquals(98.2,averageTest3,0.001);
 	}
 	
@@ -47,7 +47,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void gradeMark() 
 	{
-		String gradeMark1=MarksActivityService.gradeRank(92);
+		String gradeMark1=StudentMarkService.gradeRank(92);
 		assertEquals("A",gradeMark1);
 		
 	}
@@ -59,7 +59,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void gradeMark2()
 	{
-		String gradeMark2=MarksActivityService.gradeRank(70);
+		String gradeMark2=StudentMarkService.gradeRank(70);
 		assertEquals("B",gradeMark2);
 		
 	}
@@ -70,7 +70,7 @@ public class MarksCalculationServiceTest
 	
 	@Test
 	public void gradeMark3() {
-		String gradeMark3=MarksActivityService.gradeRank(50);
+		String gradeMark3=StudentMarkService.gradeRank(50);
 		assertEquals("C",gradeMark3);
 		
 		
@@ -83,7 +83,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void gradeReview1()
 	{
-		String comment1=MarksActivityService.gradeComment("A");
+		String comment1=StudentMarkService.gradeComment("A");
 		assertEquals("EXCELLENT",comment1);
 	}
 	
@@ -94,7 +94,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void gradeReview2()
 	{
-		String comment2=MarksActivityService.gradeComment("B");
+		String comment2=StudentMarkService.gradeComment("B");
 		assertEquals("GOOD",comment2);
 	}
 	
@@ -105,7 +105,7 @@ public class MarksCalculationServiceTest
 	@Test
 	public void gradeReview3()
 	{
-		String comment3=MarksActivityService.gradeComment("C");
+		String comment3=StudentMarkService.gradeComment("C");
 		assertEquals("BAD",comment3);
 	}
 	

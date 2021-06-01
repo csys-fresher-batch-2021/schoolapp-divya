@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import in.divya.exceptions.CannotRegisterStudentException;
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
-import in.divya.service.MarksActivityService;
+import in.divya.service.StudentMarkService;
 import in.divya.validator.MarkValidator;
 import in.divya.validator.RollNumberValidator;
 
@@ -76,17 +76,17 @@ public class StudentMarksAddingServlet extends HttpServlet {
 			/**
 			 * Find Total Find Average Find Grade Find Comment
 			 */
-			int total = MarksActivityService.addMarks(mark);
-			float average = MarksActivityService.averageMarks(total);
-			String grade = MarksActivityService.gradeRank(average);
-			String gradeComment = MarksActivityService.gradeComment(grade);
+			int total = StudentMarkService.addMarks(mark);
+			float average = StudentMarkService.averageMarks(total);
+			String grade = StudentMarkService.gradeRank(average);
+			String gradeComment = StudentMarkService.gradeComment(grade);
 
 			mark.setTotalMark(total);
 			mark.setAverageMark(average);
 			mark.setGrade(grade);
 			mark.setGradeComment(gradeComment);
 
-			boolean isAddedMark = MarksActivityService.addStudentMarks(mark);
+			boolean isAddedMark = StudentMarkService.addStudentMarks(mark);
 
 			/**
 			 * To check student marks are sucessfully added into map or not.

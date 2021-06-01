@@ -1,4 +1,4 @@
-<%@page import="in.divya.service.MarksActivityService"%>
+<%@page import="in.divya.service.StudentMarkService"%>
 <%@page import="in.divya.model.StudentMarksDetails"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -15,7 +15,7 @@ h3 {
 }
 
 h4 {
-	color: red;
+	color: blank;
 	text-align: center;
 }
 </style>
@@ -39,11 +39,13 @@ h4 {
 				<tbody>
 					<%
 					String studentRollNumber = (String) session.getAttribute("LOGGED_IN_USER_NO");
-					String studentName = (String) session.getAttribute("LOGGED_IN_USER");
-					Map<String, StudentMarksDetails> studentMarksData = MarksActivityService.displayStudentMarks(studentRollNumber);
-					StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
-					out.println("<h3>WELCOME " + studentName + "</h3><br/>");
-					out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
+								String studentName = (String) session.getAttribute("LOGGED_IN_USER");
+								Map<String, StudentMarksDetails> studentMarksData = StudentMarkService.displayStudentMarks(studentRollNumber);
+								if (studentMarksData != null && !studentMarksData.isEmpty()) {
+									StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
+									System.out.println(markDB);
+									out.println("<h3>WELCOME " + studentName + "</h3><br/>");
+									out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
 					%>
 
 					<tr>
@@ -82,6 +84,18 @@ h4 {
 						<td>COMMENT</td>
 						<td><%=markDB.getGradeComment()%></td>
 					</tr>
+					<%
+					} else {
+					%>
+
+					<tr>
+						<td colspan="2">
+							<h4>MARKS NOT FOUND</h4>
+						</td>
+					</tr>
+					<%
+					}
+					%>
 				</tbody>
 				<thead>
 			</table>
