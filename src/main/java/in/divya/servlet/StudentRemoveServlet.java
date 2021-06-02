@@ -33,9 +33,10 @@ public class StudentRemoveServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StudentDetailService studentDetailService = new StudentDetailService();
 		String studentRollNumber = request.getParameter("allInfo");
 		try {
-			boolean isRemoved = StudentDetailService.deleteStudentFromTheDataBase(studentRollNumber);
+			boolean isRemoved = studentDetailService.deleteStudentFromTheDataBase(studentRollNumber);
 			if (isRemoved) {
 				RequestDispatcher rd = request.getRequestDispatcher(
 						"AllStudentInformationDisplay.jsp?infoMessage=SuccessFully Deleted Student - "

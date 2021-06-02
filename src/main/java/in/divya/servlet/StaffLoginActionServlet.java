@@ -25,6 +25,7 @@ public class StaffLoginActionServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StaffDetailService staffDetailService = new StaffDetailService();
 		/**
 		 * Step 1: Get form values
 		 */
@@ -36,7 +37,7 @@ public class StaffLoginActionServlet extends HttpServlet {
 			/**
 			 * Step 2: call Service
 			 */
-			boolean isValidStudent = StaffDetailService.staffValidation(staffName, staffPassword);
+			boolean isValidStudent = staffDetailService.staffValidation(staffName, staffPassword);
 			if (isValidStudent) {
 				HttpSession session = request.getSession();
 				session.setAttribute("LOGGED_IN_USER", staffName);

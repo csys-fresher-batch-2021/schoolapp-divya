@@ -19,6 +19,8 @@ import in.divya.service.StaffDetailService;
  *
  */
 public class StaffLoginValidationTest {
+	static StaffDetailService staffDetailService = new StaffDetailService();
+
 	/**
 	 * Both are Valid
 	 * 
@@ -31,7 +33,7 @@ public class StaffLoginValidationTest {
 	public void isStaffBothValidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "M.LAKSHMI";
 		String staffPassword = "Rlakshmi@123";
-		boolean inValidCredentials = StaffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
 		assertTrue(inValidCredentials);
 	}
 
@@ -47,7 +49,7 @@ public class StaffLoginValidationTest {
 	public void isNameInValidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "SELVA";
 		String staffPassword = "Rlakshmi@123";
-		boolean inValidCredentials = StaffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
 		assertFalse(inValidCredentials);
 	}
 
@@ -63,7 +65,7 @@ public class StaffLoginValidationTest {
 	public void isPasswordInValidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "M.LAKSHMI";
 		String staffPassword = "RLaks@123";
-		boolean inValidCredentials = StaffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
 		assertFalse(inValidCredentials);
 	}
 
@@ -79,7 +81,7 @@ public class StaffLoginValidationTest {
 	public void isBothStaffInvalidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "RAMYA";
 		String staffPassword = "Ramya@56";
-		boolean inValidCredentials = StaffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
 		assertFalse(inValidCredentials);
 	}
 

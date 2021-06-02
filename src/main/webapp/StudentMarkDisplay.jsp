@@ -38,14 +38,15 @@ h4 {
 					</tr>
 				<tbody>
 					<%
+					StudentMarkService studentMarkService = new StudentMarkService();
 					String studentRollNumber = (String) session.getAttribute("LOGGED_IN_USER_NO");
-								String studentName = (String) session.getAttribute("LOGGED_IN_USER");
-								Map<String, StudentMarksDetails> studentMarksData = StudentMarkService.displayStudentMarks(studentRollNumber);
-								if (studentMarksData != null && !studentMarksData.isEmpty()) {
-									StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
-									System.out.println(markDB);
-									out.println("<h3>WELCOME " + studentName + "</h3><br/>");
-									out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
+					String studentName = (String) session.getAttribute("LOGGED_IN_USER");
+					Map<String, StudentMarksDetails> studentMarksData = studentMarkService.displayStudentMarks(studentRollNumber);
+					if (studentMarksData != null && !studentMarksData.isEmpty()) {
+						StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
+						System.out.println(markDB);
+						out.println("<h3>WELCOME " + studentName + "</h3><br/>");
+						out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
 					%>
 
 					<tr>

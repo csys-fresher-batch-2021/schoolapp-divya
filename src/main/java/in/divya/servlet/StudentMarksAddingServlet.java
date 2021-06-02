@@ -31,6 +31,7 @@ public class StudentMarksAddingServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, CannotRegisterStudentException {
+		StudentMarkService studentMarkService = new StudentMarkService();
 		try {
 			StudentMarksDetails mark = new StudentMarksDetails();
 
@@ -76,17 +77,17 @@ public class StudentMarksAddingServlet extends HttpServlet {
 			/**
 			 * Find Total Find Average Find Grade Find Comment
 			 */
-			int total = StudentMarkService.addMarks(mark);
-			float average = StudentMarkService.averageMarks(total);
-			String grade = StudentMarkService.gradeRank(average);
-			String gradeComment = StudentMarkService.gradeComment(grade);
+			int total = studentMarkService.addMarks(mark);
+			float average = studentMarkService.averageMarks(total);
+			String grade = studentMarkService.gradeRank(average);
+			String gradeComment = studentMarkService.gradeComment(grade);
 
 			mark.setTotalMark(total);
 			mark.setAverageMark(average);
 			mark.setGrade(grade);
 			mark.setGradeComment(gradeComment);
 
-			boolean isAddedMark = StudentMarkService.addStudentMarks(mark);
+			boolean isAddedMark = studentMarkService.addStudentMarks(mark);
 
 			/**
 			 * To check student marks are sucessfully added into map or not.
@@ -94,8 +95,8 @@ public class StudentMarksAddingServlet extends HttpServlet {
 
 			if (isAddedMark) {
 				String message = "MARKS ADDED SUCCESSFULLY";
-				response.sendRedirect("StudentMarkAdd.jsp?infoMessage=" + message + "&total=" + total + "&average=" + average
-						+ "&grade=" + grade + "&gradeComment=" + gradeComment);
+				response.sendRedirect("StudentMarkAdd.jsp?infoMessage=" + message + "&total=" + total + "&average="
+						+ average + "&grade=" + grade + "&gradeComment=" + gradeComment);
 
 			} else {
 				throw new InValidCredentialsException("Cannot add marks");

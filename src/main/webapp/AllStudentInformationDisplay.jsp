@@ -40,8 +40,8 @@ h4 {
 
 			<%
 			String staffName = (String) session.getAttribute("LOGGED_IN_USER");
-
-			List<StudentDetails> allStudentInformationDisplay = StudentDetailService.displayAllStudentInformation(staffName);
+			StudentDetailService studentDetailService = new StudentDetailService();
+			List<StudentDetails> allStudentInformationDisplay = studentDetailService.displayAllStudentInformation(staffName);
 			%>
 
 			<table class="table" border="1">

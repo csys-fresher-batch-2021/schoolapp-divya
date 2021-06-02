@@ -28,6 +28,8 @@ public class StudentMarkRemoveServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StudentMarkService studentMarkService = new StudentMarkService();
+
 		
 		try {
 			
@@ -42,7 +44,7 @@ public class StudentMarkRemoveServlet extends HttpServlet {
 			MarkValidator.isNumberPositive(testNo);
 		
 
-			boolean isMarkDeleted = StudentMarkService.deleteStudentMarks(testNo);
+			boolean isMarkDeleted = studentMarkService.deleteStudentMarks(testNo);
 
 			/**
 			 * To check student marks are sucessfully delete  or not.

@@ -16,7 +16,7 @@ import in.divya.model.StudentDetails;
 
 public class StudentDetailService {
 
-	private StudentDetailService() {
+	public StudentDetailService() {
 		/**
 		 * Default constructor
 		 */
@@ -29,7 +29,7 @@ public class StudentDetailService {
 	 * @return
 	 */
 
-	public static boolean addStudent(StudentDetails student) {
+	public boolean addStudent(StudentDetails student) {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		boolean isAddedStudent = true;
 		try {
@@ -47,7 +47,7 @@ public class StudentDetailService {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
+	public boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
 			throws InValidCredentialsException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		boolean isValidStudentCredentials = false;
@@ -68,7 +68,7 @@ public class StudentDetailService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentDetails> displayAllStudentInformation(String staffName)
+	public List<StudentDetails> displayAllStudentInformation(String staffName)
 			throws InValidCredentialsException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		return studentDetailDAO.findAllStudentInformation(staffName);
@@ -82,7 +82,7 @@ public class StudentDetailService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
+	public Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
 			throws InValidCredentialsException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		return studentDetailDAO.findIndividualStudentData(studentRollnumber);
@@ -96,7 +96,7 @@ public class StudentDetailService {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static boolean deleteStudentFromTheDataBase(String studentRollNumber) throws InValidCredentialsException {
+	public boolean deleteStudentFromTheDataBase(String studentRollNumber) throws InValidCredentialsException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		return studentDetailDAO.deleteStudentFromTable(studentRollNumber);
 

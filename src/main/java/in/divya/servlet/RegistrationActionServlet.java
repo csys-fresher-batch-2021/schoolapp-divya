@@ -38,6 +38,7 @@ public class RegistrationActionServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StudentDetailService studentDetailService=new StudentDetailService();
 		try {
 			StudentDetails student = new StudentDetails();
 			String studentName = request.getParameter("studentName");
@@ -97,7 +98,7 @@ public class RegistrationActionServlet extends HttpServlet {
 			/**
 			 * Step 2: Call Service => add student details
 			 */
-			boolean isAddedStudent = StudentDetailService.addStudent(student);
+			boolean isAddedStudent = studentDetailService.addStudent(student);
 
 			/**
 			 * Step 3: Decide to which page we should redirect ?

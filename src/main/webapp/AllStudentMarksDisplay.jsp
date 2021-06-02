@@ -34,7 +34,8 @@ h4 {
 			
 
 			<%
-			List<StudentMarksDetails> allStudentMarksToDisplay = StudentMarkService.displayAllStudentMarks();
+			StudentMarkService studentMarkService = new StudentMarkService();
+			List<StudentMarksDetails> allStudentMarksToDisplay = studentMarkService.displayAllStudentMarks();
 			%>
 
 			<table class="table" border="1">
