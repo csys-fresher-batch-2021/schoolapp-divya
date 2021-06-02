@@ -44,7 +44,7 @@ public class StudentDetailDAO {
 			connection = ConnectionUtil.getConnection();
 
 			String sql = 	"insert into student_data(student_name,father_name,mother_name,student_email_id,student_password,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,student_staff_name,parent_mobile_number,date_of_birth) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-;
+
 
 			pst = connection.prepareStatement(sql);
 
