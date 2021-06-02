@@ -11,7 +11,9 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentAttendanceDetails;
@@ -22,7 +24,8 @@ import in.divya.util.ConnectionUtil;
  *
  */
 public class StudentAttendanceDetailDAO {
-	private StudentAttendanceDetailDAO() {
+
+	public StudentAttendanceDetailDAO() {
 		// Default Constructor
 	}
 
@@ -33,8 +36,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public static void saveAttendance(StudentAttendanceDetails attendance)
-			throws SQLException, InValidCredentialsException {
+	public void saveAttendance(StudentAttendanceDetails attendance) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -74,7 +76,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws InValidCredentialsException
 	 * @throws SQLException
 	 */
-	public static void updateStudentMarks(StudentAttendanceDetails attendance)
+	public void updateStudentMarks(StudentAttendanceDetails attendance)
 			throws InValidCredentialsException, SQLException {
 		PreparedStatement pst = null;
 		Connection connection = null;
@@ -117,7 +119,7 @@ public class StudentAttendanceDetailDAO {
 	 * @param attendance_date
 	 * @throws InValidCredentialsException
 	 */
-	public static void romoveAttendanceFromTable(LocalDate attendanceDate) throws InValidCredentialsException {
+	public void romoveAttendanceFromTable(LocalDate attendanceDate) throws InValidCredentialsException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -149,7 +151,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentAttendanceDetails> findStudentAttendance(String rollNumber)
+	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber)
 			throws SQLException, InValidCredentialsException {
 
 		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
@@ -188,7 +190,7 @@ public class StudentAttendanceDetailDAO {
 				attendance.setReason(reason);
 
 				/**
-				 * Store attendance in map
+				 * Store attendance in list
 				 */
 
 				studentAttendanceData.add(attendance);
@@ -199,5 +201,134 @@ public class StudentAttendanceDetailDAO {
 			ConnectionUtil.close(rs, pst, connection);
 		}
 		return studentAttendanceData;
+	}
+
+	/**
+	 * Display all student Attendance.
+	 * 
+	 * @param date
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public List<StudentAttendanceDetails> findAllStudentAttendance(LocalDate date) throws InValidCredentialsException {
+		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+
+			connection = ConnectionUtil.getConnection();
+
+			String sql = "select * from attendance_data where attendance_date=? order by student_roll_number asc";
+
+			pst = connection.prepareStatement(sql);
+			pst.setObject(1, date);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				StudentAttendanceDetails attendance = new StudentAttendanceDetails();
+
+				String studentRollNumber = rs.getString("student_roll_number");
+				LocalDate attendanceDate = LocalDate.parse(rs.getString("attendance_date"));
+				String attendanceStatus = rs.getString("attendance_status");
+				LocalTime inTime = LocalTime.parse(rs.getString("in_time"));
+				LocalTime outTime = LocalTime.parse(rs.getString("out_time"));
+				String reason = rs.getString("reason");
+
+				/**
+				 * Store the data in model
+				 */
+				attendance.setStudentRollNumber(studentRollNumber);
+				attendance.setDate(attendanceDate);
+				attendance.setStudentAttendance(attendanceStatus);
+				attendance.setInTime(inTime);
+				attendance.setOutTime(outTime);
+				attendance.setReason(reason);
+
+				/**
+				 * Store attendance in List
+				 */
+
+				studentAttendanceData.add(attendance);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return studentAttendanceData;
+	}
+
+	/**
+	 * Display Attendance Status Count.
+	 * 
+	 * @param date
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public Map<String, Integer> findAttendanceStatusCount(LocalDate date) throws InValidCredentialsException {
+		Map<String, Integer> studentAttendanceCount = new HashMap<>();
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+
+			connection = ConnectionUtil.getConnection();
+
+			String sql = "select attendance_status, count(*) as cnt from attendance_data where attendance_date=? group by attendance_status";
+
+			pst = connection.prepareStatement(sql);
+			pst.setObject(1, date);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				String status = rs.getString("attendance_status");
+				Integer cnt = rs.getInt("cnt");
+				studentAttendanceCount.put(status, cnt);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return studentAttendanceCount;
+
+	}
+
+	/**
+	 * Display Number Of Students
+	 * 
+	 * @param date
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public int findAttendanceCount(LocalDate date) throws InValidCredentialsException {
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		int count = 0;
+		try {
+
+			connection = ConnectionUtil.getConnection();
+
+			String sql = "select count(*) from attendance_data where attendance_date=?";
+
+			pst = connection.prepareStatement(sql);
+			pst.setObject(1, date);
+			rs = pst.executeQuery();
+			rs.next();
+			count = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+
+		return count;
+
 	}
 }

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 import in.divya.dao.StudentAttendanceDetailDAO;
 import in.divya.exceptions.CannotAddDetailsException;
@@ -18,7 +19,7 @@ import in.divya.model.StudentAttendanceDetails;
  *
  */
 public class StudentAttendanceService {
-	private StudentAttendanceService() {
+	public StudentAttendanceService() {
 		// Default Constructor
 	}
 
@@ -29,10 +30,11 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws CannotAddDetailsException
 	 */
-	public static boolean addAttendance(StudentAttendanceDetails attendance) throws CannotAddDetailsException {
+	public boolean addAttendance(StudentAttendanceDetails attendance) throws CannotAddDetailsException {
+		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		boolean isAddedAttendance = true;
 		try {
-			StudentAttendanceDetailDAO.saveAttendance(attendance);
+			studentAttendanceDetailDAO.saveAttendance(attendance);
 			return isAddedAttendance;
 		} catch (Exception e) {
 			throw new CannotAddDetailsException(
@@ -48,10 +50,11 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean updateAttendance(StudentAttendanceDetails attendance) throws InValidCredentialsException {
+	public boolean updateAttendance(StudentAttendanceDetails attendance) throws InValidCredentialsException {
+		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		boolean isUpdatedAttendance = true;
 		try {
-			StudentAttendanceDetailDAO.updateStudentMarks(attendance);
+			studentAttendanceDetailDAO.updateStudentMarks(attendance);
 			return isUpdatedAttendance;
 		} catch (Exception e) {
 			throw new InValidCredentialsException(
@@ -68,10 +71,11 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean deleteStudentAttendance(LocalDate attendanceDate) throws InValidCredentialsException {
+	public boolean deleteStudentAttendance(LocalDate attendanceDate) throws InValidCredentialsException {
+		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		boolean isDelete = true;
 		try {
-			StudentAttendanceDetailDAO.romoveAttendanceFromTable(attendanceDate);
+			studentAttendanceDetailDAO.romoveAttendanceFromTable(attendanceDate);
 			return isDelete;
 		} catch (Exception e) {
 			throw new InValidCredentialsException("DATE OF ATTENDANCE NOT FOUND");
@@ -86,10 +90,54 @@ public class StudentAttendanceService {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
+	public List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
 			throws SQLException, InValidCredentialsException {
+		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
+		return studentAttendanceDetailDAO.findStudentAttendance(studentRollNumber);
 
-		return StudentAttendanceDetailDAO.findStudentAttendance(studentRollNumber);
+	}
+
+	/**
+	 * Display all student attendance.
+	 * 
+	 * @param date
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public List<StudentAttendanceDetails> displayAllStudentAttendance(LocalDate date)
+			throws SQLException, InValidCredentialsException {
+		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
+		return studentAttendanceDetailDAO.findAllStudentAttendance(date);
+
+	}
+
+	/**
+	 * To display the count of attendance status.
+	 * 
+	 * @param date
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public Map<String, Integer> displayAttendanceStatusCount(LocalDate date)
+			throws SQLException, InValidCredentialsException {
+		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
+		return studentAttendanceDetailDAO.findAttendanceStatusCount(date);
+
+	}
+
+	/**
+	 * To display the count of students in attendance.
+	 * 
+	 * @param date
+	 * @return
+	 * @throws SQLException
+	 * @throws InValidCredentialsException
+	 */
+	public int displayAttendanceCount(LocalDate date) throws SQLException, InValidCredentialsException {
+		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
+		return studentAttendanceDetailDAO.findAttendanceCount(date);
 
 	}
 
