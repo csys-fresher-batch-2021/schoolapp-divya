@@ -91,7 +91,7 @@ public class StudentAttendanceService {
 	 * @throws InValidCredentialsException
 	 */
 	public List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
-			throws InValidCredentialsException, SQLException {
+			throws InValidCredentialsException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findStudentAttendance(studentRollNumber);
 
