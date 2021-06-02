@@ -35,6 +35,8 @@ public class StudentAttendanceRemoveServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StudentAttendanceService studentAttendanceService = new StudentAttendanceService();
+
 		try {
 			/**
 			 * To get value
@@ -44,7 +46,7 @@ public class StudentAttendanceRemoveServlet extends HttpServlet {
 			LocalDate attendanceDate = DateValidatorUtil.isDateFormatOrNot(date, "InValid Date Format");
 			DateValidatorUtil.isNotAFutureDate(attendanceDate, "Date cannot be a future date");
 
-			boolean isAttendanceDeleted = StudentAttendanceService.deleteStudentAttendance(attendanceDate);
+			boolean isAttendanceDeleted = studentAttendanceService.deleteStudentAttendance(attendanceDate);
 
 			/**
 			 * To check student Attendance are sucessfully delete or not.
@@ -62,7 +64,7 @@ public class StudentAttendanceRemoveServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			RequestDispatcher rd = request
-					.getRequestDispatcher("StudentAttendanceRemove.jsp?errorMessage=DATE OF ATTENDANCE NOT FOUND");
+					.getRequestDispatcher("StudentAttendanceRemove.jsp?errorMessage="+e.getMessage());
 			rd.forward(request, response);
 
 		}

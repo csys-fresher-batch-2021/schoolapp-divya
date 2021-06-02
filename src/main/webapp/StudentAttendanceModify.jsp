@@ -41,9 +41,9 @@ h2 {
 				max="2021-12-31" placeholder="YYYY-MM-DD" required><br /> <br />
 			<label for="attendance">CHOOSE ATTENDANCE TYPE :</label> <select
 				name="studentAttendance" id="studentAttendance">
-				<option value="present">PRESENT</option>
-				<option value="absent">ABSENT</option>
-				<option value="onDuty">ONDUTY</option>
+				<option value="PRESENT">PRESENT</option>
+				<option value="ABSENT">ABSENT</option>
+				<option value="ONDUTY">ONDUTY</option>
 			</select> <br /> <br /> <label for="time">IN TIME :</label> <input
 				type="time" id="inTime" name="inTime"> <br /> <br /> <label
 				for="time">OUT TIME :</label> <input type="time" id="outTime"

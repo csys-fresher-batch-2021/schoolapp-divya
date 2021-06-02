@@ -99,9 +99,10 @@ public class StudentMarkService {
 	 * @throws InValidCredentialsException
 	 */
 	public static boolean addStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		boolean isAddedStudent = true;
 		try {
-			StudentMarkDAO.saveStudentMarks(mark);
+			studentMarkDAO.saveStudentMarks(mark);
 			return isAddedStudent;
 		} catch (Exception e) {
 			throw new InValidCredentialsException(
@@ -119,9 +120,10 @@ public class StudentMarkService {
 	 * @throws InValidCredentialsException
 	 */
 	public static boolean updateStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		boolean isUpdatedStudent = true;
 		try {
-			StudentMarkDAO.updateStudentMarks(mark);
+			studentMarkDAO.updateStudentMarks(mark);
 			return isUpdatedStudent;
 		} catch (Exception e) {
 			throw new InValidCredentialsException(
@@ -142,8 +144,8 @@ public class StudentMarkService {
 
 	public static Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
 			throws SQLException, InValidCredentialsException {
-
-		return StudentMarkDAO.findStudentMarks(studentRollNumber);
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
+		return studentMarkDAO.findStudentMarks(studentRollNumber);
 
 	}
 
@@ -155,9 +157,10 @@ public class StudentMarkService {
 	 * @throws InValidCredentialsException
 	 */
 	public static boolean deleteStudentMarks(int testNo) throws InValidCredentialsException {
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		boolean isDeleteTest = true;
 		try {
-			StudentMarkDAO.deleteTestMarkFromTable(testNo);
+			studentMarkDAO.deleteTestMarkFromTable(testNo);
 			return isDeleteTest;
 		} catch (Exception e) {
 			throw new InValidCredentialsException("TEST MARKS NOT EXISTS");
@@ -172,7 +175,8 @@ public class StudentMarkService {
 	 * @throws InValidCredentialsException
 	 */
 	public static List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
-		return StudentMarkDAO.findAllStudentMarks();
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
+		return studentMarkDAO.findAllStudentMarks();
 
 	}
 }

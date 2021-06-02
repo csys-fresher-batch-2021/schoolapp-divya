@@ -21,7 +21,7 @@ import in.divya.util.ConnectionUtil;
  *
  */
 public class StudentMarkDAO {
-	private StudentMarkDAO() {
+	public StudentMarkDAO() {
 		// Default Constructor
 	}
 
@@ -33,7 +33,7 @@ public class StudentMarkDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static void saveStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
+	public void saveStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 
@@ -80,7 +80,7 @@ public class StudentMarkDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static void updateStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
+	public void updateStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		int rs = 0;
@@ -132,11 +132,10 @@ public class StudentMarkDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static Map<String, StudentMarksDetails> findStudentMarks(String rollNumber)
+	public Map<String, StudentMarksDetails> findStudentMarks(String rollNumber)
 			throws SQLException, InValidCredentialsException {
 
 		Map<String, StudentMarksDetails> studentMarksData = new HashMap<>();
-		
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -150,7 +149,7 @@ public class StudentMarkDAO {
 			pst = connection.prepareStatement(sql);
 			pst.setString(1, rollNumber);
 			rs = pst.executeQuery();
-			
+
 			while (rs.next()) {
 				StudentMarksDetails markDB = new StudentMarksDetails();
 				String studentRollNumber = rs.getString("student_roll_number");
@@ -202,7 +201,7 @@ public class StudentMarkDAO {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static void deleteTestMarkFromTable(int testNo) throws InValidCredentialsException {
+	public void deleteTestMarkFromTable(int testNo) throws InValidCredentialsException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -233,7 +232,7 @@ public class StudentMarkDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentMarksDetails> findAllStudentMarks() throws SQLException, InValidCredentialsException {
+	public List<StudentMarksDetails> findAllStudentMarks() throws SQLException, InValidCredentialsException {
 
 		List<StudentMarksDetails> allStudentMarksToDisplay = new ArrayList<>();
 		Connection connection = null;
@@ -242,7 +241,7 @@ public class StudentMarkDAO {
 		try {
 			connection = ConnectionUtil.getConnection();
 
-			String str = "select * from student_mark";
+			String str = "select * from student_mark order by student_roll_number asc";
 			pst = connection.prepareStatement(str);
 			rs = pst.executeQuery();
 

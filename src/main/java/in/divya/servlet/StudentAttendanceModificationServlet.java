@@ -40,6 +40,8 @@ public class StudentAttendanceModificationServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StudentAttendanceService studentAttendanceService = new StudentAttendanceService();
+
 		try {
 
 			/**
@@ -75,7 +77,7 @@ public class StudentAttendanceModificationServlet extends HttpServlet {
 			attendance.setOutTime(studentOutTime);
 			attendance.setReason(studentReason);
 
-			boolean isAddedAttendance = StudentAttendanceService.updateAttendance(attendance);
+			boolean isAddedAttendance = studentAttendanceService.updateAttendance(attendance);
 
 			/**
 			 * Step 3: Decide to which page we should redirect ?
