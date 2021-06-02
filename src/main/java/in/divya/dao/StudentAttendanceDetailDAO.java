@@ -36,7 +36,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public void saveAttendance(StudentAttendanceDetails attendance) throws SQLException, InValidCredentialsException {
+	public void saveAttendance(StudentAttendanceDetails attendance) throws  InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -59,12 +59,7 @@ public class StudentAttendanceDetailDAO {
 			throw new InValidCredentialsException(
 					"ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
 		} finally {
-			if (pst != null) {
-				pst.close();
-			}
-			if (connection != null) {
-				connection.close();
-			}
+			ConnectionUtil.close(pst, connection);
 		}
 
 	}
@@ -77,7 +72,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws SQLException
 	 */
 	public void updateStudentMarks(StudentAttendanceDetails attendance)
-			throws InValidCredentialsException, SQLException {
+			throws InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		int rs = 0;
@@ -103,12 +98,7 @@ public class StudentAttendanceDetailDAO {
 		} catch (SQLException e) {
 			e.getMessage();
 		} finally {
-			if (pst != null) {
-				pst.close();
-			}
-			if (connection != null) {
-				connection.close();
-			}
+			ConnectionUtil.close(pst, connection);
 		}
 
 	}
@@ -152,7 +142,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws InValidCredentialsException
 	 */
 	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber)
-			throws SQLException, InValidCredentialsException {
+			throws InValidCredentialsException {
 
 		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
 

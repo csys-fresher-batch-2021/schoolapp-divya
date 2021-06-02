@@ -56,4 +56,4 @@ public class StudentAttendanceViewServlet extends HttpServlet {
 		}
 
 	}
-};
+}

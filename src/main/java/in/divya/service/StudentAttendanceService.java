@@ -91,7 +91,7 @@ public class StudentAttendanceService {
 	 * @throws InValidCredentialsException
 	 */
 	public List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
-			throws SQLException, InValidCredentialsException {
+			throws InValidCredentialsException, SQLException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findStudentAttendance(studentRollNumber);
 
@@ -106,7 +106,7 @@ public class StudentAttendanceService {
 	 * @throws InValidCredentialsException
 	 */
 	public List<StudentAttendanceDetails> displayAllStudentAttendance(LocalDate date)
-			throws SQLException, InValidCredentialsException {
+			throws InValidCredentialsException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAllStudentAttendance(date);
 
@@ -121,7 +121,7 @@ public class StudentAttendanceService {
 	 * @throws InValidCredentialsException
 	 */
 	public Map<String, Integer> displayAttendanceStatusCount(LocalDate date)
-			throws SQLException, InValidCredentialsException {
+			throws InValidCredentialsException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAttendanceStatusCount(date);
 
@@ -135,7 +135,7 @@ public class StudentAttendanceService {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public int displayAttendanceCount(LocalDate date) throws SQLException, InValidCredentialsException {
+	public int displayAttendanceCount(LocalDate date) throws InValidCredentialsException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAttendanceCount(date);
 
