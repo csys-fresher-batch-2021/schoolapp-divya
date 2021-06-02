@@ -29,6 +29,8 @@ public class StudentMarkModificationServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StudentMarkService studentMarkService = new StudentMarkService();
+
 		try {
 			StudentMarksDetails mark = new StudentMarksDetails();
 
@@ -75,17 +77,17 @@ public class StudentMarkModificationServlet extends HttpServlet {
 			/**
 			 * Find Total Find Average Find Grade Find Comment
 			 */
-			int total = StudentMarkService.addMarks(mark);
-			float average = StudentMarkService.averageMarks(total);
-			String grade = StudentMarkService.gradeRank(average);
-			String gradeComment = StudentMarkService.gradeComment(grade);
+			int total = studentMarkService.addMarks(mark);
+			float average = studentMarkService.averageMarks(total);
+			String grade = studentMarkService.gradeRank(average);
+			String gradeComment = studentMarkService.gradeComment(grade);
 
 			mark.setTotalMark(total);
 			mark.setAverageMark(average);
 			mark.setGrade(grade);
 			mark.setGradeComment(gradeComment);
 
-			boolean isUpdatedMark = StudentMarkService.updateStudentMarks(mark);
+			boolean isUpdatedMark = studentMarkService.updateStudentMarks(mark);
 
 			/**
 			 * To check student marks are sucessfully update into map or not.

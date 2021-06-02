@@ -18,7 +18,7 @@ import in.divya.util.ConnectionUtil;
  *
  */
 public class StaffDetailDAO {
-	private StaffDetailDAO() {
+	public StaffDetailDAO() {
 		// Default Constructor
 	}
 
@@ -30,7 +30,7 @@ public class StaffDetailDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException 
 	 */
-	public static List<String> staffCredentialData() throws SQLException, InValidCredentialsException {
+	public  List<String> staffCredentialData() throws SQLException, InValidCredentialsException {
 
 		List<String> staffCredetials = new ArrayList<>();
 		Connection connection = null;

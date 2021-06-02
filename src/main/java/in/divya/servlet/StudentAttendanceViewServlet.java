@@ -9,22 +9,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import in.divya.exceptions.InValidCredentialsException;
-import in.divya.service.StudentAttendanceService;
 import in.divya.util.DateValidatorUtil;
 
 /**
- * Servlet implementation class StudentAttendanceRemoveServlet
+ * Servlet implementation class StudentAttendanceViewServlet
  */
-@WebServlet("/StudentAttendanceRemoveServlet")
-public class StudentAttendanceRemoveServlet extends HttpServlet {
+@WebServlet("/StudentAttendanceViewServlet")
+public class StudentAttendanceViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public StudentAttendanceRemoveServlet() {
+	public StudentAttendanceViewServlet() {
 		super();
 	}
 
@@ -35,40 +32,28 @@ public class StudentAttendanceRemoveServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		StudentAttendanceService studentAttendanceService = new StudentAttendanceService();
-
 		try {
 			/**
 			 * To get value
 			 */
+			boolean isValid = true;
 			String date = request.getParameter("dateOfAttendance");
-
 			LocalDate attendanceDate = DateValidatorUtil.isDateFormatOrNot(date, "InValid Date Format");
-			DateValidatorUtil.isNotAFutureDate(attendanceDate, "Date cannot be a future date");
-
-			boolean isAttendanceDeleted = studentAttendanceService.deleteStudentAttendance(attendanceDate);
-
-			/**
-			 * To check student Attendance are sucessfully delete or not.
-			 */
-			if (isAttendanceDeleted) {
+			isValid = DateValidatorUtil.isNotAFutureDate(attendanceDate, "Date cannot be a future date");
+			if (isValid) {
 				RequestDispatcher rd = request
-						.getRequestDispatcher("StudentAttendanceRemove.jsp?infoMessage=SUCCESSFULLY DELETED");
+						.getRequestDispatcher("AllStudentAttendanceDisplay.jsp?attendanceDate=" + attendanceDate);
 				rd.forward(request, response);
-
-			} else {
-				throw new InValidCredentialsException("DATE OF ATTENDANCE NOT FOUND");
 
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			RequestDispatcher rd = request
-					.getRequestDispatcher("StudentAttendanceRemove.jsp?errorMessage="+e.getMessage());
+					.getRequestDispatcher("AllStudentAttendanceCall.jsp?errorMessage=" + e.getMessage());
 			rd.forward(request, response);
 
 		}
 
 	}
-
 }

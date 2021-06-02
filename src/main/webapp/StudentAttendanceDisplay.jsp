@@ -43,7 +43,8 @@ h4 {
 					<%
 					String studentRollNumber = (String) session.getAttribute("LOGGED_IN_USER_NO");
 					String studentName = (String) session.getAttribute("LOGGED_IN_USER");
-					List<StudentAttendanceDetails> studentAttendanceData = StudentAttendanceService
+					StudentAttendanceService studentAttendanceService = new StudentAttendanceService();
+					List<StudentAttendanceDetails> studentAttendanceData = studentAttendanceService
 							.displayStudentAttendance(studentRollNumber);
 					if (studentAttendanceData != null && !studentAttendanceData.isEmpty()) {
 						int i = 1;

@@ -16,13 +16,12 @@ import in.divya.model.StudentDetails;
 
 public class StudentDetailService {
 
-	private StudentDetailService() {
+	public StudentDetailService() {
 		/**
 		 * Default constructor
 		 */
 	}
 
-	 
 	/**
 	 * Registration-Add the student details To check it is successfully
 	 * 
@@ -30,10 +29,11 @@ public class StudentDetailService {
 	 * @return
 	 */
 
-	public static boolean addStudent(StudentDetails student) {
+	public boolean addStudent(StudentDetails student) {
+		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		boolean isAddedStudent = true;
 		try {
-			StudentDetailDAO.saveStudent(student);
+			studentDetailDAO.saveStudent(student);
 			return isAddedStudent;
 		} catch (Exception e) {
 			throw new CannotRegisterStudentException("ALREADY EXISTS");
@@ -46,11 +46,12 @@ public class StudentDetailService {
 	 * 
 	 * @throws InValidCredentialsException
 	 */
-	
-	public static boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
+
+	public boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
 			throws InValidCredentialsException {
+		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		boolean isValidStudentCredentials = false;
-		List<String> studentCredetials = StudentDetailDAO.studentCredentialData();
+		List<String> studentCredetials = studentDetailDAO.studentCredentialData();
 		/**
 		 * If it is true......Login sucessfully. otherwise it is failed
 		 */
@@ -67,9 +68,10 @@ public class StudentDetailService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentDetails> displayAllStudentInformation(String staffName)
+	public List<StudentDetails> displayAllStudentInformation(String staffName)
 			throws InValidCredentialsException {
-		return StudentDetailDAO.findAllStudentInformation(staffName);
+		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
+		return studentDetailDAO.findAllStudentInformation(staffName);
 
 	}
 
@@ -80,10 +82,10 @@ public class StudentDetailService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
+	public Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
 			throws InValidCredentialsException {
-
-		return StudentDetailDAO.findIndividualStudentData(studentRollnumber);
+		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
+		return studentDetailDAO.findIndividualStudentData(studentRollnumber);
 	}
 
 	/**
@@ -94,8 +96,9 @@ public class StudentDetailService {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static boolean deleteStudentFromTheDataBase(String studentRollNumber) throws InValidCredentialsException {
-		return StudentDetailDAO.deleteStudentFromTable(studentRollNumber);
+	public boolean deleteStudentFromTheDataBase(String studentRollNumber) throws InValidCredentialsException {
+		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
+		return studentDetailDAO.deleteStudentFromTable(studentRollNumber);
 
 	}
 

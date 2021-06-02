@@ -28,6 +28,7 @@ public class StudentLoginActionServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StudentDetailService studentDetailService=new StudentDetailService();
 
 		/**
 		 * Step 1: Get form values
@@ -43,7 +44,7 @@ public class StudentLoginActionServlet extends HttpServlet {
 			/**
 			 * Step 2: call Service
 			 */
-			boolean isValidStudent = StudentDetailService.studentValidation(studentName, studentRollNumber,
+			boolean isValidStudent = studentDetailService.studentValidation(studentName, studentRollNumber,
 					studentPassword);
 			if (isValidStudent) {
 				HttpSession session = request.getSession();

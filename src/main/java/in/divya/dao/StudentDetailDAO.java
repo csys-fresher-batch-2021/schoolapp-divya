@@ -24,7 +24,7 @@ import in.divya.util.ConnectionUtil;
  *
  */
 public class StudentDetailDAO {
-	private StudentDetailDAO() {
+	public StudentDetailDAO() {
 		// Default Constructor
 	}
 
@@ -38,7 +38,7 @@ public class StudentDetailDAO {
 	 * @throws SQLException
 	 */
 
-	public static void saveStudent(StudentDetails student) throws SQLException, InValidCredentialsException {
+	public void saveStudent(StudentDetails student) throws SQLException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -87,7 +87,7 @@ public class StudentDetailDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static List<String> studentCredentialData() throws InValidCredentialsException {
+	public List<String> studentCredentialData() throws InValidCredentialsException {
 
 		List<String> studentCredentials = new ArrayList<>();
 		Connection connection = null;
@@ -125,8 +125,7 @@ public class StudentDetailDAO {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentDetails> findAllStudentInformation(String staffName)
-			throws InValidCredentialsException {
+	public List<StudentDetails> findAllStudentInformation(String staffName) throws InValidCredentialsException {
 
 		List<StudentDetails> allStudentInformationDisplay = new ArrayList<>();
 		Connection connection = null;
@@ -135,7 +134,7 @@ public class StudentDetailDAO {
 		try {
 			connection = ConnectionUtil.getConnection();
 
-			String str = "select student_name,student_roll_number from student_data where student_staff_name=?";
+			String str = "select student_name,student_roll_number from student_data where student_staff_name=? order by student_roll_number";
 			pst = connection.prepareStatement(str);
 			pst.setString(1, staffName);
 			rs = pst.executeQuery();
@@ -178,7 +177,7 @@ public class StudentDetailDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static boolean deleteStudentFromTable(String studentRollNumber) throws InValidCredentialsException {
+	public boolean deleteStudentFromTable(String studentRollNumber) throws InValidCredentialsException {
 		Connection connection = null;
 		PreparedStatement pst = null;
 		boolean isDeleted = false;
@@ -208,7 +207,7 @@ public class StudentDetailDAO {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static Map<String, StudentDetails> findIndividualStudentData(String studentRollnumber)
+	public Map<String, StudentDetails> findIndividualStudentData(String studentRollnumber)
 			throws InValidCredentialsException {
 		Map<String, StudentDetails> individualStudentInformationDisplay = new HashMap<>();
 		Connection connection = null;

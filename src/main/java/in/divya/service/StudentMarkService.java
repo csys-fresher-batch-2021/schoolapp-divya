@@ -16,7 +16,7 @@ import in.divya.model.StudentMarksDetails;
  *
  */
 public class StudentMarkService {
-	private StudentMarkService() {
+	public StudentMarkService() {
 		/**
 		 * Default constructor
 		 */
@@ -29,7 +29,7 @@ public class StudentMarkService {
 	 * @return
 	 */
 
-	public static int addMarks(StudentMarksDetails mark) {
+	public int addMarks(StudentMarksDetails mark) {
 
 		int tamil = mark.getTamilMark();
 		int english = mark.getEnglishMark();
@@ -46,7 +46,7 @@ public class StudentMarkService {
 	 * @return
 	 */
 
-	public static float averageMarks(int total) {
+	public float averageMarks(int total) {
 		return ((float) total / 5);
 	}
 
@@ -57,7 +57,7 @@ public class StudentMarkService {
 	 * @return
 	 */
 
-	public static String gradeRank(float average) {
+	public String gradeRank(float average) {
 		String grade = null;
 		if (average > 90) {
 			grade = "A";
@@ -77,7 +77,7 @@ public class StudentMarkService {
 	 * @return
 	 */
 
-	public static String gradeComment(String grade) {
+	public String gradeComment(String grade) {
 		String result;
 		if (grade.equals("A")) {
 			result = "EXCELLENT";
@@ -98,10 +98,11 @@ public class StudentMarkService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean addStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+	public boolean addStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		boolean isAddedStudent = true;
 		try {
-			StudentMarkDAO.saveStudentMarks(mark);
+			studentMarkDAO.saveStudentMarks(mark);
 			return isAddedStudent;
 		} catch (Exception e) {
 			throw new InValidCredentialsException(
@@ -118,10 +119,11 @@ public class StudentMarkService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean updateStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+	public boolean updateStudentMarks(StudentMarksDetails mark) throws InValidCredentialsException {
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		boolean isUpdatedStudent = true;
 		try {
-			StudentMarkDAO.updateStudentMarks(mark);
+			studentMarkDAO.updateStudentMarks(mark);
 			return isUpdatedStudent;
 		} catch (Exception e) {
 			throw new InValidCredentialsException(
@@ -140,10 +142,10 @@ public class StudentMarkService {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
+	public Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
 			throws SQLException, InValidCredentialsException {
-
-		return StudentMarkDAO.findStudentMarks(studentRollNumber);
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
+		return studentMarkDAO.findStudentMarks(studentRollNumber);
 
 	}
 
@@ -154,10 +156,11 @@ public class StudentMarkService {
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
-	public static boolean deleteStudentMarks(int testNo) throws InValidCredentialsException {
+	public boolean deleteStudentMarks(int testNo) throws InValidCredentialsException {
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		boolean isDeleteTest = true;
 		try {
-			StudentMarkDAO.deleteTestMarkFromTable(testNo);
+			studentMarkDAO.deleteTestMarkFromTable(testNo);
 			return isDeleteTest;
 		} catch (Exception e) {
 			throw new InValidCredentialsException("TEST MARKS NOT EXISTS");
@@ -171,8 +174,9 @@ public class StudentMarkService {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public static List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
-		return StudentMarkDAO.findAllStudentMarks();
+	public List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
+		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
+		return studentMarkDAO.findAllStudentMarks();
 
 	}
 }

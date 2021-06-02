@@ -9,17 +9,17 @@
 <meta charset="ISO-8859-1">
 <title>INDIVIDUAL STUDENT DATA</title>
 <style>
-	h3 {
-		color: blue;
-		text-align: center;
-	}
+h3 {
+	color: blue;
+	text-align: center;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<br />
 	<main class="container-fluid">
-	<a href="AllStudentInformationDisplay.jsp">Previous page</a><br />
+		<a href="AllStudentInformationDisplay.jsp">Previous page</a><br />
 		<!-- Display  Student Information-->
 		<figure>
 			<figcaption>
@@ -28,11 +28,12 @@
 			</figcaption>
 			<%
 			String studentRollNumber = request.getParameter("allInfo");
-			Map<String, StudentDetails> individualStudentData = StudentDetailService
+			StudentDetailService studentDetailService = new StudentDetailService();
+			Map<String, StudentDetails> individualStudentData = studentDetailService
 					.displayIndividualStudentData(studentRollNumber);
 			StudentDetails data = individualStudentData.get(studentRollNumber);
 			%>
-	
+
 			<table class="table" border="1">
 				<thead class="thead-dark">
 					<tr>
@@ -40,7 +41,7 @@
 						<th scope="col">INFORMATION</th>
 					</tr>
 				<tbody>
-	
+
 					<tr>
 						<th scope="row">STUDENT NAME</th>
 						<th scope="col"><%=data.getStudentName()%></th>
@@ -61,7 +62,7 @@
 						<th scope="row">ROLL NUMBER</th>
 						<td><%=data.getStudentRollNumber()%></td>
 					</tr>
-	
+
 					<tr>
 						<th scope="row">GENDER</th>
 						<td><%=data.getGender()%></td>

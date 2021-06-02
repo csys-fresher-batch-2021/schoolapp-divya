@@ -19,6 +19,8 @@ import in.divya.service.StudentDetailService;
  *
  */
 public class StudentLoginValidationTest {
+	static StudentDetailService studentDetailService=new StudentDetailService();
+
 
 	/**
 	 * All are Valid
@@ -33,7 +35,7 @@ public class StudentLoginValidationTest {
 		String studentName = "K.DIVYA";
 		String studentRollNumber = "AA22BB1111";
 		String studentPassword = "Divya@76";
-		boolean inValidCredentials = StudentDetailService.studentValidation(studentName, studentRollNumber,
+		boolean inValidCredentials = studentDetailService.studentValidation(studentName, studentRollNumber,
 				studentPassword);
 		assertTrue(inValidCredentials);
 	}
@@ -51,7 +53,7 @@ public class StudentLoginValidationTest {
 		String studentName = "K.DIVYA";
 		String studentRollNumber = "AA2B1111";
 		String studentPassword = "divya@76";
-		boolean inValidCredentials = StudentDetailService.studentValidation(studentName, studentRollNumber,
+		boolean inValidCredentials = studentDetailService.studentValidation(studentName, studentRollNumber,
 				studentPassword);
 		assertFalse(inValidCredentials);
 	}
@@ -69,7 +71,7 @@ public class StudentLoginValidationTest {
 		String studentName = "K.DIVYA";
 		String studentRollNumber = "AA22BB1111";
 		String studentPassword = "Divya";
-		boolean inValidCredentials = StudentDetailService.studentValidation(studentName, studentRollNumber,
+		boolean inValidCredentials = studentDetailService.studentValidation(studentName, studentRollNumber,
 				studentPassword);
 		assertFalse(inValidCredentials);
 	}
@@ -87,7 +89,7 @@ public class StudentLoginValidationTest {
 		String studentName = "M.KAVITHA";
 		String studentRollNumber = "AA22BB1111";
 		String studentPassword = "Divya@76";
-		boolean inValidCredentials = StudentDetailService.studentValidation(studentName, studentRollNumber,
+		boolean inValidCredentials = studentDetailService.studentValidation(studentName, studentRollNumber,
 				studentPassword);
 		assertFalse(inValidCredentials);
 	}
@@ -106,7 +108,7 @@ public class StudentLoginValidationTest {
 		String studentName = "M.RAM";
 		String studentRollNumber = "AA28NN0911";
 		String studentPassword = "Ramyuu76";
-		boolean inValidCredentials = StudentDetailService.studentValidation(studentName, studentRollNumber,
+		boolean inValidCredentials = studentDetailService.studentValidation(studentName, studentRollNumber,
 				studentPassword);
 		assertFalse(inValidCredentials);
 	}

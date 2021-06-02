@@ -15,7 +15,7 @@ import in.divya.exceptions.InValidCredentialsException;
  *
  */
 public class StaffDetailService {
-	private StaffDetailService() {
+	public StaffDetailService() {
 		/**
 		 * Default constructor
 		 */
@@ -32,11 +32,11 @@ public class StaffDetailService {
 	 * @throws InValidCredentialsException
 	 */
 
-	public static boolean staffValidation(String staffName, String staffPassword)
+	public boolean staffValidation(String staffName, String staffPassword)
 			throws SQLException, InValidCredentialsException {
-
+		StaffDetailDAO staffDetailDAO=new StaffDetailDAO();
 		boolean isValidStaffCredentials = false;
-		List<String> staffCredetials = StaffDetailDAO.staffCredentialData();
+		List<String> staffCredetials = staffDetailDAO.staffCredentialData();
 		/**
 		 * If it is true......Login sucessfully. otherwise it is failed
 		 */
