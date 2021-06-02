@@ -39,11 +39,12 @@ h4 {
 				<tbody>
 					<%
 					String studentRollNumber = request.getParameter("allInfo");
-								Map<String, StudentMarksDetails> studentMarksData = StudentMarkService.displayStudentMarks(studentRollNumber);
-								if (studentMarksData != null && !studentMarksData.isEmpty()) {
-									StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
-									out.println("<h4>STUDENT ROLL NUMBER    :  " + markDB.getStudentRollNumber() + "</th></h4><br/>");
-									out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
+					StudentMarkService studentMarkService = new StudentMarkService();
+					Map<String, StudentMarksDetails> studentMarksData = studentMarkService.displayStudentMarks(studentRollNumber);
+					if (studentMarksData != null && !studentMarksData.isEmpty()) {
+						StudentMarksDetails markDB = studentMarksData.get(studentRollNumber);
+						out.println("<h4>STUDENT ROLL NUMBER    :  " + markDB.getStudentRollNumber() + "</th></h4><br/>");
+						out.println("<h4>TEST NUMBER    :  " + markDB.getTestNumber() + "</th></h4><br/>");
 					%>
 
 					<tr>
