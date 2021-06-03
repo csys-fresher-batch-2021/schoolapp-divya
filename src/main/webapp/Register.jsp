@@ -76,6 +76,7 @@ h2 {
 			<br />
 			<button class="btn btn-primary">SUBMIT</button>
 			<button type="reset" class="btn btn-secondary">RESET</button>
+			<br /> <br />
 			<%
 			String errorMessage = request.getParameter("errorMessage");
 			if (errorMessage != null) {

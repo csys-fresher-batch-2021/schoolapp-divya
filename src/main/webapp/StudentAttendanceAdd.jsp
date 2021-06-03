@@ -41,6 +41,7 @@ h2 {
 				max="2021-12-31" placeholder="YYYY-MM-DD" required><br /> <br />
 			<label for="attendance">CHOOSE ATTENDANCE TYPE :</label> <select
 				name="studentAttendance" id="studentAttendance">
+				<option disabled>---SELECT---</option>
 				<option value="PRESENT">PRESENT</option>
 				<option value="ABSENT">ABSENT</option>
 				<option value="ONDUTY">ONDUTY</option>
@@ -48,12 +49,13 @@ h2 {
 				type="time" id="inTime" name="inTime"> <br /> <br /> <label
 				for="time">OUT TIME :</label> <input type="time" id="outTime"
 				name="outTime"> <br /> <br /> <label
-				for="student Reason for leave">REASON  (IF STUDENT IS ABSENT
+				for="student Reason for leave">REASON (IF STUDENT IS ABSENT
 				OR ONDUTY PUT THE REASON IN THE BOX..OTHERWISE TYPE NIL IN BOX) :</label> <input
 				type="text" name="reason" id="reason"
 				placeholder="Enter Student Reason" required><br /> <br />
 			<button class="btn btn-primary">SUBMIT</button>
 			<button type="reset" class="btn btn-secondary">RESET</button>
+			<br /> <br />
 			<%
 			String errorMessage = request.getParameter("errorMessage");
 			if (errorMessage != null) {

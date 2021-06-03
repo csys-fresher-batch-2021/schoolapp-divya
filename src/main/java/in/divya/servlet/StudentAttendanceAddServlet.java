@@ -1,6 +1,8 @@
 package in.divya.servlet;
 
 import java.io.IOException;
+
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import in.divya.exceptions.CannotRegisterStudentException;
+import in.divya.exceptions.CannotAddDetailsException;
 import in.divya.model.StudentAttendanceDetails;
 
 import in.divya.service.StudentAttendanceService;
@@ -90,7 +92,7 @@ public class StudentAttendanceAddServlet extends HttpServlet {
 				response.sendRedirect("StudentAttendanceAdd.jsp?infoMessage=" + message);
 
 			} else {
-				throw new CannotRegisterStudentException("Cannot Add Attendance");
+				throw new CannotAddDetailsException("Cannot Add Attendance");
 
 			}
 
