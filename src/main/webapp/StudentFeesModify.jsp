@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
 <meta charset="ISO-8859-1">
-<title>ADD FEES</title>
+<title>MODIFY FEES</title>
 <style type="text/css">
 form {
 	text-align: center;
@@ -39,7 +39,7 @@ h1 {
 		<br>
 		<div style="margin: 50px">
 			<!-- Fees Portal Page -->
-			<form action="StudentFeesAddingServlet" method="post">
+			<form action="StudentFeesModificationServlet" method="post">
 				<label>STUDENT ROLL NUMBER : </label> <input type="text"
 					name="studentRollNumber" id="studentRollNumber"
 					placeholder="Enter Student Roll Number" required><br /> <br />
@@ -65,7 +65,7 @@ h1 {
 					max="2021-12-31" placeholder="YYYY-MM-DD" required><br />
 				<br />
 
-				<button class="btn btn-primary">SUBMIT</button>
+				<button class="btn btn-primary">UPDATE</button>
 				<button type="reset" class="btn btn-secondary">RESET</button>
 				<br /> <br />
 				<%

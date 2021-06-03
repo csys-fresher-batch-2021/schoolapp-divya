@@ -1,6 +1,7 @@
 package in.divya.servlet;
 
 import java.io.IOException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import in.divya.exceptions.CannotRegisterStudentException;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentAttendanceDetails;
 import in.divya.service.StudentAttendanceService;
 import in.divya.util.DateValidatorUtil;
@@ -87,7 +88,7 @@ public class StudentAttendanceModificationServlet extends HttpServlet {
 				response.sendRedirect("StudentAttendanceModify.jsp?infoMessage=" + message);
 
 			} else {
-				throw new CannotRegisterStudentException("Cannot Update Student Attendance");
+				throw new InValidCredentialsException("Cannot Update Student Attendance");
 
 			}
 

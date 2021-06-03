@@ -78,6 +78,9 @@ h3 {
 						<button type="button" class="btn btn-primary"
 							onclick="window.location.href='http://localhost:8080/app/StudentFeesAdd.jsp'">ADD
 							FEES</button>
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentFeesModify.jsp'">UPDATE
+							FEES</button>
 					</th>
 				</tr>
 			</table>
