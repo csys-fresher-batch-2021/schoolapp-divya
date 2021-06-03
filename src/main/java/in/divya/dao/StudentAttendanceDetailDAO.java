@@ -36,7 +36,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public void saveAttendance(StudentAttendanceDetails attendance) throws  InValidCredentialsException {
+	public void saveAttendance(StudentAttendanceDetails attendance) throws InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -71,8 +71,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws InValidCredentialsException
 	 * @throws SQLException
 	 */
-	public void updateStudentMarks(StudentAttendanceDetails attendance)
-			throws InValidCredentialsException {
+	public void updateStudentMarks(StudentAttendanceDetails attendance) throws InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		int rs = 0;
@@ -141,8 +140,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
 	 */
-	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber)
-			throws InValidCredentialsException {
+	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber) throws InValidCredentialsException {
 
 		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
 
