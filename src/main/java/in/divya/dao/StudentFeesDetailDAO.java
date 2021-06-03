@@ -90,4 +90,34 @@ public class StudentFeesDetailDAO {
 
 	}
 
+	/**
+	 * To delete fees.
+	 * 
+	 * @param attendanceDate
+	 * @throws InValidCredentialsException
+	 */
+	public void romoveFees(String month) throws InValidCredentialsException {
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		int rs = 0;
+
+		try {
+			connection = ConnectionUtil.getConnection();
+			String str = "delete from student_fees where month=?";
+			pst = connection.prepareStatement(str);
+			pst.setObject(1, month);
+			rs = pst.executeUpdate();
+			if (rs == 0) {
+				throw new InValidCredentialsException("FEES NOT FOUND");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(pst, connection);
+		}
+
+	}
+
 }

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>ADD FEES</title>
+<title>Remove Fees</title>
 <style type="text/css">
 form {
 	text-align: center;
@@ -35,16 +35,13 @@ h1 {
 			<button class="btn btn-link"
 				onclick="window.location.href='http://localhost:8080/app/DisplayStaffHomePage.jsp'">BACK</button>
 		</h2>
-		<div class="head">FEES PORTAL PAGE</div>
+		<div class="head">ATTENDANCE FEES PAGE</div>
 		<br>
 		<div style="margin: 50px">
-			<!-- Fees Portal Page -->
-			<form action="StudentFeesAddingServlet" method="post">
-				<label>STUDENT ROLL NUMBER : </label> <input type="text"
-					name="studentRollNumber" id="studentRollNumber"
-					placeholder="Enter Student Roll Number" required><br /> <br />
-				<label for="month">FEES FOR MONTH :</label> <select name="month"
-					id="month">
+			<!-- ATTENDANCE FEES PAGE -->
+			<form action="StudentFeesRemoveServlet" method="post">
+				<br /> <br /> <label for="month">FEES FOR MONTH :</label> <select
+					name="month" id="month">
 					<option disabled>---SELECT MONTH---</option>
 					<option value="JANUARY">JANUARY</option>
 					<option value="FEBRUARY">FEBRUARY</option>
@@ -58,14 +55,8 @@ h1 {
 					<option value="OCTOBER">OCTOBER</option>
 					<option value="NOVEMBER">NOVEMBER</option>
 					<option value="DECEMBER">DECEMBER</option>
-				</select> <br /> <br /> <label>FEES AMOUNT : </label> <input type="number"
-					name="amount" id="amount" placeholder="Enter Fees Amount" required><br />
-				<br /> <label for="date">RECEIVE DATE : </label> <input type="date"
-					name="receiveDate" id="receiveDate" min="2021-01-01"
-					max="2021-12-31" placeholder="YYYY-MM-DD" required><br />
-				<br />
-
-				<button class="btn btn-primary">SUBMIT</button>
+				</select> <br /> <br />
+				<button class="btn btn-primary">DELETE</button>
 				<button type="reset" class="btn btn-secondary">RESET</button>
 				<br /> <br />
 				<%

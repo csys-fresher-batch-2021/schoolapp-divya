@@ -47,17 +47,17 @@ h1 {
 					id="month">
 					<option disabled>---SELECT MONTH---</option>
 					<option value="JANUARY">JANUARY</option>
-					<option value="February">FEBRUARY</option>
-					<option value="March">MARCH</option>
-					<option value="April">APRIL</option>
-					<option value="May">MAY</option>
-					<option value="June">JUNE</option>
-					<option value="July">JULY</option>
-					<option value="August">AUGUST</option>
-					<option value="September">SEPTEMBER</option>
-					<option value="October">OCTOBER</option>
-					<option value="November">NOVEMBER</option>
-					<option value="December">DECEMBER</option>
+					<option value="FEBRUARY">FEBRUARY</option>
+					<option value="MARCH">MARCH</option>
+					<option value="APRIL">APRIL</option>
+					<option value="MAY">MAY</option>
+					<option value="JUNE">JUNE</option>
+					<option value="JULY">JULY</option>
+					<option value="AUGUST">AUGUST</option>
+					<option value="SEPTEMBER">SEPTEMBER</option>
+					<option value="OCTOBER">OCTOBER</option>
+					<option value="NOVEMBER">NOVEMBER</option>
+					<option value="DECEMBER">DECEMBER</option>
 				</select> <br /> <br /> <label>FEES AMOUNT : </label> <input type="number"
 					name="amount" id="amount" placeholder="Enter Fees Amount" required><br />
 				<br /> <label for="date">RECEIVE DATE : </label> <input type="date"

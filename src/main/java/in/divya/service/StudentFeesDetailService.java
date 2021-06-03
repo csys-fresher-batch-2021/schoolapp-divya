@@ -58,5 +58,23 @@ public class StudentFeesDetailService {
 		}
 
 	}
+	
+	/**
+	 * To delete fees.
+	 * 
+	 * @param month
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public boolean deleteFees(String month) throws InValidCredentialsException {
+		StudentFeesDetailDAO studentFeesDetailDAO = new StudentFeesDetailDAO();
+		boolean isDelete = true;
+		try {
+			studentFeesDetailDAO.romoveFees(month);
+			return isDelete;
+		} catch (Exception e) {
+			throw new InValidCredentialsException("FEES NOT FOUND");
+		}
+	}
 
 }
