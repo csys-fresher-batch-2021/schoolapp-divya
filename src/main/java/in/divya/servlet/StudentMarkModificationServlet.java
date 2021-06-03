@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentMarksDetails;
 import in.divya.service.StudentMarkService;
-import in.divya.validator.MarkValidator;
+import in.divya.validator.NumberValidator;
 import in.divya.validator.RollNumberValidator;
 
 /**
@@ -48,23 +48,23 @@ public class StudentMarkModificationServlet extends HttpServlet {
 
 			RollNumberValidator.isValidRollNumberFormat(studentRollNumber, "Invalid RollNumber Format");
 
-			int testNumber1 = MarkValidator.isValidNumberOnly(testNumber, "Invalid Test Number");
-			MarkValidator.isNumberPositive(testNumber1);
+			int testNumber1 = NumberValidator.isValidNumberOnly(testNumber, "Invalid Test Number");
+			NumberValidator.isNumberPositive(testNumber1);
 
-			int tamilMark1 = MarkValidator.isValidNumberOnly(tamilMark, "Invalid Tamil Mark");
-			MarkValidator.isNumberPositive(tamilMark1);
+			int tamilMark1 = NumberValidator.isValidNumberOnly(tamilMark, "Invalid Tamil Mark");
+			NumberValidator.isNumberPositive(tamilMark1);
 
-			int englishMark1 = MarkValidator.isValidNumberOnly(englishMark, "Invalid English Mark");
-			MarkValidator.isNumberPositive(englishMark1);
+			int englishMark1 = NumberValidator.isValidNumberOnly(englishMark, "Invalid English Mark");
+			NumberValidator.isNumberPositive(englishMark1);
 
-			int mathamaticsMark1 = MarkValidator.isValidNumberOnly(mathamaticsMark, "Invalid Mathamatics Mark");
-			MarkValidator.isNumberPositive(mathamaticsMark1);
+			int mathamaticsMark1 = NumberValidator.isValidNumberOnly(mathamaticsMark, "Invalid Mathamatics Mark");
+			NumberValidator.isNumberPositive(mathamaticsMark1);
 
-			int scienceMark1 = MarkValidator.isValidNumberOnly(scienceMark, "Invalid Science mark");
-			MarkValidator.isNumberPositive(scienceMark1);
+			int scienceMark1 = NumberValidator.isValidNumberOnly(scienceMark, "Invalid Science mark");
+			NumberValidator.isNumberPositive(scienceMark1);
 
-			int socialMark1 = MarkValidator.isValidNumberOnly(socialMark, "Invalid Social Mark");
-			MarkValidator.isNumberPositive(socialMark1);
+			int socialMark1 = NumberValidator.isValidNumberOnly(socialMark, "Invalid Social Mark");
+			NumberValidator.isNumberPositive(socialMark1);
 
 			mark.setStudentRollNumber(studentRollNumber);
 			mark.setTestNumber(testNumber1);

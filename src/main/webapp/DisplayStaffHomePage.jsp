@@ -72,6 +72,14 @@ h3 {
 							ATTENDANCE</button>
 					</th>
 				</tr>
+				<tr>
+					<th scope="col">FEES</th>
+					<th scope="col">
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentFeesAdd.jsp'">ADD
+							FEES</button>
+					</th>
+				</tr>
 			</table>
 		</figure>
 	</main>

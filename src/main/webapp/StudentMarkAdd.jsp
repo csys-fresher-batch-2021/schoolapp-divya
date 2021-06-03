@@ -46,7 +46,7 @@ h1 {
 					placeholder="Enter Student Roll Number" required><br />
 				<br /> <label>TEST NUMBER : </label> <input type="number"
 					name="testNumber" id="testNumber" placeholder="Enter Test Number"
-					required><br />
+					min="1" max="10" required><br />
 				<br /> <label>TAMIL MARK : </label> <input type="number"
 					name="tamilMark" id="tamilMark" placeholder="Enter Tamil Mark"
 					required><br />

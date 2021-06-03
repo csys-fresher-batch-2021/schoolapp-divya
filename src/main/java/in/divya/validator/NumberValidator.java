@@ -10,8 +10,8 @@ import in.divya.exceptions.NumberCannotBeNegativeException;
  * @author divy2624
  *
  */
-public class MarkValidator {
-	private MarkValidator() {
+public class NumberValidator {
+	private NumberValidator() {
 		// Default constructor
 	}
 

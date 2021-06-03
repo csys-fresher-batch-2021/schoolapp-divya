@@ -54,6 +54,7 @@ h2 {
 				placeholder="Enter Student Reason" required><br /> <br />
 			<button class="btn btn-primary">UPDATE</button>
 			<button type="reset" class="btn btn-secondary">RESET</button>
+			<br /> <br />
 			<%
 			String errorMessage = request.getParameter("errorMessage");
 			if (errorMessage != null) {

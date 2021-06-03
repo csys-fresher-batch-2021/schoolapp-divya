@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.service.StudentMarkService;
-import in.divya.validator.MarkValidator;
+import in.divya.validator.NumberValidator;
 
 /**
  * Servlet implementation class StudentMarkRemoveServlet
@@ -40,8 +40,8 @@ public class StudentMarkRemoveServlet extends HttpServlet {
 
 			String testNumber = request.getParameter("testNumber");
 		
-			int testNo = MarkValidator.isValidNumberOnly(testNumber, "Invalid Test Number");
-			MarkValidator.isNumberPositive(testNo);
+			int testNo = NumberValidator.isValidNumberOnly(testNumber, "Invalid Test Number");
+			NumberValidator.isNumberPositive(testNo);
 		
 
 			boolean isMarkDeleted = studentMarkService.deleteStudentMarks(testNo);
@@ -60,7 +60,7 @@ public class StudentMarkRemoveServlet extends HttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			RequestDispatcher rd=request.getRequestDispatcher("StudentMarkRemove.jsp?errorMessage=TEST MARKS NOT EXISTS");  
+			RequestDispatcher rd=request.getRequestDispatcher("StudentMarkRemove.jsp?errorMessage="+e.getMessage());  
 			rd.forward(request, response);
 
 		}

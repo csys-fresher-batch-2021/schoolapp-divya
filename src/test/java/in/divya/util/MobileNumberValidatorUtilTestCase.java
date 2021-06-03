@@ -15,7 +15,7 @@ import in.divya.exceptions.InValidLongNumberTypeException;
  * @author divy2624
  *
  */
-public class NumberValidatorUtilTestCase {
+public class MobileNumberValidatorUtilTestCase {
 
 	/**
 	 * To check MobileNumber TestCase.
@@ -27,7 +27,7 @@ public class NumberValidatorUtilTestCase {
 	@Test
 	public void validNumberIsTestedWithoutAnyAlphabets() throws ParseException, InValidLongNumberTypeException {
 		String number = "9600923846";
-		Long isValidNumber = NumberValidatorUtil.isValidNumberOnly(number, "Mobile number cannot contain alphabets");
+		Long isValidNumber = MobileNumberValidatorUtil.isValidNumberOnly(number, "Mobile number cannot contain alphabets");
 		assertEquals(Long.valueOf(9600923846L), isValidNumber);
 	}
 
@@ -39,7 +39,7 @@ public class NumberValidatorUtilTestCase {
 	public void invalidNumberIsTestedWithAlphabet() {
 		try {
 			String number = "960092384s";
-			Long isValidNumber = NumberValidatorUtil.isValidNumberOnly(number,
+			Long isValidNumber = MobileNumberValidatorUtil.isValidNumberOnly(number,
 					"Mobile Number cannot contain alphabets");
 			assertEquals(Long.valueOf(9600923846L), isValidNumber);
 		} catch (Exception e) {
