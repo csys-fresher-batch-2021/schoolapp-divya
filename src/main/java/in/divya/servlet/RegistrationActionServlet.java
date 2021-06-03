@@ -17,7 +17,7 @@ import in.divya.service.StudentDetailService;
 import in.divya.util.BloodGroupValidatorUtil;
 import in.divya.util.DateValidatorUtil;
 import in.divya.util.EmailIDValidatorUtil;
-import in.divya.util.NumberValidatorUtil;
+import in.divya.util.MobileNumberValidatorUtil;
 import in.divya.util.PasswordValidatorUtil;
 import in.divya.util.StringValidatorUtil;
 
@@ -74,9 +74,9 @@ public class RegistrationActionServlet extends HttpServlet {
 			StandardValidator.isValidStandardValidation(studentStandard, "InValid Standard Format");
 			StringValidatorUtil.isStringNotNullOrEmpty(studentStaffName,
 					"Staff name cannot Accept Empty and Null Value");
-			Long studentValidMobileNumber = NumberValidatorUtil.isValidNumberOnly(parentMobileNumber,
+			Long studentValidMobileNumber = MobileNumberValidatorUtil.isValidNumberOnly(parentMobileNumber,
 					"Mobile Number cannot contain alphabets");
-			NumberValidatorUtil.isValidMobileNumber(studentValidMobileNumber);
+			MobileNumberValidatorUtil.isValidMobileNumber(studentValidMobileNumber);
 			LocalDate studentParsedDate = DateValidatorUtil.isDateFormatOrNot(studentDateOfBirth,
 					"Invalid Date Format");
 			DateValidatorUtil.isNotAFutureDate(studentParsedDate, "Date cannot be a future date");
