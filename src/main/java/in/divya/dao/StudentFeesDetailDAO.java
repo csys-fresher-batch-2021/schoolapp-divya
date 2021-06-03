@@ -4,6 +4,7 @@
 package in.divya.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -47,6 +48,42 @@ public class StudentFeesDetailDAO {
 		} catch (SQLException e) {
 			throw new InValidCredentialsException(
 					"ALREADY EXISTS  (OR) ILLEGAL STUDENT FEES ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
+		} finally {
+			ConnectionUtil.close(pst, connection);
+		}
+
+	}
+
+	/**
+	 * To update student fees details
+	 * 
+	 * @param fees
+	 * @throws InValidCredentialsException
+	 */
+	public void updateFees(StudentFeesDetails fees) throws InValidCredentialsException {
+		PreparedStatement pst = null;
+		Connection connection = null;
+		int rs = 0;
+
+		try {
+			connection = ConnectionUtil.getConnection();
+			String sql = "update student_fees set student_fees=?,receive_date=? where student_roll_number=? and month=?";
+
+			pst = connection.prepareStatement(sql);
+
+			pst.setInt(1, fees.getStudentFees());
+			pst.setObject(2, fees.getDate());
+			pst.setString(3, fees.getStudentRollNumber());
+			pst.setString(4, fees.getMonth());
+
+			rs = pst.executeUpdate();
+			if (rs == 0) {
+				throw new InValidCredentialsException(
+						"CANNOT UPDATE (FEES RECORD NOT FOUND (OR) ILLEGAL STUDENT FEES ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+			}
+
+		} catch (SQLException e) {
+			e.getMessage();
 		} finally {
 			ConnectionUtil.close(pst, connection);
 		}

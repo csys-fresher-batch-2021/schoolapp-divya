@@ -5,6 +5,7 @@ package in.divya.service;
 
 import in.divya.dao.StudentFeesDetailDAO;
 import in.divya.exceptions.CannotAddDetailsException;
+import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentFeesDetails;
 
 /**
@@ -35,6 +36,27 @@ public class StudentFeesDetailService {
 					"ALREADY EXISTS  (OR) ILLEGAL STUDENT FEES ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
 
 		}
+	}
+
+	/**
+	 * To update student fees details.
+	 * 
+	 * @param fees
+	 * @return
+	 * @throws InValidCredentialsException
+	 */
+	public boolean updateFees(StudentFeesDetails fees) throws InValidCredentialsException {
+		StudentFeesDetailDAO studentFeesDetailDAO = new StudentFeesDetailDAO();
+		boolean isUpdatedFees = true;
+		try {
+			studentFeesDetailDAO.updateFees(fees);
+			return isUpdatedFees;
+		} catch (Exception e) {
+			throw new InValidCredentialsException(
+					"CANNOT UPDATE( FEES RECORD NOT FOUND (OR) ILLEGAL STUDENT FEES ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+
+		}
+
 	}
 
 }

@@ -91,7 +91,7 @@ public class StudentAttendanceDetailDAO {
 			rs = pst.executeUpdate();
 			if (rs == 0) {
 				throw new InValidCredentialsException(
-						"CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT MARK ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
+						"CANNOT UPDATE (ATTENDANCE RECORD NOT FOUND (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY FOR REGISTERED STUDENTS))");
 			}
 
 		} catch (SQLException e) {
