@@ -43,7 +43,7 @@ public class StudentFeesModificationServlet extends HttpServlet {
 		try {
 
 			/**
-			 * step 1: Get Values
+			 * step 1: Get fees detail values.
 			 */
 
 			StudentFeesDetails fees = new StudentFeesDetails();
@@ -51,7 +51,6 @@ public class StudentFeesModificationServlet extends HttpServlet {
 			String month = request.getParameter("month");
 			String studentFees = request.getParameter("amount");
 			String date = request.getParameter("receiveDate");
-
 			RollNumberValidator.isValidRollNumberFormat(studentRollNumber, "InValid RollNumber Format");
 			StringValidatorUtil.isStringNotNullOrEmpty(month, "Cannot Accept Empty and Null Value...Please Enter Nil");
 			int feesAmount = NumberValidator.isValidNumberOnly(studentFees, "Invalid Test Number");
