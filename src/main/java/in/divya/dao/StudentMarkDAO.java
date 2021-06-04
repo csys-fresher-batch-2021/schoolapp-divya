@@ -31,9 +31,11 @@ public class StudentMarkDAO {
 	 * @param mark
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
-	public void saveStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
+	public void saveStudentMarks(StudentMarksDetails mark)
+			throws SQLException, InValidCredentialsException, ClassNotFoundException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 
@@ -78,9 +80,11 @@ public class StudentMarkDAO {
 	 * @param mark
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
-	public void updateStudentMarks(StudentMarksDetails mark) throws SQLException, InValidCredentialsException {
+	public void updateStudentMarks(StudentMarksDetails mark)
+			throws SQLException, InValidCredentialsException, ClassNotFoundException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		int rs = 0;
@@ -110,7 +114,7 @@ public class StudentMarkDAO {
 			}
 
 		} catch (SQLException e) {
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			if (pst != null) {
 				pst.close();
@@ -127,13 +131,12 @@ public class StudentMarkDAO {
 	 * 
 	 * @param rollNumber
 	 * @return
-	 * @throws ClassNotFoundException
 	 * @throws SQLException
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
 	public Map<String, StudentMarksDetails> findStudentMarks(String rollNumber)
-			throws SQLException, InValidCredentialsException {
+			throws SQLException, ClassNotFoundException {
 
 		Map<String, StudentMarksDetails> studentMarksData = new HashMap<>();
 
@@ -200,8 +203,9 @@ public class StudentMarkDAO {
 	 * @param testNo
 	 * @return
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public void deleteTestMarkFromTable(int testNo) throws InValidCredentialsException {
+	public void deleteTestMarkFromTable(int testNo) throws InValidCredentialsException, ClassNotFoundException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -230,9 +234,9 @@ public class StudentMarkDAO {
 	 * 
 	 * @return
 	 * @throws SQLException
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public List<StudentMarksDetails> findAllStudentMarks() throws SQLException, InValidCredentialsException {
+	public List<StudentMarksDetails> findAllStudentMarks() throws SQLException, ClassNotFoundException {
 
 		List<StudentMarksDetails> allStudentMarksToDisplay = new ArrayList<>();
 		Connection connection = null;
@@ -283,8 +287,7 @@ public class StudentMarkDAO {
 
 			}
 		} catch (SQLException e) {
-
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(rs, pst, connection);
 		}

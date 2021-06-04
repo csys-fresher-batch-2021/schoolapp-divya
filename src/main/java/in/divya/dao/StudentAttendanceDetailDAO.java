@@ -34,9 +34,11 @@ public class StudentAttendanceDetailDAO {
 	 * 
 	 * @param attendance
 	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 * @throws InValidCredentialsException
 	 */
-	public void saveAttendance(StudentAttendanceDetails attendance) throws InValidCredentialsException {
+	public void saveAttendance(StudentAttendanceDetails attendance)
+			throws ClassNotFoundException, InValidCredentialsException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -56,6 +58,7 @@ public class StudentAttendanceDetailDAO {
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new InValidCredentialsException(
 					"ALREADY EXISTS  (OR) ILLEGAL STUDENT ATTENDANCE ENTRY(BECAUSE ITS ONLY ALLOW FOR REGISTERED STUDENTS)");
 		} finally {
@@ -69,9 +72,11 @@ public class StudentAttendanceDetailDAO {
 	 * 
 	 * @param attendance
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public void updateStudentMarks(StudentAttendanceDetails attendance) throws InValidCredentialsException {
+	public void updateStudentMarks(StudentAttendanceDetails attendance)
+			throws InValidCredentialsException, ClassNotFoundException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		int rs = 0;
@@ -95,7 +100,7 @@ public class StudentAttendanceDetailDAO {
 			}
 
 		} catch (SQLException e) {
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(pst, connection);
 		}
@@ -107,8 +112,10 @@ public class StudentAttendanceDetailDAO {
 	 * 
 	 * @param attendance_date
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public void romoveAttendanceFromTable(LocalDate attendanceDate) throws InValidCredentialsException {
+	public void romoveAttendanceFromTable(LocalDate attendanceDate)
+			throws InValidCredentialsException, ClassNotFoundException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -139,8 +146,10 @@ public class StudentAttendanceDetailDAO {
 	 * @return
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber) throws InValidCredentialsException {
+	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber)
+			throws InValidCredentialsException, ClassNotFoundException {
 
 		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
 
@@ -197,8 +206,10 @@ public class StudentAttendanceDetailDAO {
 	 * @param date
 	 * @return
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public List<StudentAttendanceDetails> findAllStudentAttendance(LocalDate date) throws InValidCredentialsException {
+	public List<StudentAttendanceDetails> findAllStudentAttendance(LocalDate date)
+			throws InValidCredentialsException, ClassNotFoundException {
 		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
 
 		Connection connection = null;
@@ -254,8 +265,10 @@ public class StudentAttendanceDetailDAO {
 	 * @param date
 	 * @return
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public Map<String, Integer> findAttendanceStatusCount(LocalDate date) throws InValidCredentialsException {
+	public Map<String, Integer> findAttendanceStatusCount(LocalDate date)
+			throws InValidCredentialsException, ClassNotFoundException {
 		Map<String, Integer> studentAttendanceCount = new HashMap<>();
 
 		Connection connection = null;
@@ -292,8 +305,9 @@ public class StudentAttendanceDetailDAO {
 	 * @param date
 	 * @return
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public int findAttendanceCount(LocalDate date) throws InValidCredentialsException {
+	public int findAttendanceCount(LocalDate date) throws InValidCredentialsException, ClassNotFoundException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -315,8 +329,6 @@ public class StudentAttendanceDetailDAO {
 		} finally {
 			ConnectionUtil.close(rs, pst, connection);
 		}
-
 		return count;
-
 	}
 }

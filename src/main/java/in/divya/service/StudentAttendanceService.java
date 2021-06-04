@@ -89,9 +89,10 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException 
 	 */
 	public List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
-			throws InValidCredentialsException {
+			throws InValidCredentialsException, ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findStudentAttendance(studentRollNumber);
 
@@ -104,9 +105,10 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException 
 	 */
 	public List<StudentAttendanceDetails> displayAllStudentAttendance(LocalDate date)
-			throws InValidCredentialsException {
+			throws InValidCredentialsException, ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAllStudentAttendance(date);
 
@@ -119,9 +121,10 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException 
 	 */
 	public Map<String, Integer> displayAttendanceStatusCount(LocalDate date)
-			throws InValidCredentialsException {
+			throws InValidCredentialsException, ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAttendanceStatusCount(date);
 
@@ -134,8 +137,9 @@ public class StudentAttendanceService {
 	 * @return
 	 * @throws SQLException
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException 
 	 */
-	public int displayAttendanceCount(LocalDate date) throws InValidCredentialsException {
+	public int displayAttendanceCount(LocalDate date) throws InValidCredentialsException, ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAttendanceCount(date);
 
