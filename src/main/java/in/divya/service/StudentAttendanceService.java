@@ -3,7 +3,7 @@
  */
 package in.divya.service;
 
-import java.sql.SQLException;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -87,7 +87,6 @@ public class StudentAttendanceService {
 	 * 
 	 * @param studentRollNumber
 	 * @return
-	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
 	public List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
@@ -102,7 +101,6 @@ public class StudentAttendanceService {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
 	public List<StudentAttendanceDetails> displayAllStudentAttendance(LocalDate date) throws ClassNotFoundException {
@@ -116,7 +114,6 @@ public class StudentAttendanceService {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
 	public Map<String, Integer> displayAttendanceStatusCount(LocalDate date) throws ClassNotFoundException {
@@ -130,7 +127,6 @@ public class StudentAttendanceService {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
 	public int displayAttendanceCount(LocalDate date) throws ClassNotFoundException {

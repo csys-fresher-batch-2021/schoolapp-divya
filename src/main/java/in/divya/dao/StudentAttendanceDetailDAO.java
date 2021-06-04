@@ -33,7 +33,6 @@ public class StudentAttendanceDetailDAO {
 	 * To Save the student attendance details in database.
 	 * 
 	 * @param attendance
-	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 * @throws InValidCredentialsException
 	 */
@@ -73,7 +72,6 @@ public class StudentAttendanceDetailDAO {
 	 * @param attendance
 	 * @throws InValidCredentialsException
 	 * @throws ClassNotFoundException
-	 * @throws SQLException
 	 */
 	public void updateStudentMarks(StudentAttendanceDetails attendance)
 			throws InValidCredentialsException, ClassNotFoundException {
@@ -144,7 +142,6 @@ public class StudentAttendanceDetailDAO {
 	 * 
 	 * @param rollNumber
 	 * @return
-	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
 	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber) throws ClassNotFoundException {
