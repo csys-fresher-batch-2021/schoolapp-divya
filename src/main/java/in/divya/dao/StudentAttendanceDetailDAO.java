@@ -145,11 +145,9 @@ public class StudentAttendanceDetailDAO {
 	 * @param rollNumber
 	 * @return
 	 * @throws SQLException
-	 * @throws InValidCredentialsException
 	 * @throws ClassNotFoundException
 	 */
-	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber)
-			throws InValidCredentialsException, ClassNotFoundException {
+	public List<StudentAttendanceDetails> findStudentAttendance(String rollNumber) throws ClassNotFoundException {
 
 		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
 
@@ -205,11 +203,9 @@ public class StudentAttendanceDetailDAO {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws InValidCredentialsException
 	 * @throws ClassNotFoundException
 	 */
-	public List<StudentAttendanceDetails> findAllStudentAttendance(LocalDate date)
-			throws InValidCredentialsException, ClassNotFoundException {
+	public List<StudentAttendanceDetails> findAllStudentAttendance(LocalDate date) throws ClassNotFoundException {
 		List<StudentAttendanceDetails> studentAttendanceData = new ArrayList<>();
 
 		Connection connection = null;
@@ -264,11 +260,9 @@ public class StudentAttendanceDetailDAO {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws InValidCredentialsException
 	 * @throws ClassNotFoundException
 	 */
-	public Map<String, Integer> findAttendanceStatusCount(LocalDate date)
-			throws InValidCredentialsException, ClassNotFoundException {
+	public Map<String, Integer> findAttendanceStatusCount(LocalDate date) throws ClassNotFoundException {
 		Map<String, Integer> studentAttendanceCount = new HashMap<>();
 
 		Connection connection = null;
@@ -304,10 +298,9 @@ public class StudentAttendanceDetailDAO {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws InValidCredentialsException
 	 * @throws ClassNotFoundException
 	 */
-	public int findAttendanceCount(LocalDate date) throws InValidCredentialsException, ClassNotFoundException {
+	public int findAttendanceCount(LocalDate date) throws ClassNotFoundException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;
