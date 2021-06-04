@@ -4,13 +4,13 @@
 package in.divya.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.divya.exceptions.InValidCredentialsException;
 import in.divya.util.ConnectionUtil;
 
 /**
@@ -26,11 +26,10 @@ public class StaffDetailDAO {
 	 * To Verify Staff Login using database
 	 * 
 	 * @return
-	 * @throws ClassNotFoundException
 	 * @throws SQLException
-	 * @throws InValidCredentialsException 
+	 * @throws ClassNotFoundException
 	 */
-	public  List<String> staffCredentialData() throws SQLException, InValidCredentialsException {
+	public List<String> staffCredentialData() throws SQLException, ClassNotFoundException {
 
 		List<String> staffCredetials = new ArrayList<>();
 		Connection connection = null;
@@ -51,8 +50,7 @@ public class StaffDetailDAO {
 				staffCredetials.add(staffPassword);
 			}
 		} catch (SQLException e) {
-
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(rs, pst, connection);
 		}

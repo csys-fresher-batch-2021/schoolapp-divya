@@ -31,12 +31,11 @@ public class StudentLoginValidationTest {
 	 */
 
 	@Test
-	public void isStudentBothValidTestCase() throws SQLException, InValidCredentialsException, ClassNotFoundException {
+	public void isStudentBothValidTestCase() throws SQLException,ClassNotFoundException {
 		String studentName = "K.DIVYA";
 		String studentRollNumber = "AA22BB1111";
 		String studentPassword = "Divya@76";
-		boolean inValidCredentials = studentDetailService.studentValidation(studentName, studentRollNumber,
-				studentPassword);
+		boolean inValidCredentials = studentDetailService.studentValidation(studentName, studentRollNumber,studentPassword);
 		assertTrue(inValidCredentials);
 	}
 

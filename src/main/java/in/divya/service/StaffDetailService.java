@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import in.divya.dao.StaffDetailDAO;
-import in.divya.exceptions.InValidCredentialsException;
 
 /**
  * @author divy2624
@@ -29,12 +28,10 @@ public class StaffDetailService {
 	 * @return
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
-	 * @throws InValidCredentialsException
 	 */
 
-	public boolean staffValidation(String staffName, String staffPassword)
-			throws SQLException, InValidCredentialsException {
-		StaffDetailDAO staffDetailDAO=new StaffDetailDAO();
+	public boolean staffValidation(String staffName, String staffPassword) throws SQLException, ClassNotFoundException {
+		StaffDetailDAO staffDetailDAO = new StaffDetailDAO();
 		boolean isValidStaffCredentials = false;
 		List<String> staffCredetials = staffDetailDAO.staffCredentialData();
 		/**

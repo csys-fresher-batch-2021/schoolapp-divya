@@ -136,14 +136,14 @@ public class StudentMarkService {
 	/**
 	 * This Method displays the list that stores the student marks data
 	 * 
+	 * @param studentRollNumber
 	 * @return
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
-	 * @throws InValidCredentialsException
 	 */
 
 	public Map<String, StudentMarksDetails> displayStudentMarks(String studentRollNumber)
-			throws SQLException, InValidCredentialsException {
+			throws SQLException, ClassNotFoundException {
 		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		return studentMarkDAO.findStudentMarks(studentRollNumber);
 
@@ -172,9 +172,9 @@ public class StudentMarkService {
 	 * 
 	 * @return
 	 * @throws SQLException
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException 
 	 */
-	public List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, InValidCredentialsException {
+	public List<StudentMarksDetails> displayAllStudentMarks() throws SQLException, ClassNotFoundException {
 		StudentMarkDAO studentMarkDAO = new StudentMarkDAO();
 		return studentMarkDAO.findAllStudentMarks();
 

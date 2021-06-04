@@ -27,8 +27,9 @@ public class StudentFeesDetailDAO {
 	 * 
 	 * @param fees
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public void saveFees(StudentFeesDetails fees) throws InValidCredentialsException {
+	public void saveFees(StudentFeesDetails fees) throws InValidCredentialsException, ClassNotFoundException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
@@ -59,8 +60,9 @@ public class StudentFeesDetailDAO {
 	 * 
 	 * @param fees
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public void updateFees(StudentFeesDetails fees) throws InValidCredentialsException {
+	public void updateFees(StudentFeesDetails fees) throws InValidCredentialsException, ClassNotFoundException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		int rs = 0;
@@ -83,7 +85,7 @@ public class StudentFeesDetailDAO {
 			}
 
 		} catch (SQLException e) {
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(pst, connection);
 		}
@@ -95,8 +97,9 @@ public class StudentFeesDetailDAO {
 	 * 
 	 * @param attendanceDate
 	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public void romoveFees(String month) throws InValidCredentialsException {
+	public void romoveFees(String month) throws InValidCredentialsException, ClassNotFoundException {
 
 		Connection connection = null;
 		PreparedStatement pst = null;

@@ -5,6 +5,7 @@ package in.divya.dao;
 
 import java.sql.Connection;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import in.divya.exceptions.CannotRegisterStudentException;
-import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentDetails;
 import in.divya.util.ConnectionUtil;
 
@@ -28,23 +28,21 @@ public class StudentDetailDAO {
 		// Default Constructor
 	}
 
-
 	/**
 	 * This Method Registers a new student into a Database with their data.
 	 * 
 	 * @param student
-	 * @throws InValidCredentialsException
 	 * @throws SQLException
+	 * @throws ClassNotFoundException
 	 */
 
-	public void saveStudent(StudentDetails student) throws SQLException, InValidCredentialsException {
+	public void saveStudent(StudentDetails student) throws SQLException, ClassNotFoundException {
 		PreparedStatement pst = null;
 		Connection connection = null;
 		try {
 			connection = ConnectionUtil.getConnection();
 
-			String sql = 	"insert into student_data(student_name,father_name,mother_name,student_email_id,student_password,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,student_staff_name,parent_mobile_number,date_of_birth) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
+			String sql = "insert into student_data(student_name,father_name,mother_name,student_email_id,student_password,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,student_staff_name,parent_mobile_number,date_of_birth) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			pst = connection.prepareStatement(sql);
 
@@ -84,10 +82,10 @@ public class StudentDetailDAO {
 	 * This method returns a list of student credentials required for login purpose.
 	 * 
 	 * @return
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
-	public List<String> studentCredentialData() throws InValidCredentialsException {
+	public List<String> studentCredentialData() throws ClassNotFoundException {
 
 		List<String> studentCredentials = new ArrayList<>();
 		Connection connection = null;
@@ -110,8 +108,7 @@ public class StudentDetailDAO {
 				studentCredentials.add(studentPassword);
 			}
 		} catch (SQLException e) {
-
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(rs, pst, connection);
 		}
@@ -123,9 +120,9 @@ public class StudentDetailDAO {
 	 * 
 	 * @param staffName
 	 * @return
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public List<StudentDetails> findAllStudentInformation(String staffName) throws InValidCredentialsException {
+	public List<StudentDetails> findAllStudentInformation(String staffName) throws ClassNotFoundException {
 
 		List<StudentDetails> allStudentInformationDisplay = new ArrayList<>();
 		Connection connection = null;
@@ -161,8 +158,7 @@ public class StudentDetailDAO {
 				allStudentInformationDisplay.add(studentInfo);
 			}
 		} catch (SQLException e) {
-
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(rs, pst, connection);
 		}
@@ -174,10 +170,10 @@ public class StudentDetailDAO {
 	 * 
 	 * @param studentRollNumber
 	 * @return
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
-	public boolean deleteStudentFromTable(String studentRollNumber) throws InValidCredentialsException {
+	public boolean deleteStudentFromTable(String studentRollNumber) throws ClassNotFoundException {
 		Connection connection = null;
 		PreparedStatement pst = null;
 		boolean isDeleted = false;
@@ -191,7 +187,6 @@ public class StudentDetailDAO {
 			isDeleted = true;
 
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(pst, connection);
@@ -204,11 +199,11 @@ public class StudentDetailDAO {
 	 * 
 	 * @param studentRollnumber
 	 * @return
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
 	public Map<String, StudentDetails> findIndividualStudentData(String studentRollnumber)
-			throws InValidCredentialsException {
+			throws ClassNotFoundException {
 		Map<String, StudentDetails> individualStudentInformationDisplay = new HashMap<>();
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -264,8 +259,7 @@ public class StudentDetailDAO {
 						individualStudentInfo);
 			}
 		} catch (SQLException e) {
-
-			e.getMessage();
+			e.printStackTrace();
 		} finally {
 			ConnectionUtil.close(rs, pst, connection);
 		}

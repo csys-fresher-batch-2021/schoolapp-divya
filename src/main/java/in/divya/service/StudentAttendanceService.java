@@ -3,7 +3,7 @@
  */
 package in.divya.service;
 
-import java.sql.SQLException;
+
 
 import java.time.LocalDate;
 import java.util.List;
@@ -87,11 +87,10 @@ public class StudentAttendanceService {
 	 * 
 	 * @param studentRollNumber
 	 * @return
-	 * @throws SQLException
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 	public List<StudentAttendanceDetails> displayStudentAttendance(String studentRollNumber)
-			throws InValidCredentialsException {
+			throws ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findStudentAttendance(studentRollNumber);
 
@@ -102,11 +101,9 @@ public class StudentAttendanceService {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws SQLException
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public List<StudentAttendanceDetails> displayAllStudentAttendance(LocalDate date)
-			throws InValidCredentialsException {
+	public List<StudentAttendanceDetails> displayAllStudentAttendance(LocalDate date) throws ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAllStudentAttendance(date);
 
@@ -117,11 +114,9 @@ public class StudentAttendanceService {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws SQLException
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public Map<String, Integer> displayAttendanceStatusCount(LocalDate date)
-			throws InValidCredentialsException {
+	public Map<String, Integer> displayAttendanceStatusCount(LocalDate date) throws ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAttendanceStatusCount(date);
 
@@ -132,10 +127,9 @@ public class StudentAttendanceService {
 	 * 
 	 * @param date
 	 * @return
-	 * @throws SQLException
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public int displayAttendanceCount(LocalDate date) throws InValidCredentialsException {
+	public int displayAttendanceCount(LocalDate date) throws ClassNotFoundException {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		return studentAttendanceDetailDAO.findAttendanceCount(date);
 

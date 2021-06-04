@@ -1,11 +1,11 @@
 package in.divya.service;
 
 import java.util.List;
+
 import java.util.Map;
 
 import in.divya.dao.StudentDetailDAO;
 import in.divya.exceptions.CannotRegisterStudentException;
-import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentDetails;
 
 /**
@@ -44,11 +44,11 @@ public class StudentDetailService {
 	/**
 	 * If it is true......Login sucessfully. otherwise it is failed
 	 * 
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
 	public boolean studentValidation(String studentName, String studentRollNumber, String studentPassword)
-			throws InValidCredentialsException {
+			throws ClassNotFoundException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		boolean isValidStudentCredentials = false;
 		List<String> studentCredetials = studentDetailDAO.studentCredentialData();
@@ -66,10 +66,9 @@ public class StudentDetailService {
 	 * To display all student Information.
 	 * 
 	 * @return
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
-	public List<StudentDetails> displayAllStudentInformation(String staffName)
-			throws InValidCredentialsException {
+	public List<StudentDetails> displayAllStudentInformation(String staffName) throws ClassNotFoundException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		return studentDetailDAO.findAllStudentInformation(staffName);
 
@@ -80,10 +79,10 @@ public class StudentDetailService {
 	 * 
 	 * @param studentRollnumber
 	 * @return
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 	public Map<String, StudentDetails> displayIndividualStudentData(String studentRollnumber)
-			throws InValidCredentialsException {
+			throws ClassNotFoundException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		return studentDetailDAO.findIndividualStudentData(studentRollnumber);
 	}
@@ -93,10 +92,10 @@ public class StudentDetailService {
 	 * 
 	 * @param studentRollNumber
 	 * @return
-	 * @throws InValidCredentialsException
+	 * @throws ClassNotFoundException
 	 */
 
-	public boolean deleteStudentFromTheDataBase(String studentRollNumber) throws InValidCredentialsException {
+	public boolean deleteStudentFromTheDataBase(String studentRollNumber) throws ClassNotFoundException{
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
 		return studentDetailDAO.deleteStudentFromTable(studentRollNumber);
 
