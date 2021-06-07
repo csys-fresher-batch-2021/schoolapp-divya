@@ -39,12 +39,12 @@ public class StudentAllFeesDetailsDisplayServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		StudentFeesDetailService studentFeesDetailService = new StudentFeesDetailService();
 		try {
 			List<StudentFeesDetails> displayAllStudentFees = studentFeesDetailService.displayAllStudentFees();
-			System.out.println(displayAllStudentFees);
 			Gson gson = new GsonBuilder().setPrettyPrinting()
 					.registerTypeAdapter(LocalDate.class, new LocalDateAdaptorUtil()).create();
 			String object = gson.toJson(displayAllStudentFees);

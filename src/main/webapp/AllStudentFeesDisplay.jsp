@@ -31,7 +31,14 @@
 				<p>ALL FEES INFORMATION</p>
 			</figcaption>
 			<br />
-			<table border="1" id="feesTable" class="table">			
+			<table border="1" id="feesTable" class="table">	
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>		
 			</table>
 		</figure>
 	</main>

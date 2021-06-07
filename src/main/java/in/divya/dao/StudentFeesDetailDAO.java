@@ -143,11 +143,8 @@ public class StudentFeesDetailDAO {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
-
 			connection = ConnectionUtil.getConnection();
-
 			String sql = "select * from student_fees where student_roll_number=?";
-
 			pst = connection.prepareStatement(sql);
 			pst.setString(1, rollNumber);
 			rs = pst.executeQuery();
@@ -159,18 +156,10 @@ public class StudentFeesDetailDAO {
 				String feesMonth = rs.getString("month");
 				int studentFees = rs.getInt("student_fees");
 				LocalDate date = LocalDate.parse(rs.getString("receive_date"));
-
-				/**
-				 * Store the data in model
-				 */
 				fees.setStudentRollNumber(studentRollNumber);
 				fees.setMonth(feesMonth);
 				fees.setStudentFees(studentFees);
 				fees.setDate(date);
-				/**
-				 * Store fees in list
-				 */
-
 				studentFeesData.add(fees);
 			}
 		} catch (SQLException e) {
