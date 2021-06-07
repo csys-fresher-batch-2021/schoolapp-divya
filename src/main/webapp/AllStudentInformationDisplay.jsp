@@ -54,6 +54,7 @@ h4 {
 						<th scope="col">PERSONAL INFORMATION</th>
 						<th scope="col">MARK</th>
 						<th scope="col">ATTENDANCE</th>
+						<th scope="col">FEES</th>
 						<th scope="col">DELETE</th>
 
 
@@ -81,6 +82,9 @@ h4 {
 							href="StudentIndividualAttendanceDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
 						</a></td>
 						<td><a
+							href="StudentIndividualFeesDisplay.jsp?allInfo=<%=allInfo.getStudentRollNumber()%>">VIEW
+						</a></td>
+						<td><a
 							href="StudentRemoveServlet?allInfo=<%=allInfo.getStudentRollNumber()%> "
 							onclick="return deleteConfirmation('<%=allInfo.getStudentRollNumber()%>')">DELETE
 						</a></td>
@@ -90,7 +94,7 @@ h4 {
 					} else {
 					%>
 					<tr>
-						<td colspan="11"><h4>RECORD NOT FOUND</h4></td>
+						<td colspan="7"><h4>RECORD NOT FOUND</h4></td>
 					</tr>
 					<%
 					}

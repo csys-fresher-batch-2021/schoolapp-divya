@@ -20,6 +20,7 @@ h3 {
 			<figcaption>Student Information</figcaption>
 			<br />
 			<%
+			String studentRollNumber = (String) session.getAttribute("LOGGED_IN_USER_NO");
 			String studentName = (String) session.getAttribute("LOGGED_IN_USER");
 			out.println("<h3>WELCOME " + studentName + "</h3><br/>");
 			%>
@@ -43,7 +44,13 @@ h3 {
 							onclick="window.location.href='http://localhost:8080/app/StudentAttendanceDisplay.jsp'">VIEW</button>
 					</th>
 				</tr>
-
+				<tr>
+					<th scope="col">FEES</th>
+					<th scope="col">
+						<button type="button" class="btn btn-primary"
+							onclick="window.location.href='http://localhost:8080/app/StudentFeesDisplay.jsp?studentRollNumber=<%=studentRollNumber%>'">VIEW</button>
+					</th>
+				</tr>
 			</table>
 		</figure>
 	</main>

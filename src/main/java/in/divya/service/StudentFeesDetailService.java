@@ -3,6 +3,8 @@
  */
 package in.divya.service;
 
+import java.util.List;
+
 import in.divya.dao.StudentFeesDetailDAO;
 import in.divya.exceptions.CannotAddDetailsException;
 import in.divya.exceptions.InValidCredentialsException;
@@ -58,7 +60,7 @@ public class StudentFeesDetailService {
 		}
 
 	}
-	
+
 	/**
 	 * To delete fees.
 	 * 
@@ -75,6 +77,31 @@ public class StudentFeesDetailService {
 		} catch (Exception e) {
 			throw new InValidCredentialsException("FEES NOT FOUND");
 		}
+	}
+
+	/**
+	 * To display student fees details.
+	 * 
+	 * @param studentRollNumber
+	 * @return
+	 * @throws ClassNotFoundException
+	 */
+	public List<StudentFeesDetails> displayStudentFees(String studentRollNumber) throws ClassNotFoundException {
+		StudentFeesDetailDAO studentFeesDetailDAO = new StudentFeesDetailDAO();
+		return studentFeesDetailDAO.findStudentFees(studentRollNumber);
+
+	}
+
+	/**
+	 * To display all student fees details.
+	 * 
+	 * @return
+	 * @throws ClassNotFoundException
+	 */
+	public List<StudentFeesDetails> displayAllStudentFees() throws ClassNotFoundException {
+		StudentFeesDetailDAO studentFeesDetailDAO = new StudentFeesDetailDAO();
+		return studentFeesDetailDAO.findAllStudentFees();
+
 	}
 
 }
