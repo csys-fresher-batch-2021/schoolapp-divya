@@ -5,8 +5,13 @@ package in.divya.dao;
 
 import java.sql.Connection;
 
+
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import in.divya.exceptions.InValidCredentialsException;
 import in.divya.model.StudentFeesDetails;
@@ -121,6 +126,111 @@ public class StudentFeesDetailDAO {
 			ConnectionUtil.close(pst, connection);
 		}
 
+	}
+
+	/**
+	 * To display student fees details.
+	 * 
+	 * @param rollNumber
+	 * @return
+	 * @throws ClassNotFoundException
+	 */
+	public List<StudentFeesDetails> findStudentFees(String rollNumber) throws ClassNotFoundException {
+
+		List<StudentFeesDetails> studentFeesData = new ArrayList<>();
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+
+			connection = ConnectionUtil.getConnection();
+
+			String sql = "select * from student_fees where student_roll_number=?";
+
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, rollNumber);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				StudentFeesDetails fees = new StudentFeesDetails();
+				
+				String studentRollNumber=rs.getString("student_roll_number");
+				String feesMonth = rs.getString("month");
+				int studentFees = rs.getInt("student_fees");
+				LocalDate date = LocalDate.parse(rs.getString("receive_date"));
+
+				/**
+				 * Store the data in model
+				 */
+				fees.setStudentRollNumber(studentRollNumber);
+				fees.setMonth(feesMonth);
+				fees.setStudentFees(studentFees);
+				fees.setDate(date);
+				/**
+				 * Store fees in list
+				 */
+
+				studentFeesData.add(fees);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return studentFeesData;
+	}
+	
+	/**
+	 * All fees details display.
+	 * 
+	 * @param rollNumber
+	 * @return
+	 * @throws ClassNotFoundException
+	 */
+	public List<StudentFeesDetails> findAllStudentFees() throws ClassNotFoundException {
+
+		List<StudentFeesDetails> allFeesData = new ArrayList<>();
+
+		Connection connection = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+
+			connection = ConnectionUtil.getConnection();
+
+			String sql = "select * from student_fees";
+
+			pst = connection.prepareStatement(sql);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				StudentFeesDetails allFees = new StudentFeesDetails();
+				
+				String studentRollNumber=rs.getString("student_roll_number");
+				String feesMonth = rs.getString("month");
+				int studentFees = rs.getInt("student_fees");
+				LocalDate date = LocalDate.parse(rs.getString("receive_date"));
+
+				/**
+				 * Store the data in model
+				 */
+				allFees.setStudentRollNumber(studentRollNumber);
+				allFees.setMonth(feesMonth);
+				allFees.setStudentFees(studentFees);
+				allFees.setDate(date);
+				/**
+				 * Store fees in list
+				 */
+
+				allFeesData.add(allFees);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			ConnectionUtil.close(rs, pst, connection);
+		}
+		return allFeesData;
 	}
 
 }
