@@ -68,9 +68,9 @@ public class StudentDetailService {
 	 * @return
 	 * @throws ClassNotFoundException
 	 */
-	public List<StudentDetails> displayAllStudentInformation(String staffName) throws ClassNotFoundException {
+	public List<StudentDetails> displayAllStudentInformation(String staffEmailId) throws ClassNotFoundException {
 		StudentDetailDAO studentDetailDAO = new StudentDetailDAO();
-		return studentDetailDAO.findAllStudentInformation(staffName);
+		return studentDetailDAO.findAllStudentInformation(staffEmailId);
 
 	}
 

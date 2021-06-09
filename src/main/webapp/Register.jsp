@@ -66,14 +66,14 @@ h2 {
 				placeholder="Enter Your Blood-Group" required><br /> <br />
 			<label>STANDARD : </label> <input type="text" name="standard"
 				id="standard" placeholder="Enter Your Standard" required><br />
-			<br /> <label>STAFF-IN-CHARGE : </label> <input type="text"
-				name="staffName" id="staffName" placeholder="Enter Your StaffName"
-				required><br /> <br /> <label> MOBILE NUMBER:</label> <input
-				type="number" name="mobileNumber" id="mobileNumber"
-				placeholder="Enter your Mobile Number"><br /> <br /> <label>DATE
-				OF BIRTH: </label> <input type="date" name="dateOfBirth" id="dateOfBirth"
-				min="2004-01-01" max="2016-01-01" placeholder="YYYY-MM-DD" required><br />
-			<br />
+			<br /> <label>STAFF-IN-CHARGE : </label> <input type="email"
+				name="staffEmailId" id="staffEmailId"
+				placeholder="Enter StaffEmailId" required><br /> <br /> <label>
+				MOBILE NUMBER:</label> <input type="number" name="mobileNumber"
+				id="mobileNumber" placeholder="Enter Mobile Number"><br />
+			<br /> <label>DATE OF BIRTH: </label> <input type="date"
+				name="dateOfBirth" id="dateOfBirth" min="2004-01-01"
+				max="2016-01-01" placeholder="YYYY-MM-DD" required><br /> <br />
 			<button class="btn btn-primary">SUBMIT</button>
 			<button type="reset" class="btn btn-secondary">RESET</button>
 			<br /> <br />

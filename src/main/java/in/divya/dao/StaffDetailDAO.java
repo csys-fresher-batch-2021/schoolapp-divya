@@ -39,14 +39,16 @@ public class StaffDetailDAO {
 
 			connection = ConnectionUtil.getConnection();
 
-			String sql = "select staff_name,staff_password from staff_data";
+			String sql = "select staff_name,staff_email_id,staff_password from staff_data";
 			pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
 				String staffName = rs.getString("staff_name");
+				String staffEmailId = rs.getString("staff_email_id");
 				String staffPassword = rs.getString("staff_password");
 				staffCredetials.add(staffName);
+				staffCredetials.add(staffEmailId);
 				staffCredetials.add(staffPassword);
 			}
 		} catch (SQLException e) {

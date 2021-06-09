@@ -31,17 +31,11 @@ h4 {
 				<h3>DIVVLEARN SCHOOL</h3>
 				<br />
 			</figcaption>
-			<%
-			String infoMessage = request.getParameter("infoMessage");
-			if (infoMessage != null) {
-				out.println("<p style=color:green>" + infoMessage + "</p>");
-			}
-			%>
 
 			<%
-			String staffName = (String) session.getAttribute("LOGGED_IN_USER");
+			String staffEmailId = (String) session.getAttribute("LOGGED_IN_USER_ID");
 			StudentDetailService studentDetailService = new StudentDetailService();
-			List<StudentDetails> allStudentInformationDisplay = studentDetailService.displayAllStudentInformation(staffName);
+			List<StudentDetails> allStudentInformationDisplay = studentDetailService.displayAllStudentInformation(staffEmailId);
 			%>
 
 			<table class="table" border="1">
@@ -49,7 +43,6 @@ h4 {
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">STUDENT NAME</th>
-
 						<th scope="col">ROLL NUMBER</th>
 						<th scope="col">PERSONAL INFORMATION</th>
 						<th scope="col">MARK</th>

@@ -41,7 +41,7 @@ h1 {
 		</div>
 		<br>
 
-		<div style="width: 400px; height: 350px; border: solid 1px #333333;">
+		<div style="width: 400px; height: 450px; border: solid 1px #333333;">
 			<div style="background-color: #333333; color: #FFFFFF; padding: 3px;">
 				<h2>STAFF LOGIN PORTAL</h2>
 			</div>
@@ -50,8 +50,10 @@ h1 {
 				<form action="StaffLoginActionServlet" method="post">
 					<label>NAME : </label><br /> <input type="text" name="staffName"
 						id="stafftName" placeholder="Enter Your Name" required><br />
-					<br /> <label>PASSWORD : </label><br /> <input type="password"
-						name="staffPassword" id="staffPassword"
+					<br /> <label>EMAIL ID : </label><br /> <input type="text"
+						name="staffEmailId" id="staffEmailId" placeholder="Enter EmailId"
+						required><br /> <br /> <label>PASSWORD : </label><br />
+					<input type="password" name="staffPassword" id="staffPassword"
 						placeholder="Enter Your Password" required><br /> <br />
 					<button class="btn btn-primary">LOGIN</button>
 				</form>

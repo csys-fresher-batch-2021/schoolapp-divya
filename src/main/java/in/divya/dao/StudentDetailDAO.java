@@ -5,7 +5,6 @@ package in.divya.dao;
 
 import java.sql.Connection;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,7 +41,7 @@ public class StudentDetailDAO {
 		try {
 			connection = ConnectionUtil.getConnection();
 
-			String sql = "insert into student_data(student_name,father_name,mother_name,student_email_id,student_password,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,student_staff_name,parent_mobile_number,date_of_birth) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into student_data(student_name,father_name,mother_name,student_email_id,student_password,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,staff_email_id,parent_mobile_number,date_of_birth) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			pst = connection.prepareStatement(sql);
 
@@ -58,7 +57,7 @@ public class StudentDetailDAO {
 			pst.setString(10, student.getOccupation());
 			pst.setString(11, student.getStudentBloodGroup());
 			pst.setString(12, student.getStudentStandard());
-			pst.setString(13, student.getStaffName());
+			pst.setString(13, student.getStaffEmailId());
 			pst.setLong(14, student.getParentMobileNumber());
 			pst.setObject(15, student.getDateOfBirth());
 
@@ -131,7 +130,7 @@ public class StudentDetailDAO {
 		try {
 			connection = ConnectionUtil.getConnection();
 
-			String str = "select student_name,student_roll_number from student_data where student_staff_name=? order by student_roll_number";
+			String str = "select student_name,student_roll_number from student_data where staff_email_id=? order by student_roll_number";
 			pst = connection.prepareStatement(str);
 			pst.setString(1, staffName);
 			rs = pst.executeQuery();
@@ -211,7 +210,7 @@ public class StudentDetailDAO {
 		try {
 			connection = ConnectionUtil.getConnection();
 
-			String str = "select student_name,father_name,mother_name,student_email_id,student_roll_number,gender,address,city,parent_occupation,student_blood_group,student_standard,parent_mobile_Number,date_of_birth from student_data where student_roll_number=?";
+			String str = "select * from student_data where student_roll_number=?";
 			pst = connection.prepareStatement(str);
 			pst.setString(1, studentRollnumber);
 			rs = pst.executeQuery();

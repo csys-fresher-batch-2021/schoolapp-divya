@@ -24,20 +24,22 @@ public class StaffDetailService {
 	 * To Validate Staff Login
 	 * 
 	 * @param staffName
+	 * @param staffEmailId
 	 * @param staffPassword
 	 * @return
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
 
-	public boolean staffValidation(String staffName, String staffPassword) throws SQLException, ClassNotFoundException {
+	public boolean staffValidation(String staffName, String staffEmailId, String staffPassword)
+			throws SQLException, ClassNotFoundException {
 		StaffDetailDAO staffDetailDAO = new StaffDetailDAO();
 		boolean isValidStaffCredentials = false;
 		List<String> staffCredetials = staffDetailDAO.staffCredentialData();
 		/**
 		 * If it is true......Login sucessfully. otherwise it is failed
 		 */
-		if (staffCredetials.contains(staffName) && staffCredetials.contains(staffPassword)) {
+		if (staffCredetials.contains(staffName) && staffCredetials.contains(staffEmailId) && staffCredetials.contains(staffPassword)) {
 			isValidStaffCredentials = true;
 		}
 		return isValidStaffCredentials;
