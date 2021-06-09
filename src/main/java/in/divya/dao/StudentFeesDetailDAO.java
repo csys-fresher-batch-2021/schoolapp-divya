@@ -188,7 +188,7 @@ public class StudentFeesDetailDAO {
 
 			connection = ConnectionUtil.getConnection();
 
-			String sql = "select * from student_fees";
+			String sql = "select * from student_fees order by student_roll_number asc";
 
 			pst = connection.prepareStatement(sql);
 			rs = pst.executeQuery();

@@ -1,9 +1,12 @@
-
 <html lang="en">
 <head>
 <title>MyApp</title>
-
 <style type="text/css">
+body {
+	background-image: url("first.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 h1 {
 	color: blue;
 	text-align:center;
@@ -13,8 +16,7 @@ h1 {
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h2>STUDENT APP</h2>
-		<h1>DIVVLEARN SCHOOL</h1>
+		<h1>DIVVLEARN SECONDARY SCHOOL</h1>
 	</main>
 </body>
 </html>

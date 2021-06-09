@@ -10,6 +10,7 @@ h3 {
 	color: blue;
 	text-align: center;
 }
+
 </style>
 </head>
 <body>
@@ -24,6 +25,7 @@ h3 {
 			out.println("<h3>WELCOME " + staffName + "</h3><br/>");
 			%>
 			<br />
+			
 			<table class="table table-bordered">
 				<tr>
 					<th scope="col">LIST</th>

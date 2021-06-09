@@ -32,13 +32,14 @@ public class StaffLoginValidationTest {
 	@Test
 	public void isStaffBothValidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "M.LAKSHMI";
+		String staffEmailId = "laksram@gmail.com";
 		String staffPassword = "Rlakshmi@123";
-		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffEmailId, staffPassword);
 		assertTrue(inValidCredentials);
 	}
 
 	/**
-	 * Invalid staffName and valid password
+	 * Invalid staffName and valid emailId,password
 	 * 
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
@@ -48,13 +49,14 @@ public class StaffLoginValidationTest {
 	@Test
 	public void isNameInValidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "SELVA";
+		String staffEmailId = "laksram@gmail.com";
 		String staffPassword = "Rlakshmi@123";
-		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffEmailId, staffPassword);
 		assertFalse(inValidCredentials);
 	}
 
 	/**
-	 * Valid staffName and Invalid password
+	 * Valid staffName,emailID and Invalid password
 	 * 
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
@@ -64,13 +66,14 @@ public class StaffLoginValidationTest {
 	@Test
 	public void isPasswordInValidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "M.LAKSHMI";
+		String staffEmailId = "laksram@gmail.com";
 		String staffPassword = "RLaks@123";
-		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffEmailId, staffPassword);
 		assertFalse(inValidCredentials);
 	}
 
 	/**
-	 * Invalid staff name and Invalid password
+	 * Both are Invalid
 	 * 
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
@@ -80,8 +83,9 @@ public class StaffLoginValidationTest {
 	@Test
 	public void isBothStaffInvalidTestCase() throws ClassNotFoundException, SQLException, InValidCredentialsException {
 		String staffName = "RAMYA";
+		String staffEmailId = "laks@gmail.com";
 		String staffPassword = "Ramya@56";
-		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffPassword);
+		boolean inValidCredentials = staffDetailService.staffValidation(staffName, staffEmailId, staffPassword);
 		assertFalse(inValidCredentials);
 	}
 

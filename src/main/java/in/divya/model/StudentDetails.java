@@ -25,242 +25,201 @@ public class StudentDetails {
 	private String occupation;
 	private String studentBloodGroup;
 	private String studentStandard;
-	private String staffName;
+	private String staffEmailId;
 	private Long parentMobileNumber;
 	private LocalDate dateOfBirth;
-
 	/**
 	 * @return the studentName
 	 */
 	public String getStudentName() {
 		return studentName;
 	}
-
 	/**
 	 * @param studentName the studentName to set
 	 */
-
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-
 	/**
 	 * @return the fatherName
 	 */
-
 	public String getFatherName() {
 		return fatherName;
 	}
-
 	/**
 	 * @param fatherName the fatherName to set
 	 */
-
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
-
 	/**
 	 * @return the motherName
 	 */
-
 	public String getMotherName() {
 		return motherName;
 	}
-
 	/**
 	 * @param motherName the motherName to set
 	 */
 	public void setMotherName(String motherName) {
 		this.motherName = motherName;
 	}
-
 	/**
 	 * @return the studentEmailId
 	 */
-
 	public String getStudentEmailId() {
 		return studentEmailId;
 	}
-
 	/**
 	 * @param studentEmailId the studentEmailId to set
 	 */
-
 	public void setStudentEmailId(String studentEmailId) {
 		this.studentEmailId = studentEmailId;
 	}
-
 	/**
 	 * @return the studentPassword
 	 */
-
 	public String getStudentPassword() {
 		return studentPassword;
 	}
-
 	/**
 	 * @param studentPassword the studentPassword to set
 	 */
-
 	public void setStudentPassword(String studentPassword) {
 		this.studentPassword = studentPassword;
 	}
-
 	/**
 	 * @return the studentRollNumber
 	 */
-
 	public String getStudentRollNumber() {
 		return studentRollNumber;
 	}
-
 	/**
 	 * @param studentRollNumber the studentRollNumber to set
 	 */
-
 	public void setStudentRollNumber(String studentRollNumber) {
 		this.studentRollNumber = studentRollNumber;
 	}
-
 	/**
 	 * @return the gender
 	 */
-
 	public String getGender() {
 		return gender;
 	}
-
 	/**
 	 * @param gender the gender to set
 	 */
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
 	/**
 	 * @return the studentAddress
 	 */
 	public String getStudentAddress() {
 		return studentAddress;
 	}
-
 	/**
 	 * @param studentAddress the studentAddress to set
 	 */
-
 	public void setStudentAddress(String studentAddress) {
 		this.studentAddress = studentAddress;
 	}
-
 	/**
 	 * @return the studentCity
 	 */
-
 	public String getStudentCity() {
 		return studentCity;
 	}
-
 	/**
 	 * @param studentCity the studentCity to set
 	 */
 	public void setStudentCity(String studentCity) {
 		this.studentCity = studentCity;
 	}
-
 	/**
 	 * @return the occupation
 	 */
 	public String getOccupation() {
 		return occupation;
 	}
-
 	/**
 	 * @param occupation the occupation to set
 	 */
-
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-
 	/**
 	 * @return the studentBloodGroup
 	 */
-
 	public String getStudentBloodGroup() {
 		return studentBloodGroup;
 	}
-
 	/**
 	 * @param studentBloodGroup the studentBloodGroup to set
 	 */
-
 	public void setStudentBloodGroup(String studentBloodGroup) {
 		this.studentBloodGroup = studentBloodGroup;
 	}
-
 	/**
 	 * @return the studentStandard
 	 */
-
 	public String getStudentStandard() {
 		return studentStandard;
 	}
-
 	/**
 	 * @param studentStandard the studentStandard to set
 	 */
-
 	public void setStudentStandard(String studentStandard) {
 		this.studentStandard = studentStandard;
 	}
-
 	/**
-	 * @return the staffName
+	 * @return the staffEmailId
 	 */
-
-	public String getStaffName() {
-		return staffName;
+	public String getStaffEmailId() {
+		return staffEmailId;
 	}
-
 	/**
-	 * @param staffName the staffName to set
+	 * @param staffEmailId the staffEmailId to set
 	 */
-
-	public void setStaffName(String staffName) {
-		this.staffName = staffName;
+	public void setStaffEmailId(String staffEmailId) {
+		this.staffEmailId = staffEmailId;
 	}
-
 	/**
 	 * @return the parentMobileNumber
 	 */
-
 	public Long getParentMobileNumber() {
 		return parentMobileNumber;
 	}
-
 	/**
-	 * @param studentValidMobileNumber the parentMobileNumber to set
+	 * @param parentMobileNumber the parentMobileNumber to set
 	 */
-
-	public void setParentMobileNumber(Long studentValidMobileNumber) {
-		this.parentMobileNumber = studentValidMobileNumber;
+	public void setParentMobileNumber(Long parentMobileNumber) {
+		this.parentMobileNumber = parentMobileNumber;
 	}
-
 	/**
 	 * @return the dateOfBirth
 	 */
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
-
 	/**
-	 * @param studentParsedDate the dateOfBirth to set
+	 * @param dateOfBirth the dateOfBirth to set
 	 */
-
-	public void setDateOfBirth(LocalDate studentParsedDate) {
-		this.dateOfBirth = studentParsedDate;
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
+	@Override
+	public String toString() {
+		return "StudentDetails [studentName=" + studentName + ", fatherName=" + fatherName + ", motherName="
+				+ motherName + ", studentEmailId=" + studentEmailId + ", studentPassword=" + studentPassword
+				+ ", studentRollNumber=" + studentRollNumber + ", gender=" + gender + ", studentAddress="
+				+ studentAddress + ", studentCity=" + studentCity + ", occupation=" + occupation
+				+ ", studentBloodGroup=" + studentBloodGroup + ", studentStandard=" + studentStandard
+				+ ", staffEmailId=" + staffEmailId + ", parentMobileNumber=" + parentMobileNumber + ", dateOfBirth="
+				+ dateOfBirth + "]";
+	}
+	
+	
 
+	
 }

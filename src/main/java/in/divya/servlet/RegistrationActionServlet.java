@@ -38,7 +38,7 @@ public class RegistrationActionServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		StudentDetailService studentDetailService=new StudentDetailService();
+		StudentDetailService studentDetailService = new StudentDetailService();
 		try {
 			StudentDetails student = new StudentDetails();
 			String studentName = request.getParameter("studentName");
@@ -53,7 +53,7 @@ public class RegistrationActionServlet extends HttpServlet {
 			String parentOccupation = request.getParameter("occupation");
 			String studentBloodGroup = request.getParameter("bloodGroup");
 			String studentStandard = request.getParameter("standard");
-			String studentStaffName = request.getParameter("staffName");
+			String staffEmailId = request.getParameter("staffEmailId");
 			String parentMobileNumber = request.getParameter("mobileNumber");
 			String studentDateOfBirth = request.getParameter("dateOfBirth");
 
@@ -65,15 +65,15 @@ public class RegistrationActionServlet extends HttpServlet {
 			EmailIDValidatorUtil.isValidEmailId(studentEmailID, "InValid EmailId Format");
 			PasswordValidatorUtil.isValidPasswordFormat(studentPassword, "InValid Password Format");
 			RollNumberValidator.isValidRollNumberFormat(studentRollNumber, "Invalid RollNumber Format");
-			StringValidatorUtil.isStringNotNullOrEmpty(gender, "Gender cannot Accept Empty and Null Value");
+			StringValidatorUtil.isStringNotNullOrEmpty(gender, "Gender cannot accept empty and null value");
 			StringValidatorUtil.isStringNotNullOrEmpty(studentAddress, "Address cannot Accept Empty and Null Value");
 			StringValidatorUtil.isStringNotNullOrEmpty(studentCity, "City cannot Accept Empty and Null Value");
 			StringValidatorUtil.isStringNotNullOrEmpty(parentOccupation,
 					"Occupation cannot Accept Empty and Null Value");
 			BloodGroupValidatorUtil.isValidBloodGroupFormat(studentBloodGroup, "InValid BloodGroup Format");
 			StandardValidator.isValidStandardValidation(studentStandard, "InValid Standard Format");
-			StringValidatorUtil.isStringNotNullOrEmpty(studentStaffName,
-					"Staff name cannot Accept Empty and Null Value");
+			EmailIDValidatorUtil.isValidEmailId(staffEmailId, "InValid EmailId Format");
+
 			Long studentValidMobileNumber = MobileNumberValidatorUtil.isValidNumberOnly(parentMobileNumber,
 					"Mobile Number cannot contain alphabets");
 			MobileNumberValidatorUtil.isValidMobileNumber(studentValidMobileNumber);
@@ -92,7 +92,7 @@ public class RegistrationActionServlet extends HttpServlet {
 			student.setOccupation(parentOccupation);
 			student.setStudentBloodGroup(studentBloodGroup);
 			student.setStudentStandard(studentStandard);
-			student.setStaffName(studentStaffName);
+			student.setStaffEmailId(staffEmailId);
 			student.setParentMobileNumber(studentValidMobileNumber);
 			student.setDateOfBirth(studentParsedDate);
 			/**
