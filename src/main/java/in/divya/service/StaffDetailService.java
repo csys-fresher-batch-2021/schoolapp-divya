@@ -39,7 +39,7 @@ public class StaffDetailService {
 		/**
 		 * If it is true......Login sucessfully. otherwise it is failed
 		 */
-		if (staffCredetials.contains(staffName) && staffCredetials.contains(staffPassword)) {
+		if (staffCredetials.contains(staffName) && staffCredetials.contains(staffEmailId) && staffCredetials.contains(staffPassword)) {
 			isValidStaffCredentials = true;
 		}
 		return isValidStaffCredentials;
