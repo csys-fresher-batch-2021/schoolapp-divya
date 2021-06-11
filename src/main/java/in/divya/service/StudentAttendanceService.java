@@ -46,7 +46,7 @@ public class StudentAttendanceService {
 	/**
 	 * To update student attendance details.
 	 * 
-	 * @param mark
+	 * @param attendance
 	 * @return
 	 * @throws InValidCredentialsException
 	 */
@@ -54,7 +54,7 @@ public class StudentAttendanceService {
 		StudentAttendanceDetailDAO studentAttendanceDetailDAO = new StudentAttendanceDetailDAO();
 		boolean isUpdatedAttendance = true;
 		try {
-			studentAttendanceDetailDAO.updateStudentMarks(attendance);
+			studentAttendanceDetailDAO.updateAttendance(attendance);
 			return isUpdatedAttendance;
 		} catch (Exception e) {
 			throw new InValidCredentialsException(
