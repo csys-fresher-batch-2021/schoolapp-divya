@@ -73,7 +73,7 @@ public class StudentAttendanceDetailDAO {
 	 * @throws InValidCredentialsException
 	 * @throws ClassNotFoundException
 	 */
-	public void updateStudentMarks(StudentAttendanceDetails attendance)
+	public void updateAttendance(StudentAttendanceDetails attendance)
 			throws InValidCredentialsException, ClassNotFoundException {
 		PreparedStatement pst = null;
 		Connection connection = null;
