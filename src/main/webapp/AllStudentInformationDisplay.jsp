@@ -31,6 +31,13 @@ h4 {
 				<h3>DIVVLEARN SCHOOL</h3>
 				<br />
 			</figcaption>
+			
+			<%
+			String infoMessage = request.getParameter("infoMessage");
+			if (infoMessage != null) {
+				out.println("<p style=color:green>" + infoMessage + "</p>");
+			}
+			%>
 
 			<%
 			String staffEmailId = (String) session.getAttribute("LOGGED_IN_USER_ID");
